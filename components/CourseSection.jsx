@@ -10,8 +10,6 @@ import {
   Star, 
   ArrowRight,
   BookOpen,
-  Zap,
-  GraduationCap,
   Target,
   Award,
   PlayCircle
@@ -39,9 +37,8 @@ const CourseSection = () => {
   };
 
   const cardVariants = {
-    hidden: { scale: 0.95, opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
-      scale: 1,
       opacity: 1,
       y: 0,
       transition: {
@@ -52,15 +49,6 @@ const CourseSection = () => {
     }
   };
 
-  const getCourseIcon = (courseTitle) => {
-    if (courseTitle.includes('MIS') || courseTitle.includes('Management')) return '📊';
-    if (courseTitle.includes('Business') || courseTitle.includes('Marketing')) return '📈';
-    if (courseTitle.includes('Data') || courseTitle.includes('Analytics')) return '🔍';
-    if (courseTitle.includes('Design') || courseTitle.includes('UI/UX')) return '🎨';
-    if (courseTitle.includes('Development') || courseTitle.includes('Programming')) return '💻';
-    return '🎓';
-  };
-
   const getLevelColor = (level) => {
     if (level.includes('Beginner')) return 'bg-green-100 text-green-700';
     if (level.includes('Intermediate')) return 'bg-blue-100 text-blue-700';
@@ -68,141 +56,119 @@ const CourseSection = () => {
     return 'bg-gray-100 text-gray-700';
   };
 
-  // Perfect sized course card - not too big, not too small
+  // Fixed CourseCard component with proper responsive design
   const CourseCard = ({ course, index }) => (
     <motion.div
       variants={cardVariants}
       className="group"
     >
-      <motion.div
-        className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-green-400 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col relative overflow-hidden"
-        whileHover={{ y: -6, scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-      >
-        {/* Background gradient on hover */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50/0 to-blue-50/0 group-hover:from-green-50/50 group-hover:to-blue-50/50 transition-all duration-300" />
+      <div className="bg-white rounded-xl p-5 border border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
         
-        {/* Popular Badge */}
-        {index < 3 && (
-          <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold z-10 shadow-lg">
-            <div className="flex items-center space-x-1">
-              <Star className="w-3 h-3 fill-current" />
-              <span>Popular</span>
-            </div>
+        {/* Popular Badge - Fixed positioning */}
+        {index === 0 && (
+          <div className="absolute top-3 right-3 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-semibold z-10">
+            Popular
           </div>
         )}
 
         {/* Course Header */}
-        <div className="relative z-10 mb-5">
-          <div className="flex items-center justify-between mb-4">
-            <div className="text-3xl bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl p-3 shadow-inner">
-              {getCourseIcon(course.title)}
-            </div>
-            <div className={`px-3 py-1.5 rounded-lg text-sm font-semibold ${getLevelColor(course.level)}`}>
+        <div className="mb-4">
+          <div className="flex items-center justify-between mb-3">
+            <div className={`px-3 py-1 rounded-lg text-sm font-medium ${getLevelColor(course.level)}`}>
               {course.level.split(' ')[0]}
             </div>
           </div>
           
-          <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 leading-tight group-hover:text-green-600 transition-colors">
+          <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight line-clamp-2">
             {course.title}
           </h3>
           
-          <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
-            {course.achievementGoal || 'Master industry skills with hands-on projects and real-world applications'}
+          <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
+            {course.achievementGoal || 'Master industry skills with hands-on projects'}
           </p>
         </div>
 
-        {/* Course Features */}
-        <div className="relative z-10 mb-5 space-y-2">
-          <div className="flex items-center space-x-3 text-sm text-gray-700">
-            <Target className="w-4 h-4 text-green-500 flex-shrink-0" />
-            <span className="font-medium">Job-ready curriculum</span>
-          </div>
-          <div className="flex items-center space-x-3 text-sm text-gray-700">
-            <Award className="w-4 h-4 text-blue-500 flex-shrink-0" />
-            <span className="font-medium">Industry certification</span>
+        {/* Course Features - Single row */}
+        <div className="mb-4">
+          <div className="flex items-center justify-between text-xs text-gray-600">
+            <div className="flex items-center space-x-1">
+              <Target className="w-3 h-3 text-gray-500" />
+              <span>Job-ready</span>
+            </div>
+            <div className="flex items-center space-x-1">
+              <Award className="w-3 h-3 text-gray-500" />
+              <span>Certification</span>
+            </div>
           </div>
         </div>
 
         {/* Course Details */}
-        <div className="relative z-10 mt-auto space-y-4">
+        <div className="mt-auto space-y-3">
           <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center space-x-2 text-gray-600 bg-gray-50 px-3 py-2 rounded-lg">
-              <Clock className="w-4 h-4 text-green-500" />
-              <span className="font-semibold">{course.duration}</span>
+            <div className="flex items-center space-x-1 text-gray-600">
+              <Clock className="w-3 h-3" />
+              <span className="font-medium">{course.duration}</span>
             </div>
-            <div className="flex items-center space-x-2 text-gray-600 bg-gray-50 px-3 py-2 rounded-lg">
-              <Monitor className="w-4 h-4 text-blue-500" />
-              <span className="font-semibold">{course.mode.split(' / ')[0]}</span>
+            <div className="flex items-center space-x-1 text-gray-600">
+              <Monitor className="w-3 h-3" />
+              <span className="font-medium">{course.mode.split(' / ')[0]}</span>
             </div>
           </div>
 
           {/* Rating and Students */}
-          <div className="flex items-center space-x-4 text-sm">
-            <div className="flex items-center space-x-2 bg-yellow-50 px-3 py-1.5 rounded-lg">
-              <Star className="w-4 h-4 text-yellow-500 fill-current" />
-              <span className="font-semibold text-gray-900">4.8</span>
-              <span className="text-gray-600">(2.4k)</span>
+          <div className="flex items-center justify-between text-xs">
+            <div className="flex items-center space-x-1 text-gray-600">
+              <Star className="w-3 h-3 text-yellow-500 fill-current" />
+              <span>4.8</span>
+              <span>(2.4k)</span>
             </div>
-            <div className="flex items-center space-x-2 bg-blue-50 px-3 py-1.5 rounded-lg">
-              <Users className="w-4 h-4 text-blue-500" />
-              <span className="font-semibold text-gray-900">1.2k+</span>
+            <div className="flex items-center space-x-1 text-gray-600">
+              <Users className="w-3 h-3" />
+              <span>1.2k+ students</span>
             </div>
           </div>
 
           {/* CTA Button */}
-          <Link href={`/courses/${course.slug}`} className="block">
-            <motion.button
-              className="w-full bg-gradient-to-r from-gray-900 to-gray-800 text-white py-3.5 rounded-xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
+          <Link href={`/courses/${course.slug}`} className="block mt-3">
+            <button className="w-full cursor-pointer bg-green-700 text-white py-2.5 rounded-lg font-medium text-sm hover:bg-green-800 transition-colors duration-300 flex items-center justify-center space-x-2">
               <PlayCircle className="w-4 h-4" />
               <span>Start Learning</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            </button>
           </Link>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50/80">
+    <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <motion.div
-            className="inline-flex items-center space-x-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-green-200 shadow-sm"
-            whileHover={{ scale: 1.05 }}
-          >
-            <Zap className="w-4 h-4" />
-            <span>Industry-Ready Courses</span>
-          </motion.div>
+          <div className="inline-flex items-center bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+            Industry-Ready Courses
+          </div>
 
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Explore Our{' '}
-            <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-              Featured Courses
-            </span>
+            <span className="text-green-600">Featured Courses</span>
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Transform your career with comprehensive courses designed by industry experts. 
-            Master in-demand skills through hands-on projects and real-world applications.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Transform your career with comprehensive courses designed by industry experts.
           </p>
         </motion.div>
 
         {/* Courses Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -216,59 +182,44 @@ const CourseSection = () => {
         {/* Load More Button */}
         {showLoadMore && (
           <motion.div
-            className="text-center mt-16"
+            className="text-center mt-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <motion.button
+            <button
               onClick={loadMore}
-              className="bg-white text-gray-900 border-2 border-gray-200 px-8 py-4 rounded-xl font-semibold hover:border-green-500 hover:shadow-lg transition-all duration-300 flex items-center space-x-3 mx-auto shadow-md"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              className="bg-white text-gray-900 border border-gray-300 px-6 py-3 rounded-lg font-medium hover:border-gray-400 transition-colors duration-300 flex items-center space-x-2 mx-auto"
             >
-              <BookOpen className="w-5 h-5" />
-              <span>Load More Courses ({CourseData.length - visibleCourses} remaining)</span>
-            </motion.button>
+              <BookOpen className="w-4 h-4" />
+              <span>Load More Courses</span>
+            </button>
           </motion.div>
         )}
 
         {/* View All Courses CTA */}
         <motion.div
-          className="text-center mt-20"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-center mt-16"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-12 border border-green-200 relative overflow-hidden">
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-green-500 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute bottom-0 right-0 w-48 h-48 bg-blue-500 rounded-full translate-x-1/2 translate-y-1/2"></div>
-            </div>
-            
-            <div className="relative z-10">
-              <GraduationCap className="w-16 h-16 text-green-600 mx-auto mb-6" />
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                Ready to Start Your Learning Journey?
-              </h3>
-              <p className="text-gray-600 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
-                Explore our complete course catalog with detailed curriculum, student success stories, 
-                and flexible learning options tailored to your career goals.
-              </p>
-              <Link href="/courses">
-                <motion.button
-                  className="bg-gradient-to-r from-green-500 to-green-600 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center space-x-3"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <BookOpen className="w-5 h-5" />
-                  <span>Browse All Courses</span>
-                  <ArrowRight className="w-5 h-5" />
-                </motion.button>
-              </Link>
-            </div>
+          <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Ready to Start Your Learning Journey?
+            </h3>
+            <p className="text-gray-600 mb-6 max-w-xl mx-auto">
+              Explore our complete course catalog with detailed curriculum and flexible learning options.
+            </p>
+            <Link href="/courses">
+              <button className="bg-green-600 text-white cursor-pointer px-8 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors duration-300 inline-flex items-center space-x-2">
+                <BookOpen className="w-4 h-4" />
+                <span>Browse All Courses</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </Link>
           </div>
         </motion.div>
       </div>
