@@ -24,6 +24,12 @@ const PlacementSection = () => {
     satisfaction: 0
   });
 
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   useEffect(() => {
     const duration = 2000;
     const steps = 60;
@@ -46,6 +52,18 @@ const PlacementSection = () => {
     animateCounter('success', 98);
     animateCounter('satisfaction', 4.9);
   }, []);
+
+  // Fixed particle positions that won't cause hydration mismatch
+  const particlePositions = [
+    { left: "10%", top: "20%" },
+    { left: "20%", top: "60%" },
+    { left: "30%", top: "40%" },
+    { left: "40%", top: "80%" },
+    { left: "60%", top: "30%" },
+    { left: "70%", top: "70%" },
+    { left: "80%", top: "50%" },
+    { left: "90%", top: "25%" }
+  ];
 
   const features = [
     {
@@ -77,7 +95,6 @@ const PlacementSection = () => {
     }
   ];
 
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -103,17 +120,18 @@ const PlacementSection = () => {
     }
   };
 
-  const cardHoverVariants = {
-    hover: {
-      y: -8,
-      scale: 1.02,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 25
-      }
-    }
-  };
+  // Only render particles after component is mounted on client
+  if (!isMounted) {
+    return (
+      <section className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center">
+            <div className="animate-pulse">Loading...</div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
@@ -145,25 +163,25 @@ const PlacementSection = () => {
           }}
         />
         
-        {/* Floating Particles */}
-        {[...Array(8)].map((_, i) => (
+        {/* Fixed Floating Particles - Only render on client */}
+        {isMounted && particlePositions.map((position, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-gradient-to-r from-green-400 to-blue-500 rounded-full opacity-60"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: position.left,
+              top: position.top,
             }}
             animate={{
               y: [0, -20, 0],
-              x: [0, Math.random() * 10 - 5, 0],
+              x: [0, 5, 0],
               scale: [1, 1.5, 1],
               opacity: [0.3, 0.8, 0.3],
             }}
             transition={{
-              duration: 3 + Math.random() * 4,
+              duration: 3 + (i * 0.5),
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: i * 0.3,
             }}
           />
         ))}
