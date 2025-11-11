@@ -1,3 +1,4 @@
+import CertificateSection from "@/components/CertificateSection";
 import CourseSection from "@/components/CourseSection";
 import FaqSection from "@/components/FaqSection";
 import Hero from "@/components/Hero";
@@ -13,6 +14,7 @@ export default function Home() {
       <ServiceSection />
       <PlacementSection />
       <TestimonialSection />
+      <CertificateSection />
       <FaqSection />
     </>
   );
