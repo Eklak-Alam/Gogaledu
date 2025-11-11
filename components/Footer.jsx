@@ -137,8 +137,8 @@ const Footer = () => {
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
                 <p className="text-gray-600 text-xs sm:text-sm leading-tight">
-                  Sector 16B, Near SKS World School,<br />
-                  Greater Noida West, 201318
+                  Unit B-7 Crystaa Tower, C-30, C Block, Sector 63,<br />
+                  Greater Noida 201309
                 </p>
               </div>
 
@@ -147,7 +147,7 @@ const Footer = () => {
                 className="flex items-center space-x-2 text-gray-600 hover:text-green-600 transition-colors duration-200"
               >
                 <Phone className="w-4 h-4 text-green-600 shrink-0" />
-                <span className="text-xs sm:text-sm">+917532032388</span>
+                <span className="text-xs sm:text-sm">+917011418073</span>
               </a>
 
               <a
@@ -155,7 +155,7 @@ const Footer = () => {
                 className="flex items-center space-x-2 text-gray-600 hover:text-green-600 transition-colors duration-200"
               >
                 <Mail className="w-4 h-4 text-green-600 shrink-0" />
-                <span className="text-xs sm:text-sm">admin@dataempower.in</span>
+                <span className="text-xs sm:text-sm">info@gogaledu.com</span>
               </a>
             </div>
 
