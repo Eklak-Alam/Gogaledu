@@ -402,4 +402,132 @@ export const CourseData = [
       "Time Management and Task Tracker Templates",
     ],
   },
+  {
+  id: 4,
+  title: "AML (Anti-Money Laundering)",
+  slug: "aml-anti-money-laundering-specialist-course",
+  duration: "3 Months",
+  mode: "Online/Offline",
+  level: "Beginner to Intermediate",
+  rating: 4.9,
+  reviews: "650+",
+  students: "800+",
+  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkodQ5vfDEsPenU7zBfr2y0YoO79CZmihzyw&s", // You can add actual image URL
+  achievementGoal: "Complete 10+ Case Studies & 5 Live Compliance Projects",
+  syllabus: [
+    {
+      month: "Month 1: AML Foundations & KYC",
+      weeks: [
+        {
+          title: "Week 1: Introduction to AML",
+          topics: [
+            "What is Money Laundering & Why AML Matters",
+            "3 Stages: Placement, Layering, Integration",
+            "Real-life case of Global Money Laundering"
+          ]
+        },
+        {
+          title: "Week 2: Global AML Framework",
+          topics: [
+            "FATF 40 Recommendations",
+            "USA PATRIOT Act, EU AML Directives",
+            "Indian PMLA + RBI KYC Guidelines"
+          ]
+        },
+        {
+          title: "Week 3: Know Your Customer (KYC)",
+          topics: [
+            "CIP (Customer Identification Program)",
+            "Beneficial Ownership & Risk Profiling",
+            "Practical KYC Form Filling & Documentation"
+          ]
+        },
+        {
+          title: "Week 4: CDD & EDD",
+          topics: [
+            "Standard vs Enhanced Due Diligence",
+            "High-Risk Customer Marking",
+            "Case Study: PEP (Politically Exposed Person) Screening"
+          ]
+        }
+      ]
+    },
+    {
+      month: "Month 2: Risk, Transaction Monitoring & SAR",
+      weeks: [
+        {
+          title: "Week 5: Transaction Monitoring Systems",
+          topics: [
+            "Red Flag Indicators",
+            "Structuring, Smurfing, Shell Companies"
+          ]
+        },
+        {
+          title: "Week 6: Account Activity Risk Scoring",
+          topics: [
+            "Rule-based Monitoring",
+            "Using Excel & SQL for Monitoring Reports"
+          ]
+        },
+        {
+          title: "Week 7: Suspicious Activity Reports (SAR)",
+          topics: [
+            "SAR Structure & Writing Guidelines",
+            "Case Study: Writing a SAR for Wire Transfer Fraud"
+          ]
+        },
+        {
+          title: "Week 8: Financial Crime Compliance Tools",
+          topics: [
+            "Introduction to Actimize, FICO, SAS AML",
+            "Sanction Screening (OFAC, UN, EU Lists)"
+          ]
+        }
+      ]
+    },
+    {
+      month: "Month 3: AML Technology, Reporting & Career Prep",
+      weeks: [
+        {
+          title: "Week 9: AML + Technology",
+          topics: [
+            "AI and Machine Learning for AML",
+            "Blockchain & Crypto AML Basics"
+          ]
+        },
+        {
+          title: "Week 10: Audit & Compliance Program",
+          topics: [
+            "Designing AML Policy",
+            "Testing and Internal Controls"
+          ]
+        },
+        {
+          title: "Week 11: Capstone Assignment",
+          topics: [
+            "End-to-End Monitoring Scenario",
+            "Create SAR, KYC Checklist & Risk Report"
+          ]
+        },
+        {
+          title: "Week 12: Certification + Interview Prep",
+          topics: [
+            "CAMS Exam Structure (ACAMS)",
+            "AML/KYC Analyst Interview Q&A",
+            "Resume + LinkedIn Optimization"
+          ]
+        }
+      ]
+    }
+  ],
+  bonusAddOns: [
+    "FATCA & CRS Overview",
+    "List of AML/KYC Free Resources",
+    "AML Case Studies Toolkit (PDF + Excel)",
+    "SAR & KYC Templates (Free Download)",
+    "Global AML Regulations Handbook",
+    "Red Flag Indicators Checklist",
+    "Compliance Officer Career Guide"
+  ]
+}
 ];

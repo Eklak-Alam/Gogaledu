@@ -142,7 +142,7 @@ const Footer = () => {
               </div>
 
               <a
-                href="tel:+917532032388"
+                href="tel:+917011418073"
                 className="flex items-center space-x-2 text-gray-600 hover:text-green-600 transition-colors duration-200"
               >
                 <Phone className="w-4 h-4 text-green-600 shrink-0" />
@@ -150,7 +150,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="mailto:admin@dataempower.in"
+                href="mailto:info@gogaledu.com"
                 className="flex items-center space-x-2 text-gray-600 hover:text-green-600 transition-colors duration-200"
               >
                 <Mail className="w-4 h-4 text-green-600 shrink-0" />
@@ -183,7 +183,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0 text-center sm:text-left">
             <div className="text-gray-600 text-xs sm:text-sm">
-              © 2025 GogalEdu Academy. All rights reserved.
+              © 2025 GogalEdu Academy. All Rights Reserved.
             </div>
 
             <div className="flex items-center space-x-3 sm:space-x-4">

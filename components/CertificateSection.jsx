@@ -161,12 +161,12 @@ const CertificateSection = () => {
             >
               <div className="text-center">
                 <Users className="w-6 h-6 sm:w-8 sm:h-8 text-green-600 mx-auto mb-2" />
-                <div className="text-xl sm:text-2xl font-bold text-gray-900">4300K+</div>
+                <div className="text-xl sm:text-2xl font-bold text-gray-900">4300+</div>
                 <div className="text-xs sm:text-sm text-gray-600">Students Certified</div>
               </div>
               <div className="text-center">
                 <Award className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600 mx-auto mb-2" />
-                <div className="text-xl sm:text-2xl font-bold text-gray-900">98%</div>
+                <div className="text-xl sm:text-2xl font-bold text-gray-900">93%</div>
                 <div className="text-xs sm:text-sm text-gray-600">Success Rate</div>
               </div>
             </motion.div>
