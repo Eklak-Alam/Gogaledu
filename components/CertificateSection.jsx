@@ -6,7 +6,10 @@ import {
   Award, 
   CheckCircle, 
   Users,
-  ArrowRight
+  ArrowRight,
+  MessageCircle,
+  Phone,
+  Mail
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -29,7 +32,7 @@ const CertificateSection = () => {
             <div className="relative bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
                 <img
-                  src="https://gogaledu.com/wp-content/uploads/2025/07/1-480x380.png" // Replace with your actual certificate image path
+                  src="https://gogaledu.com/wp-content/uploads/2025/07/1-480x380.png"
                   alt="GogalEdu Course Certificate"
                   className="object-cover"
                 />
@@ -81,20 +84,19 @@ const CertificateSection = () => {
               </h2>
               
               <p className="text-lg text-gray-600 leading-relaxed">
-                Validate your skills with an industry-recognized certificate that enhances your resume 
-                and opens doors to better career opportunities.
+                Validate Your Skills with An Industry-Recognized Certificate that Enhances Your Resume and Opens Doors to Better Career Opportunities
               </p>
             </div>
 
             {/* Features */}
             <div className="space-y-4">
               {[
-                "Industry recognized certification",
-                "Digital & printable format", 
-                "Lifetime validity",
-                "Shareable on professional networks",
+                "Industry Recognized Certification",
+                "Digital & Printable Format", 
+                "Lifetime Validity",
+                "Shareable on Professional Networks",
                 "Verified by GogalEdu Academy",
-                "Boosts job prospects"
+                "Boosts Job Prospects"
               ].map((feature, index) => (
                 <motion.div
                   key={feature}
@@ -114,7 +116,7 @@ const CertificateSection = () => {
             <div className="grid grid-cols-2 gap-6 py-6 border-y border-gray-200">
               <div className="text-center">
                 <Users className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-gray-900">10K+</div>
+                <div className="text-2xl font-bold text-gray-900">4300K+</div>
                 <div className="text-sm text-gray-600">Students Certified</div>
               </div>
               <div className="text-center">
@@ -136,6 +138,36 @@ const CertificateSection = () => {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </motion.button>
               </Link>
+
+              {/* Still Have Questions Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-r from-blue-50 to-cyan-50 mt-2 rounded-2xl p-6 border border-blue-200 text-center"
+              >
+                <MessageCircle className="w-8 h-8 text-blue-600 mx-auto mb-3" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Still have questions?
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Can't Find the Answer You're Looking For? Please Reach Out to Our Friendly Team.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Link href="/contact" className="flex-1">
+                    <motion.button
+                      className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 flex items-center justify-center gap-2 group"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Phone className="w-4 h-4" />
+                      <span>Contact Us</span>
+                    </motion.button>
+                  </Link>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>

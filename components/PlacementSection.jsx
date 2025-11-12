@@ -1,27 +1,28 @@
 // components/PlacementSection.jsx
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Briefcase, 
-  FileText, 
-  Users, 
-  Award, 
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import {
+  Briefcase,
+  FileText,
+  Users,
+  Award,
   CheckCircle,
   ArrowRight,
   Star,
   Zap,
   TrendingUp,
-  Target
-} from 'lucide-react';
+  Target,
+} from "lucide-react";
+import Link from "next/link";
 
 const PlacementSection = () => {
   const [counters, setCounters] = useState({
     partners: 0,
     placements: 0,
     success: 0,
-    satisfaction: 0
+    satisfaction: 0,
   });
 
   const [isMounted, setIsMounted] = useState(false);
@@ -43,14 +44,14 @@ const PlacementSection = () => {
           current = target;
           clearInterval(timer);
         }
-        setCounters(prev => ({ ...prev, [key]: Math.floor(current) }));
+        setCounters((prev) => ({ ...prev, [key]: Math.floor(current) }));
       }, duration / steps);
     };
 
-    animateCounter('partners', 1000);
-    animateCounter('placements', 10000);
-    animateCounter('success', 98);
-    animateCounter('satisfaction', 4.9);
+    animateCounter("partners", 73);
+    animateCounter("placements", 4300);
+    animateCounter("success", 93);
+    animateCounter("satisfaction", 4);
   }, []);
 
   // Fixed particle positions that won't cause hydration mismatch
@@ -62,37 +63,40 @@ const PlacementSection = () => {
     { left: "60%", top: "30%" },
     { left: "70%", top: "70%" },
     { left: "80%", top: "50%" },
-    { left: "90%", top: "25%" }
+    { left: "90%", top: "25%" },
   ];
 
   const features = [
     {
       icon: FileText,
       title: "Professional Resume Building",
-      description: "Get your resume crafted by industry experts with ATS optimization and personalized feedback",
+      description:
+        "Get your resume crafted by industry experts with ATS optimization and personalized feedback",
       stat: "100% ATS Friendly",
       gradient: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-50 to-cyan-50",
-      delay: 0.1
+      delay: 0.1,
     },
     {
       icon: Users,
       title: "Mock Interview Sessions",
-      description: "Practice with real interview scenarios and get detailed feedback from industry experts",
+      description:
+        "Practice with real interview scenarios and get detailed feedback from industry experts",
       stat: "50+ Practice Rounds",
       gradient: "from-purple-500 to-pink-500",
       bgGradient: "from-purple-50 to-pink-50",
-      delay: 0.2
+      delay: 0.2,
     },
     {
       icon: Briefcase,
       title: "Exclusive Job Offers",
-      description: "Access to premium job opportunities not available elsewhere with direct company referrals",
+      description:
+        "Access to premium job opportunities not available elsewhere with direct company referrals",
       stat: "1000+ Companies",
       gradient: "from-orange-500 to-red-500",
       bgGradient: "from-orange-50 to-red-50",
-      delay: 0.3
-    }
+      delay: 0.3,
+    },
   ];
 
   const containerVariants = {
@@ -100,9 +104,9 @@ const PlacementSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
@@ -115,9 +119,9 @@ const PlacementSection = () => {
         type: "spring",
         stiffness: 100,
         damping: 12,
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   // Only render particles after component is mounted on client
@@ -146,7 +150,7 @@ const PlacementSection = () => {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
         <motion.div
@@ -159,36 +163,36 @@ const PlacementSection = () => {
             duration: 10,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 2
+            delay: 2,
           }}
         />
-        
+
         {/* Fixed Floating Particles - Only render on client */}
-        {isMounted && particlePositions.map((position, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-gradient-to-r from-green-400 to-blue-500 rounded-full opacity-60"
-            style={{
-              left: position.left,
-              top: position.top,
-            }}
-            animate={{
-              y: [0, -20, 0],
-              x: [0, 5, 0],
-              scale: [1, 1.5, 1],
-              opacity: [0.3, 0.8, 0.3],
-            }}
-            transition={{
-              duration: 3 + (i * 0.5),
-              repeat: Infinity,
-              delay: i * 0.3,
-            }}
-          />
-        ))}
+        {isMounted &&
+          particlePositions.map((position, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-gradient-to-r from-green-400 to-blue-500 rounded-full opacity-60"
+              style={{
+                left: position.left,
+                top: position.top,
+              }}
+              animate={{
+                y: [0, -20, 0],
+                x: [0, 5, 0],
+                scale: [1, 1.5, 1],
+                opacity: [0.3, 0.8, 0.3],
+              }}
+              transition={{
+                duration: 3 + i * 0.5,
+                repeat: Infinity,
+                delay: i * 0.3,
+              }}
+            />
+          ))}
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Header Section */}
         <motion.div
           className="text-center mb-16 lg:mb-20"
@@ -208,34 +212,34 @@ const PlacementSection = () => {
             <span>Career Success Platform</span>
           </motion.div>
 
-          <motion.h2 
+          <motion.h2
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 px-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Your Path to{' '}
+            Your Path to{" "}
             <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
               Dream Career
             </span>
           </motion.h2>
-          
-          <motion.p 
-            className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4"
+
+          <motion.p
+            className="text-lg sm:text-xl text-gray-600 font-semibold max-w-3xl mx-auto leading-relaxed px-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Comprehensive placement support with resume building, mock interviews, and exclusive job opportunities from top companies
+            Comprehensive Placement Support with Resume Building, Mock
+            Interviews and Exclusive Job Opportunities from Top Companies{" "}
           </motion.p>
         </motion.div>
 
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-16 lg:mb-20">
-          
-          {/* Left Side - Enhanced Features */}
+        {/* SECTION 1: Main Content Grid - Two Separate Columns */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-12">
+          {/* Left Column - Features Only */}
           <motion.div
             className="space-y-6"
             variants={containerVariants}
@@ -254,23 +258,26 @@ const PlacementSection = () => {
                   whileHover="hover"
                 >
                   <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/60 hover:border-transparent shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
-                    
                     {/* Gradient Border Effect */}
-                    <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                    
+                    <div
+                      className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                    />
+
                     <div className="flex flex-col sm:flex-row sm:items-start gap-4 relative z-10">
                       {/* Icon */}
                       <div className="flex items-center gap-4 sm:block sm:w-auto">
-                        <div className={`w-14 h-14 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
+                        <div
+                          className={`w-14 h-14 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}
+                        >
                           <IconComponent className="w-6 h-6" />
                         </div>
-                        
+
                         {/* Stat badge - Mobile */}
                         <span className="sm:hidden px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold border border-green-200">
                           {feature.stat}
                         </span>
                       </div>
-                      
+
                       {/* Content */}
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 gap-2">
@@ -282,7 +289,7 @@ const PlacementSection = () => {
                             {feature.stat}
                           </span>
                         </div>
-                        
+
                         <p className="text-gray-600 leading-relaxed text-base">
                           {feature.description}
                         </p>
@@ -295,19 +302,9 @@ const PlacementSection = () => {
                 </motion.div>
               );
             })}
-
-            {/* Enhanced CTA Button */}
-            <motion.button
-              className="w-full bg-gradient-to-r from-green-600 to-green-600 cursor-pointer text-white py-4 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:scale-105 group"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span>Start Your Career Journey</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </motion.button>
           </motion.div>
 
-          {/* Right Side - Animated Counters */}
+          {/* Right Column - Counters Only */}
           <motion.div
             className="grid grid-cols-2 sm:grid-cols-2 gap-6"
             variants={containerVariants}
@@ -322,7 +319,7 @@ const PlacementSection = () => {
                 suffix: "+",
                 label: "Hiring Partners",
                 gradient: "from-green-500 to-emerald-500",
-                delay: 0.1
+                delay: 0.1,
               },
               {
                 icon: Users,
@@ -330,7 +327,7 @@ const PlacementSection = () => {
                 suffix: "+",
                 label: "Students Placed",
                 gradient: "from-blue-500 to-cyan-500",
-                delay: 0.2
+                delay: 0.2,
               },
               {
                 icon: TrendingUp,
@@ -338,16 +335,16 @@ const PlacementSection = () => {
                 suffix: "%",
                 label: "Success Rate",
                 gradient: "from-purple-500 to-pink-500",
-                delay: 0.3
+                delay: 0.3,
               },
               {
                 icon: Star,
                 value: counters.satisfaction,
-                suffix: "/5",
+                suffix: ".8/5",
                 label: "Satisfaction Rate",
                 gradient: "from-orange-500 to-red-500",
-                delay: 0.4
-              }
+                delay: 0.4,
+              },
             ].map((counter, index) => {
               const IconComponent = counter.icon;
               return (
@@ -359,14 +356,19 @@ const PlacementSection = () => {
                   whileHover="hover"
                 >
                   {/* Gradient Background */}
-                  <div className={`absolute inset-0 bg-gradient-to-r ${counter.gradient} opacity-5 rounded-2xl`} />
-                  
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-r ${counter.gradient} opacity-5 rounded-2xl`}
+                  />
+
                   <div className="relative z-10">
-                    <div className={`w-12 h-12 bg-gradient-to-r ${counter.gradient} rounded-2xl flex items-center justify-center text-white shadow-lg mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <div
+                      className={`w-12 h-12 bg-gradient-to-r ${counter.gradient} rounded-2xl flex items-center justify-center text-white shadow-lg mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
+                    >
                       <IconComponent className="w-6 h-6" />
                     </div>
                     <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-                      {counter.value}{counter.suffix}
+                      {counter.value}
+                      {counter.suffix}
                     </div>
                     <div className="text-green-700 text-sm font-medium">
                       {counter.label}
@@ -378,7 +380,27 @@ const PlacementSection = () => {
           </motion.div>
         </div>
 
-        {/* Bottom Features - Enhanced */}
+        {/* SECTION 2: Full Width CTA Button */}
+        <motion.div
+          className="mb-16 lg:mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <Link href="/courses" className="block w-full">
+            <motion.div
+              className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-5 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center space-x-3 group cursor-pointer border-2 border-transparent hover:border-green-300/30"
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="text-xl">Start Your Career Journey</span>
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+            </motion.div>
+          </Link>
+        </motion.div>
+
+        {/* SECTION 3: Bottom Features */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 lg:mb-20"
           variants={containerVariants}
@@ -390,21 +412,24 @@ const PlacementSection = () => {
             {
               icon: CheckCircle,
               title: "100% Placement Support",
-              description: "Dedicated placement cell with personalized career guidance and mentorship",
-              gradient: "from-green-500 to-emerald-500"
+              description:
+                "Dedicated placement cell with personalized career guidance and mentorship",
+              gradient: "from-green-500 to-emerald-500",
             },
             {
               icon: FileText,
               title: "Career Services",
-              description: "Resume building, LinkedIn optimization, and professional portfolio development",
-              gradient: "from-blue-500 to-cyan-500"
+              description:
+                "Resume building, LinkedIn optimization, and professional portfolio development",
+              gradient: "from-blue-500 to-cyan-500",
             },
             {
               icon: Briefcase,
               title: "Industry Partnerships",
-              description: "Direct access to top companies and exclusive job openings with referrals",
-              gradient: "from-purple-500 to-pink-500"
-            }
+              description:
+                "Direct access to top companies and exclusive job openings with referrals",
+              gradient: "from-purple-500 to-pink-500",
+            },
           ].map((feature, index) => {
             const IconComponent = feature.icon;
             return (
@@ -415,10 +440,14 @@ const PlacementSection = () => {
                 whileHover="hover"
               >
                 {/* Gradient Background */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`} />
-                
+                <div
+                  className={`absolute inset-0 bg-gradient-to-r ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`}
+                />
+
                 <div className="relative z-10">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center text-white shadow-lg mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <div
+                    className={`w-12 h-12 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center text-white shadow-lg mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  >
                     <IconComponent className="w-6 h-6" />
                   </div>
                   <h4 className="text-lg font-bold text-gray-900 mb-3 leading-tight">
@@ -433,7 +462,7 @@ const PlacementSection = () => {
           })}
         </motion.div>
 
-        {/* Enhanced CTA Section */}
+        {/* SECTION 4: Final CTA Section */}
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 30 }}
@@ -442,26 +471,27 @@ const PlacementSection = () => {
           viewport={{ once: true, margin: "-50px" }}
         >
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 sm:p-12 border border-gray-200/60 shadow-lg">
-            <motion.h3 
+            <motion.h3
               className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              Ready to Launch Your{' '}
+              Ready to Launch Your{" "}
               <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
                 Dream Career?
               </span>
             </motion.h3>
-            <motion.p 
+            <motion.p
               className="text-lg text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              Join 10,000+ successful professionals who transformed their careers with our comprehensive placement program
+              Join 4300+ Successful Professionals who Transformed their Careers
+              with our Comprehensive Placement Program{" "}
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
@@ -470,20 +500,27 @@ const PlacementSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <motion.button
-                className="bg-gradient-to-r from-green-600 to-green-600 cursor-pointer text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 shadow-lg hover:scale-105 w-full sm:w-auto"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Start Your Journey Today
-              </motion.button>
-              <motion.button
-                className="border border-gray-300 text-gray-700 px-8 cursor-pointer py-4 rounded-xl font-semibold text-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                View Success Stories
-              </motion.button>
+              {/* Button 1 - Goes to /courses */}
+              <Link href="/courses" className="w-full sm:w-auto">
+                <motion.div
+                  className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 text-center cursor-pointer w-full"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Start Your Journey Today
+                </motion.div>
+              </Link>
+
+              {/* Button 2 - Goes to / */}
+              <Link href="/" className="w-full sm:w-auto">
+                <motion.div
+                  className="border border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold text-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 text-center cursor-pointer w-full"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  View Success Stories
+                </motion.div>
+              </Link>
             </motion.div>
           </div>
         </motion.div>

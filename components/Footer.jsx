@@ -24,22 +24,22 @@ const Footer = () => {
   const features = [
     { 
       icon: Users, 
-      text: 'Supportive Environment',
+      text: 'Supportive Environment - Personalized Guidance',
       description: 'Personalized guidance'
     },
     { 
       icon: BookOpen, 
-      text: 'Flexible Learning',
+      text: 'Flexible Learning - Learn at Your Pace',
       description: 'Learn at your pace'
     },
     { 
       icon: Award, 
-      text: 'Updated Curriculum',
+      text: 'Updated Curriculum - Industry-Relevant',
       description: 'Industry-relevant'
     },
     { 
       icon: Building, 
-      text: 'Industry Connections',
+      text: 'Industry Connections -Strong Network',
       description: 'Strong network'
     }
   ];
@@ -94,8 +94,7 @@ const Footer = () => {
             </div>
 
             <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
-              Providing supportive learning environment with flexible course options, 
-              updated curriculum, and strong industry connections for successful career outcomes.
+              Providing Supportive Learning Environment with Flexible Course Options, Updated Curriculum, and Strong Industry Connections for Successful Career Outcomes.
             </p>
 
             {/* Features Grid */}
@@ -138,7 +137,7 @@ const Footer = () => {
                 <MapPin className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
                 <p className="text-gray-600 text-xs sm:text-sm leading-tight">
                   Unit B-7 Crystaa Tower, C-30, C Block, Sector 63,<br />
-                  Greater Noida 201309
+                  Noida 201309
                 </p>
               </div>
 

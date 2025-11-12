@@ -2,7 +2,13 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform, animate } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  animate,
+} from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow } from "swiper/modules";
 import Link from "next/link";
@@ -30,51 +36,51 @@ const HeroSection = () => {
       transition: {
         duration: 4,
         repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
+        ease: "easeInOut",
+      },
+    },
   };
 
   const features = [
     {
       title: "Live Classes",
-      description: "Interactive live sessions with industry experts",
+      description: "Interactive Live Sessions with Industry Experts",
       icon: "🎯",
       gradient: "from-purple-500 to-pink-500",
       bgGradient: "from-purple-50 to-pink-50",
-      borderColor: "border-purple-200"
+      borderColor: "border-purple-200",
     },
     {
       title: "Resume Building",
-      description: "Mentorship sessions and Mock Interviews",
+      description: "Mentorship Sessions and Mock Interviews",
       icon: "📝",
       gradient: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-50 to-cyan-50",
-      borderColor: "border-blue-200"
+      borderColor: "border-blue-200",
     },
     {
       title: "Job Opportunity Program",
-      description: "Dedicated Placement Cell and career support",
+      description: "Dedicated Placement Cell and Career Support",
       icon: "💼",
       gradient: "from-green-500 to-emerald-500",
       bgGradient: "from-green-50 to-emerald-50",
-      borderColor: "border-green-200"
+      borderColor: "border-green-200",
     },
     {
       title: "Placement Assistance",
-      description: "1000+ hiring partners and guaranteed interviews",
+      description: "73+  Hiring Partners and Guaranteed Interviews",
       icon: "🚀",
       gradient: "from-orange-500 to-red-500",
       bgGradient: "from-orange-50 to-red-50",
-      borderColor: "border-orange-200"
-    }
+      borderColor: "border-orange-200",
+    },
   ];
 
   const stats = [
-    { number: "1000+", label: "Students Placed", suffix: "+" },
-    { number: "50", label: "Hiring Partners", suffix: "+" },
-    { number: "98", label: "Success Rate", suffix: "%" },
-    { number: "4.9", label: "Rating", suffix: "/5.0" }
+    { number: "4700+", label: "Students Placed", suffix: "+" },
+    { number: "73", label: "Hiring Partners", suffix: "+" },
+    { number: "93", label: "Success Rate", suffix: "%" },
+    { number: "4.8/5", label: "Rating", suffix: "/5.0" },
   ];
 
   // Enhanced animations
@@ -90,10 +96,10 @@ const HeroSection = () => {
   };
 
   const itemVariants = {
-    hidden: { 
-      y: 40, 
+    hidden: {
+      y: 40,
       opacity: 0,
-      scale: 0.95
+      scale: 0.95,
     },
     visible: {
       y: 0,
@@ -103,7 +109,7 @@ const HeroSection = () => {
         type: "spring",
         stiffness: 120,
         damping: 15,
-        mass: 0.5
+        mass: 0.5,
       },
     },
   };
@@ -113,15 +119,15 @@ const HeroSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   if (!mounted) return null;
 
   return (
-    <section 
+    <section
       className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50 relative overflow-hidden"
       ref={containerRef}
     >
@@ -138,10 +144,10 @@ const HeroSection = () => {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
-        
+
         <motion.div
           className="absolute bottom-1/4 -right-10 w-96 h-96 bg-gradient-to-r from-green-200 to-cyan-300 rounded-full blur-3xl opacity-30"
           animate={{
@@ -153,7 +159,7 @@ const HeroSection = () => {
             duration: 10,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 1
+            delay: 1,
           }}
         />
 
@@ -180,7 +186,7 @@ const HeroSection = () => {
             >
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
               <span className="text-sm font-medium text-gray-700">
-                 Most Trusted Tech Education Platform
+                Most Trusted Tech Education Platform
               </span>
             </motion.div>
 
@@ -212,11 +218,13 @@ const HeroSection = () => {
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-2xl font-light">
-                Transform your future with industry-focused courses, live
-                mentorship, and{" "}
-                <span className="font-semibold text-green-700">guaranteed placement</span>{" "}
-                opportunities.
+              <p className="text-lg sm:text-xl lg:text-xl text-gray-600 leading-relaxed max-w-2xl font-light">
+                Transform Your Future with Industry-Focused Courses, Live
+                Mentorship, and{" "}
+                <span className="font-semibold text-green-700">
+                  Guaranteed Placement
+                </span>{" "}
+                Opportunities.
               </p>
             </motion.div>
 
@@ -254,31 +262,35 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row gap-4"
               variants={itemVariants}
             >
-              <motion.button
-                className="group relative w-full sm:w-auto bg-gradient-to-r from-green-600 to-emerald-700 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
-                whileHover={{ 
-                  scale: 1.02,
-                  y: -2
-                }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  Start Learning Today
-                  <motion.span
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    <Rocket />
-                  </motion.span>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-green-700 to-emerald-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.button>
+              {/* 🔗 Start Learning Today Button with Link */}
+              <Link href="/courses" passHref>
+                <motion.button
+                  className="group cursor-pointer relative w-full sm:w-auto bg-gradient-to-r from-green-600 to-emerald-700 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                  whileHover={{
+                    scale: 1.02,
+                    y: -2,
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    Start Learning Today
+                    <motion.span
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      <Rocket />
+                    </motion.span>
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-700 to-emerald-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.button>
+              </Link>
 
+              {/* 🎥 Watch Demo Button */}
               <motion.button
                 className="group w-full sm:w-auto bg-white/80 backdrop-blur-sm text-gray-900 px-8 py-4 rounded-2xl font-semibold text-lg border border-gray-300 hover:border-green-300 hover:bg-green-50 transition-all duration-300"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
-                  y: -2
+                  y: -2,
                 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -301,7 +313,7 @@ const HeroSection = () => {
               variants={itemVariants}
             >
               {/* Enhanced Header */}
-              <motion.div 
+              <motion.div
                 className="text-center mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -336,24 +348,25 @@ const HeroSection = () => {
                   className="w-full h-96"
                 >
                   {CourseData.map((course, index) => (
-                    <SwiperSlide key={`${course.id}-${index}`} className="w-80 max-w-sm">
+                    <SwiperSlide
+                      key={`${course.id}-${index}`}
+                      className="w-80 max-w-sm"
+                    >
                       <motion.div
                         className="w-full h-full bg-gradient-to-br from-white to-gray-50 rounded-3xl p-6 flex flex-col justify-between border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500 relative overflow-hidden"
-                        whileHover={{ 
+                        whileHover={{
                           scale: 1.03,
-                          y: -5
+                          y: -5,
                         }}
                       >
                         {/* Background Gradient */}
-                        <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${course.level === 'Beginner' ? 'from-green-500/10 to-emerald-500/10' : course.level === 'Intermediate' ? 'from-yellow-500/10 to-amber-500/10' : 'from-red-500/10 to-pink-500/10'} rounded-full -translate-y-16 translate-x-16`} />
-                        
-                        {/* Course Level Badge */}
+                        {/* Light Green Gradient Background (same for all levels) */}
+                        {/* Soft Green Gradient Background */}
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-green-400/15 to-emerald-400/15 rounded-full -translate-y-16 translate-x-16" />
+
+                        {/* Course Level Badge (same color for all) */}
                         <div className="flex items-center justify-between mb-4 relative z-10">
-                          <div className={`text-xs font-semibold px-3 py-1 rounded-full ${
-                            course.level === 'Beginner' ? 'bg-green-100 text-green-700 border border-green-200' :
-                            course.level === 'Intermediate' ? 'bg-yellow-100 text-yellow-700 border border-yellow-200' :
-                            'bg-red-100 text-red-700 border border-red-200'
-                          }`}>
+                          <div className="text-xs font-semibold px-3 py-1 rounded-full bg-green-100 text-green-700 border border-green-200">
                             {course.level}
                           </div>
                         </div>
@@ -364,12 +377,13 @@ const HeroSection = () => {
                             {course.title}
                           </h3>
 
-                          <motion.p 
+                          <motion.p
                             className="text-gray-600 text-sm leading-relaxed"
                             initial={{ opacity: 0.8 }}
                             whileHover={{ opacity: 1 }}
                           >
-                            {course.achievementGoal || "Master industry skills with hands-on projects"}
+                            {course.achievementGoal ||
+                              "Master industry skills with hands-on projects"}
                           </motion.p>
                         </div>
 
@@ -395,18 +409,24 @@ const HeroSection = () => {
                               </span>
                             </div>
                             <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                              <motion.div 
+                              <motion.div
                                 className={`h-2 rounded-full bg-gradient-to-r ${
-                                  course.level === 'Beginner' ? 'from-green-500 to-emerald-500' :
-                                  course.level === 'Intermediate' ? 'from-yellow-500 to-amber-500' :
-                                  'from-red-500 to-pink-500'
+                                  course.level === "Beginner"
+                                    ? "from-green-500 to-emerald-500"
+                                    : course.level === "Intermediate"
+                                    ? "from-yellow-500 to-amber-500"
+                                    : "from-red-500 to-pink-500"
                                 }`}
                                 initial={{ width: 0 }}
-                                animate={{ width: `${65 + (index % CourseData.length) * 15}%` }}
-                                transition={{ 
-                                  delay: 0.8 + index * 0.2, 
-                                  duration: 1.5, 
-                                  ease: "easeOut" 
+                                animate={{
+                                  width: `${
+                                    65 + (index % CourseData.length) * 15
+                                  }%`,
+                                }}
+                                transition={{
+                                  delay: 0.8 + index * 0.2,
+                                  duration: 1.5,
+                                  ease: "easeOut",
                                 }}
                               />
                             </div>
@@ -414,7 +434,7 @@ const HeroSection = () => {
 
                           {/* CTA Button */}
                           <Link href={`/courses/${course.slug}`}>
-                            <motion.div 
+                            <motion.div
                               className="w-full bg-gradient-to-r from-green-800 to-green-900 text-white py-3 rounded-xl text-center font-semibold text-sm hover:shadow-lg transition-all duration-300 group"
                               whileHover={{ scale: 1.02 }}
                               whileTap={{ scale: 0.98 }}
@@ -458,17 +478,25 @@ const HeroSection = () => {
               }}
             >
               {/* Background Gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgGradient} opacity-100 group-hover:opacity-0 transition-opacity duration-500`} />
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-              
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${feature.bgGradient} opacity-100 group-hover:opacity-0 transition-opacity duration-500`}
+              />
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+              />
+
               {/* Border Gradient */}
-              <div className={`absolute inset-0 rounded-2xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r ${feature.gradient} p-0.5`}>
+              <div
+                className={`absolute inset-0 rounded-2xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r ${feature.gradient} p-0.5`}
+              >
                 <div className="w-full h-full bg-white rounded-xl" />
               </div>
 
               <div className="relative z-10 space-y-4">
                 {/* Icon with Gradient */}
-                <div className={`w-14 h-14 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center text-white text-xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                <div
+                  className={`w-14 h-14 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center text-white text-xl shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                >
                   {feature.icon}
                 </div>
 

@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
+import Link from 'next/link';
 
 const FaqSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -156,6 +157,7 @@ const FaqSection = () => {
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
               Can't find the answer you're looking for? Please reach out to our friendly team.
             </p>
+            <Link href='/contact'>
             <motion.button
               className="bg-green-600 cursor-pointer text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300"
               whileHover={{ scale: 1.05 }}
@@ -164,6 +166,7 @@ const FaqSection = () => {
             >
               Contact Us
             </motion.button>
+            </Link>
           </div>
         </motion.div>
       </div>
