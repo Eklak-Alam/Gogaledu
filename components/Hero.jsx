@@ -77,10 +77,10 @@ const HeroSection = () => {
   ];
 
   const stats = [
-    { number: "4700+", label: "Students Placed", suffix: "+" },
+    { number: "4700", label: "Students Placed", suffix: "+" },
     { number: "73", label: "Hiring Partners", suffix: "+" },
     { number: "93", label: "Success Rate", suffix: "%" },
-    { number: "4.8/5", label: "Rating", suffix: "/5.0" },
+    { number: "4.8", label: "Rating", suffix: "/5" },
   ];
 
   // Enhanced animations
@@ -401,7 +401,7 @@ const HeroSection = () => {
                           </div>
 
                           {/* Progress Bar */}
-                          <div className="space-y-2">
+                          {/* <div className="space-y-2">
                             <div className="flex justify-between text-sm">
                               <span className="text-gray-600">Progress</span>
                               <span className="font-semibold text-gray-800">
@@ -430,7 +430,7 @@ const HeroSection = () => {
                                 }}
                               />
                             </div>
-                          </div>
+                          </div> */}
 
                           {/* CTA Button */}
                           <Link href={`/courses/${course.slug}`}>

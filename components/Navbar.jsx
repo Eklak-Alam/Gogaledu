@@ -78,7 +78,13 @@ const Navbar = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <div className="w-12 h-12 bg-gray-200 rounded-lg animate-pulse" />
+            <div className="flex items-center space-x-3">
+              <div className="w-12 h-12 bg-gray-200 rounded-lg animate-pulse" />
+              <div className="hidden sm:block">
+                <div className="h-4 bg-gray-200 rounded w-20 mb-1 animate-pulse"></div>
+                <div className="h-3 bg-gray-200 rounded w-16 animate-pulse"></div>
+              </div>
+            </div>
             <div className="w-8 h-8 bg-gray-200 rounded-lg animate-pulse lg:hidden" />
           </div>
         </div>
@@ -96,21 +102,30 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo - Clean without background/shadow */}
+          {/* Logo with Text */}
           <Link 
             href="/" 
             className="flex items-center z-50 relative"
             onClick={() => setIsOpen(false)}
           >
-            <div className="w-12 h-12 relative">
-              <Image
-                src="/logo.jpg"
-                alt="GogalEdu Logo"
-                width={48}
-                height={48}
-                className="object-contain"
-                priority
-              />
+            <div className="flex items-center space-x-3">
+              {/* Logo Image */}
+              <div className="w-12 h-12 relative">
+                <Image
+                  src="/logo.jpg"
+                  alt="GogalEdu Logo"
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                  priority
+                />
+              </div>
+              
+              {/* Logo Text - Hidden on mobile, show on sm and above */}
+              <div className="hidden sm:block">
+                <div className="text-lg font-bold text-gray-900 leading-tight">GogalEdu</div>
+                <div className="text-xs text-gray-600 font-medium leading-tight">Academy</div>
+              </div>
             </div>
           </Link>
 
@@ -187,16 +202,21 @@ const Navbar = () => {
                     className="flex items-center"
                     onClick={() => setIsOpen(false)}
                   >
-                    <div className="w-10 h-10 relative">
-                      <Image
-                        src="/logo.jpg"
-                        alt="GogalEdu Logo"
-                        width={40}
-                        height={40}
-                        className="object-contain"
-                      />
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 relative">
+                        <Image
+                          src="/logo.jpg"
+                          alt="GogalEdu Logo"
+                          width={40}
+                          height={40}
+                          className="object-contain"
+                        />
+                      </div>
+                      <div>
+                        <div className="text-lg font-bold text-gray-900 leading-tight">GogalEdu</div>
+                        <div className="text-xs text-gray-600 font-medium leading-tight">Academy</div>
+                      </div>
                     </div>
-                    <span className="ml-3 text-lg font-semibold text-gray-900">GogalEdu</span>
                   </Link>
                   
                   <button

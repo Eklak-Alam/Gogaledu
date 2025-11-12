@@ -70,7 +70,7 @@ const CourseSection = () => {
               className={`flex items-center px-3 py-1.5 rounded-full text-sm font-medium border ${levelStyle.border} ${levelStyle.bg} ${levelStyle.text}`}
             >
               <div className={`w-2 h-2 rounded-full mr-2 ${levelStyle.dot}`} />
-              {course.level.split(" ")[0]}
+              {course.level}
             </div>
 
             {/* Popular Badge */}
@@ -92,15 +92,19 @@ const CourseSection = () => {
         </div>
 
         {/* Features */}
-        <div className="px-6 py-4">
-          <div className="grid grid-cols-2 gap-3">
-            <div className="flex items-center space-x-2 text-sm text-gray-700">
+        {/* Course Highlights Section */}
+        <div className="pl-5 pr-6 py-4">
+          <div className="flex items-center justify-between text-sm">
+            {/* Left side - Job-focused */}
+            <div className="flex items-center space-x-2 text-gray-700">
               <div className="p-1.5 bg-blue-50 rounded-lg">
                 <Target className="w-4 h-4 text-blue-600" />
               </div>
               <span className="font-medium">Job-focused</span>
             </div>
-            <div className="flex items-center space-x-2 text-sm text-gray-700">
+
+            {/* Right side - Certificate */}
+            <div className="flex items-center space-x-2 text-gray-700">
               <div className="p-1.5 bg-green-50 rounded-lg">
                 <Award className="w-4 h-4 text-green-600" />
               </div>
@@ -118,9 +122,7 @@ const CourseSection = () => {
             </div>
             <div className="flex items-center space-x-2 text-gray-600">
               <Monitor className="w-4 h-4 text-green-500" />
-              <span className="font-semibold">
-                {course.mode.split(" / ")[0]}
-              </span>
+              <span className="font-semibold">{course.mode}</span>
             </div>
           </div>
 
@@ -170,9 +172,9 @@ const CourseSection = () => {
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Transform your career with comprehensive courses designed by
-            industry experts. From beginner to advanced level, we've got your
-            learning journey covered.
+            Transform your Career with Comprehensive Courses designed by
+            Industry experts. From Beginner to Advanced level, we've got your
+            Learning journey covered.
           </p>
         </div>
 
@@ -198,25 +200,27 @@ const CourseSection = () => {
 
         {/* CTA Section */}
         <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-24">
-      <div className="bg-gradient-to-r from-green-700 to-green-900 rounded-2xl p-6 sm:p-10 lg:p-16 text-white text-center shadow-xl">
-        <h3 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-snug">
-          Ready to Transform Your{" "}
-          <span className="text-green-200">Career?</span>
-        </h3>
+          <div className="bg-gradient-to-r from-green-700 to-green-900 rounded-2xl p-6 sm:p-10 lg:p-16 text-white text-center shadow-xl">
+            <h3 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-snug">
+              Ready to Transform Your{" "}
+              <span className="text-green-200">Career?</span>
+            </h3>
 
-        <p className="text-gray-200 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed font-medium">
-          Join Thousands of Successful Students who've Accelerated their Careers with our Industry-Proven Courses. Start Your Journey Today with Flexible Learning Options and Expert Mentorship.
-        </p>
+            <p className="text-gray-200 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed font-medium">
+              Join Thousands of Successful Students who've Accelerated their
+              Careers with our Industry-Proven Courses. Start Your Journey Today
+              with Flexible Learning Options and Expert Mentorship.
+            </p>
 
-        <Link href="/courses">
-          <button className="bg-white cursor-pointer text-gray-900 px-6 sm:px-8 lg:px-12 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-gray-100 transition-all duration-300 inline-flex items-center justify-center space-x-2 sm:space-x-3 shadow-md hover:shadow-lg w-full sm:w-auto">
-            <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" />
-            <span>Explore All Courses</span>
-            <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
-          </button>
-        </Link>
-      </div>
-    </section>
+            <Link href="/courses">
+              <button className="bg-white cursor-pointer text-gray-900 px-6 sm:px-8 lg:px-12 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-gray-100 transition-all duration-300 inline-flex items-center justify-center space-x-2 sm:space-x-3 shadow-md hover:shadow-lg w-full sm:w-auto">
+                <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" />
+                <span>Explore All Courses</span>
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
+              </button>
+            </Link>
+          </div>
+        </section>
       </div>
     </section>
   );

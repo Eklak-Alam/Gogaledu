@@ -300,10 +300,10 @@ const ServiceSection = () => {
                   </div>
 
                   {/* Learn More Link */}
-                  <div className="flex items-center text-green-600 font-semibold text-sm group-hover:text-green-700 transition-colors duration-300 relative z-10 mt-auto">
+                  {/* <div className="flex items-center text-green-600 font-semibold text-sm group-hover:text-green-700 transition-colors duration-300 relative z-10 mt-auto">
                     <span>Learn more</span>
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </div>
+                  </div> */}
 
                   {/* Hover Shine Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />

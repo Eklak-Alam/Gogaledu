@@ -99,7 +99,7 @@ const TestimonialSection = () => {
 
   const stats = [
     { number: "4300+", label: "Happy Students", icon: Users },
-    { number: "98%", label: "Success Rate", icon: TrendingUp },
+    { number: "93%", label: "Success Rate", icon: TrendingUp },
     { number: "4.8/5", label: "Average Rating", icon: Star },
     { number: "73+", label: "Hiring Partners", icon: Award },
   ];
@@ -459,7 +459,7 @@ const TestimonialSection = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              Join 10,000+ Successful Students who have Transformed their
+              Join 4300+ Successful Students who have Transformed their
               Careers and Achieved their Dreams with GogalEdu{" "}
             </motion.p>
             <motion.div

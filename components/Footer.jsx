@@ -187,10 +187,10 @@ const Footer = () => {
             </div>
 
             <div className="flex items-center space-x-3 sm:space-x-4">
-              {['Privacy', 'Terms', 'Contact'].map((item) => (
+              {['Privacy', 'Terms'].map((item) => (
                 <a
                   key={item}
-                  href="#"
+                  href="/"
                   className="text-gray-600 hover:text-green-600 text-xs sm:text-sm transition-colors duration-200"
                 >
                   {item}
