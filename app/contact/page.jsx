@@ -55,20 +55,20 @@ const ContactPage = () => {
     {
       icon: MapPin,
       title: "Address",
-      content: "Sector 16B-Near SKS World School, Greater Noida, West 201318",
+      content: "Unit B-7 Crystaa Tower, C-30, C Block, Sector 63, Noida 201309",
       link: null
     },
     {
       icon: Mail,
       title: "Email",
-      content: "admin@dataempower.in",
-      link: "mailto:admin@dataempower.in"
+      content: "admin@gogaledu.com",
+      link: "mailto:admin@gogaledu.com"
     },
     {
       icon: Phone,
       title: "Phone",
-      content: "+91-7532032388",
-      link: "tel:+917532032388"
+      content: "+91 7011418073",
+      link: "tel:+917011418073"
     },
     {
       icon: Clock,

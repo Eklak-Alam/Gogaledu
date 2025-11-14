@@ -150,11 +150,11 @@ const Footer = () => {
               </a>
 
               <a
-                href="mailto:info@gogaledu.com"
+                href="mailto:admin@gogaledu.com"
                 className="flex items-center space-x-2 text-gray-600 hover:text-green-600 transition-colors duration-200"
               >
                 <Mail className="w-4 h-4 text-green-600 shrink-0" />
-                <span className="text-xs sm:text-sm">info@gogaledu.com</span>
+                <span className="text-xs sm:text-sm">admin@gogaledu.com</span>
               </a>
             </div>
 
