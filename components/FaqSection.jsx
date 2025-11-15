@@ -15,6 +15,46 @@ const FaqSection = () => {
 
   const faqs = [
     {
+      question: "What is GogalEdu Academy?",
+      answer: "GogalEdu Academy is an edtech & training institute that provides courses in Data Science, AI, Digital Marketing, Tech Skills, and Career Development for students and professionals."
+    },
+    {
+      question: "Are the courses online or offline?",
+      answer: "We offer both online and offline learning programs. The availability depends on the specific course and your location."
+    },
+    {
+      question: "Do you provide placement assistance?",
+      answer: "Yes! We offer placement assistance, including resume building, interview training, and connecting students with hiring partners. However, job placement is not guaranteed."
+    },
+    {
+      question: "Do I need prior knowledge to join a course?",
+      answer: "Not always. Many of our beginner-level programs require no prior experience, while advanced courses may need basic understanding. Each course page includes eligibility details."
+    },
+    {
+      question: "What is the admission process?",
+      answer: "You can enroll by:\n• Filling out the enquiry form on our website\n• Speaking with our counselor\n• Choosing your desired course and completing the registration process"
+    },
+    {
+      question: "What is your refund policy?",
+      answer: "Refunds are only provided in special cases as per our Refund & Cancellation Policy. Generally, course fees are non-refundable once enrollment is confirmed."
+    },
+    {
+      question: "Will I receive a certificate?",
+      answer: "Yes! All students receive a course completion certificate after successfully finishing their program and meeting the assessment requirements."
+    },
+    {
+      question: "How can I contact support?",
+      answer: "You can reach our support team through:\n• Email: info@gogaledu.com\n• Phone: +917011418073\n• Website Contact Form\nWe typically respond within 24 hours."
+    },
+    {
+      question: "Do you provide internship opportunities?",
+      answer: "Yes, selected courses include internship opportunities depending on performance and availability."
+    },
+    {
+      question: "Can I attend a demo class before enrolling?",
+      answer: "Yes! You can request a free demo class to understand the teaching style, course structure, and faculty guidance before enrolling."
+    },
+    {
       question: "What qualifications should the Director have to take a New Center?",
       answer: "The Director of the Computer Center must have a minimum qualification of graduation and should hold any degree or diploma in computers."
     },
@@ -67,6 +107,26 @@ const FaqSection = () => {
     }
   };
 
+  // Function to format answer with line breaks and lists
+  const formatAnswer = (answer) => {
+    const lines = answer.split('\n');
+    return lines.map((line, index) => {
+      if (line.startsWith('•')) {
+        return (
+          <li key={index} className="flex items-start space-x-2">
+            <span className="text-green-600 mt-1.5 flex-shrink-0">•</span>
+            <span className="text-gray-600">{line.substring(2)}</span>
+          </li>
+        );
+      }
+      return (
+        <p key={index} className={index > 0 ? 'mt-2' : ''}>
+          {line}
+        </p>
+      );
+    });
+  };
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,7 +143,7 @@ const FaqSection = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-sm lg:text-md text-gray-600 max-w-2xl mx-auto">
-            Find answers to common questions about opening a new computer center with GogalEdu.
+            Find answers to common questions about our courses, admissions, placement assistance, and franchise opportunities.
           </p>
         </motion.div>
 
@@ -98,25 +158,25 @@ const FaqSection = () => {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-xl border border-gray-200 overflow-hidden"
+              className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200"
               variants={itemVariants}
             >
               <button
                 onClick={() => toggleFaq(index)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                className="w-full px-4 sm:px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
               >
-                <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 pr-4 text-left">
                   {faq.question}
                 </h3>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
-                  className="flex-shrink-0"
+                  className="flex-shrink-0 ml-2"
                 >
                   {openIndex === index ? (
-                    <Minus className="w-5 h-5 text-green-600" />
+                    <Minus className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
                   ) : (
-                    <Plus className="w-5 h-5 text-gray-500" />
+                    <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500" />
                   )}
                 </motion.div>
               </button>
@@ -130,10 +190,10 @@ const FaqSection = () => {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-4">
-                      <p className="text-gray-600 leading-relaxed">
-                        {faq.answer}
-                      </p>
+                    <div className="px-4 sm:px-6 pb-4">
+                      <div className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                        {formatAnswer(faq.answer)}
+                      </div>
                     </div>
                   </motion.div>
                 )}
@@ -150,23 +210,25 @@ const FaqSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 sm:p-8 border border-green-200">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
               Still have questions?
             </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            <p className="text-gray-600 mb-4 sm:mb-6 max-w-2xl mx-auto text-sm sm:text-base">
               Can't find the answer you're looking for? Please reach out to our friendly team.
             </p>
             <Link href='/contact'>
-            <motion.button
-              className="bg-green-600 cursor-pointer text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Contact Us
-            </motion.button>
+              <motion.button
+                className="bg-green-600 cursor-pointer text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 text-sm sm:text-base"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Contact Us
+              </motion.button>
             </Link>
+            <div className="mt-4 text-xs sm:text-sm text-gray-500">
+              <p>Email: info@gogaledu.com | Phone: +917011418073</p>
+            </div>
           </div>
         </motion.div>
       </div>
