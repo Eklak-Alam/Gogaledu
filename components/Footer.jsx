@@ -8,10 +8,17 @@ import {
   Phone, 
   Mail, 
   BookOpen,
-  Users,
-  Award,
-  Building,
-  FileText
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Youtube,
+  UserPlus,
+  Store,
+  Building2,
+  Briefcase,
+  FileText,
+  Link2
 } from 'lucide-react';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsConditions from './TermsConditions';
@@ -25,27 +32,19 @@ const Footer = () => {
     setIsVisible(true);
   }, []);
 
-  const features = [
-    { 
-      icon: Users, 
-      text: 'Supportive Environment - Personalized Guidance',
-      description: 'Personalized guidance'
-    },
-    { 
-      icon: BookOpen, 
-      text: 'Flexible Learning - Learn at Your Pace',
-      description: 'Learn at your pace'
-    },
-    { 
-      icon: Award, 
-      text: 'Updated Curriculum - Industry-Relevant',
-      description: 'Industry-relevant'
-    },
-    { 
-      icon: Building, 
-      text: 'Industry Connections -Strong Network',
-      description: 'Strong network'
-    }
+  const quickLinks = [
+    { name: 'Admission Partner', href: '/admission-partner', icon: UserPlus },
+    { name: 'Franchise Partner', href: '/franchise-partner', icon: Store },
+    { name: 'New Center Application', href: '/new-center', icon: Building2 },
+    { name: 'Career', href: '/career', icon: Briefcase },
+  ];
+
+  const socialLinks = [
+    { icon: Facebook, href: '#', color: 'hover:text-blue-600' },
+    { icon: Twitter, href: '#', color: 'hover:text-blue-400' },
+    { icon: Instagram, href: '#', color: 'hover:text-pink-600' },
+    { icon: Linkedin, href: '#', color: 'hover:text-blue-700' },
+    { icon: Youtube, href: '#', color: 'hover:text-red-600' }
   ];
 
   const containerVariants = {
@@ -82,100 +81,134 @@ const Footer = () => {
       >
         {/* Main Footer Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
             
-            {/* About Section */}
+            {/* About Section - Left */}
             <motion.div
-              className="md:col-span-2"
+              className="space-y-4"
               variants={itemVariants}
             >
-              <div className="flex items-center mb-3 sm:mb-4">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-green-600 rounded-lg flex items-center justify-center">
-                  <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+              <div className="flex items-center">
+                <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                  <BookOpen className="w-5 h-5 text-white" />
                 </div>
-                <span className="ml-2 sm:ml-3 text-lg sm:text-xl font-bold text-gray-900">
+                <span className="ml-3 text-xl font-bold text-gray-900">
                   GogalEdu Academy
                 </span>
               </div>
 
-              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Providing Supportive Learning Environment with Flexible Course Options, Updated Curriculum, and Strong Industry Connections for Successful Career Outcomes.
               </p>
 
-              {/* Features Grid */}
-              <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                {features.map((feature, index) => {
-                  const IconComponent = feature.icon;
+              {/* Social Media Links */}
+              <div className="flex space-x-3">
+                {socialLinks.map((social, index) => {
+                  const IconComponent = social.icon;
                   return (
-                    <motion.div
-                      key={feature.text}
-                      className="flex items-start space-x-2 p-2 sm:p-3 bg-gray-50 rounded-lg"
-                      variants={itemVariants}
+                    <motion.a
+                      key={index}
+                      href={social.href}
+                      className={`w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 transition-all duration-300 hover:bg-green-100 ${social.color} hover:scale-110`}
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      <div className="p-1 bg-green-100 rounded text-green-600 flex-shrink-0">
-                        <IconComponent className="w-3 h-3 sm:w-4 sm:h-4" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-medium text-gray-900 text-xs sm:text-sm leading-tight">
-                          {feature.text}
-                        </h4>
-                        <p className="text-gray-600 text-xs mt-0.5">
-                          {feature.description}
-                        </p>
-                      </div>
-                    </motion.div>
+                      <IconComponent className="w-4 h-4" />
+                    </motion.a>
                   );
                 })}
               </div>
             </motion.div>
 
-            {/* Contact & Links */}
-            <motion.div variants={itemVariants}>
-              <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-3 sm:mb-4 flex items-center">
-                <MapPin className="w-4 h-4 mr-2 text-green-600" />
+            {/* Quick Links - Center - Single Column */}
+            <motion.div
+              className="space-y-4"
+              variants={itemVariants}
+            >
+              <h3 className="text-lg font-bold text-gray-900 flex items-center">
+                <Link2 className="w-5 h-5 mr-2 text-green-600" />
+                Quick Links
+              </h3>
+              
+              <div className="space-y-3">
+                {quickLinks.map((link, index) => {
+                  const IconComponent = link.icon;
+                  return (
+                    <motion.a
+                      key={link.name}
+                      href={link.href}
+                      className="group flex items-center space-x-3 p-2 text-gray-600 hover:text-green-600 transition-colors duration-300"
+                      variants={itemVariants}
+                      whileHover={{ x: 5 }}
+                    >
+                      <IconComponent className="w-5 h-5 text-green-500 group-hover:text-green-600 transition-colors duration-300" />
+                      <span className="text-sm font-medium">
+                        {link.name}
+                      </span>
+                    </motion.a>
+                  );
+                })}
+              </div>
+            </motion.div>
+
+            {/* Contact Info - Right */}
+            <motion.div 
+              className="space-y-4"
+              variants={itemVariants}
+            >
+              <h3 className="text-lg font-bold text-gray-900 flex items-center">
+                <MapPin className="w-5 h-5 mr-2 text-green-600" />
                 Contact Info
               </h3>
 
               {/* Contact Info */}
-              <div className="space-y-2 sm:space-y-3 mb-4">
-                <div className="flex items-start space-x-2">
-                  <MapPin className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
-                  <p className="text-gray-600 text-xs sm:text-sm leading-tight">
+              <div className="space-y-3">
+                <motion.div 
+                  className="flex items-start space-x-3 group cursor-pointer"
+                  whileHover={{ x: 5 }}
+                >
+                  <MapPin className="w-5 h-5 text-green-600 mt-0.5 shrink-0 group-hover:scale-110 transition-transform" />
+                  <p className="text-gray-600 text-sm leading-tight group-hover:text-green-700 transition-colors">
                     Unit B-7 Crystaa Tower, C-30, C Block, Sector 63,<br />
                     Noida 201309
                   </p>
-                </div>
+                </motion.div>
 
-                <a
+                <motion.a
                   href="tel:+917011418073"
-                  className="flex items-center space-x-2 text-gray-600 hover:text-green-600 transition-colors duration-200"
+                  className="flex items-center space-x-3 text-gray-600 hover:text-green-600 transition-all duration-200 group"
+                  whileHover={{ x: 5 }}
                 >
-                  <Phone className="w-4 h-4 text-green-600 shrink-0" />
-                  <span className="text-xs sm:text-sm">+917011418073</span>
-                </a>
+                  <Phone className="w-5 h-5 text-green-600 shrink-0 group-hover:scale-110 transition-transform" />
+                  <span className="text-sm">+917011418073</span>
+                </motion.a>
 
-                <a
+                <motion.a
                   href="mailto:admin@gogaledu.com"
-                  className="flex items-center space-x-2 text-gray-600 hover:text-green-600 transition-colors duration-200"
+                  className="flex items-center space-x-3 text-gray-600 hover:text-green-600 transition-all duration-200 group"
+                  whileHover={{ x: 5 }}
                 >
-                  <Mail className="w-4 h-4 text-green-600 shrink-0" />
-                  <span className="text-xs sm:text-sm">admin@gogaledu.com</span>
-                </a>
+                  <Mail className="w-5 h-5 text-green-600 shrink-0 group-hover:scale-110 transition-transform" />
+                  <span className="text-sm">admin@gogaledu.com</span>
+                </motion.a>
               </div>
 
               {/* Company Info */}
-              <div className="bg-gray-50 rounded-lg p-3 border border-gray-200">
-                <h4 className="font-medium text-gray-900 text-xs sm:text-sm mb-2 flex items-center">
+              <motion.div 
+                className="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-green-300 transition-colors duration-300"
+                whileHover={{ y: -2 }}
+              >
+                <h4 className="font-medium text-gray-900 text-sm mb-2 flex items-center">
                   <FileText className="w-4 h-4 mr-2 text-green-600" />
                   Company Info
                 </h4>
-                <div className="space-y-1 text-xs text-gray-600">
-                  <p className="font-medium text-xs">GOGALEDU ACADEMY (OPC) PRIVATE LIMITED</p>
-                  <p className="font-mono bg-white px-2 py-1 rounded border border-gray-200 text-xs">
+                <div className="space-y-2 text-xs text-gray-600">
+                  <p className="font-medium">GOGALEDU ACADEMY (OPC) PRIVATE LIMITED</p>
+                  <p className="font-mono bg-white px-2 py-1 rounded border border-gray-200 text-xs hover:border-green-300 transition-colors">
                     GST: 09AALCG9754H1ZY
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -185,25 +218,30 @@ const Footer = () => {
           className="border-t border-gray-200 bg-gray-50"
           variants={itemVariants}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
-            <div className="flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0 text-center sm:text-left">
-              <div className="text-gray-600 text-xs sm:text-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
+              <div className="text-gray-600 text-sm text-center sm:text-left">
                 © 2025 GogalEdu Academy. All Rights Reserved.
               </div>
 
-              <div className="flex items-center space-x-3 sm:space-x-4">
-                <button
+              {/* Legal Links */}
+              <div className="flex items-center space-x-6">
+                <motion.button
                   onClick={() => setShowPrivacy(true)}
-                  className="text-gray-600 hover:text-green-600 text-xs sm:text-sm transition-colors duration-200"
+                  className="text-gray-600 hover:text-green-600 text-sm transition-colors duration-200 font-medium"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  Privacy
-                </button>
-                <button
+                  Privacy Policy
+                </motion.button>
+                <motion.button
                   onClick={() => setShowTerms(true)}
-                  className="text-gray-600 hover:text-green-600 text-xs sm:text-sm transition-colors duration-200"
+                  className="text-gray-600 hover:text-green-600 text-sm transition-colors duration-200 font-medium"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  Terms
-                </button>
+                  Terms & Conditions
+                </motion.button>
               </div>
             </div>
           </div>
