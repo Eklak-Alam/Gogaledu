@@ -4,7 +4,7 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, EffectCards } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import {
   Star,
   Quote,
@@ -15,91 +15,115 @@ import {
   Award,
   TrendingUp,
   Users,
+  Briefcase,
+  GraduationCap,
 } from "lucide-react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
-import "swiper/css/effect-cards";
 import Link from "next/link";
 
 const TestimonialSection = () => {
   const swiperRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
+  // Updated testimonials based on your actual data
   const testimonials = [
     {
       id: 1,
-      name: "Kritika Malhotra",
-      role: "Data Analyst",
-      content:
-        "GogalEdu Academy completely transformed my career trajectory. The hands-on projects and industry mentorship helped me land my dream job at Google within 3 months of completing the course!",
+      name: "Rohan Mehta",
+      role: "Data Analyst Student",
+      content: "The Data Analyst program at GogalEdu Academy gave me clarity and confidence. The trainers taught SQL, Power BI, Tableau, Excel, and Python with real datasets. Today, I can clean data, build dashboards, and present insights like a pro. I even used my course project in my job interviews!",
       rating: 5,
-      avatar: "KM",
-      gradient: "from-purple-500 to-pink-500",
-      achievement: "3x Salary Hike",
+      avatar: "RM",
+      gradient: "from-green-500 to-cyan-500",
+      status: "Student",
+      course: "Data Analyst Program",
     },
     {
       id: 2,
-      name: "Shyam Kumar",
-      role: "Marketing Manager",
-      content:
-        "The practical approach to learning at GogalEdu helped me implement real marketing strategies that increased our company's revenue by 40% within the first quarter.",
+      name: "Meenakshi Prasad",
+      role: "Business Analyst Student",
+      content: "I joined GogalEdu with zero knowledge about Business Analysis. Within weeks, I learned documentation, flow charts, BRD/SRS, and stakeholder communication. The case studies they provide are exactly what companies expect. I feel fully prepared for BA interviews now!",
       rating: 5,
-      avatar: "SK",
-      gradient: "from-blue-500 to-cyan-500",
-      achievement: "40% Revenue Growth",
+      avatar: "MP",
+      gradient: "from-purple-500 to-pink-500",
+      status: "Student",
+      course: "Business Analyst Program",
     },
     {
       id: 3,
-      name: "Neha Sharma",
-      role: "Operations Director",
-      content:
-        "From zero coding experience to leading a tech team, GogalEdu's comprehensive curriculum and 1:1 mentorship made this incredible career transition possible.",
+      name: "Aditya Varma",
+      role: "MIS Analyst Program",
+      content: "The MIS training was extremely practical. We worked on advanced Excel, automation, dashboards, and reporting tasks that companies use daily. I now create weekly and monthly MIS reports confidently. This course truly upgraded my corporate skills.",
       rating: 5,
-      avatar: "NS",
+      avatar: "AV",
       gradient: "from-green-500 to-emerald-500",
-      achievement: "Career Switch Success",
+      status: "Student",
+      course: "MIS Analyst Program",
     },
     {
       id: 4,
-      name: "Tanuja Patel",
-      role: "Product Manager",
-      content:
-        "The advanced analytics tools and real-world projects at GogalEdu helped me better understand customer behavior and improve our product's user experience significantly.",
+      name: "Sana Sheikh",
+      role: "AML (Anti-Money Laundering) Student",
+      content: "The AML course exceeded my expectations. I learned KYC, transaction monitoring, red flags, risk assessment, and compliance frameworks in a very simple way. The mentor shared real banking examples, which helped me understand how AML works in the industry.",
       rating: 5,
-      avatar: "TP",
+      avatar: "SS",
       gradient: "from-orange-500 to-red-500",
-      achievement: "Product Launch Success",
+      status: "Student",
+      course: "AML Program",
     },
     {
       id: 5,
-      name: "Rahul Sharma",
-      role: "Senior Software Developer",
-      content:
-        "GogalEdu's industry-focused curriculum and mock interviews prepared me perfectly for FAANG company interviews. Got 4 job offers within 2 weeks!",
+      name: "Riya Singh",
+      role: "Placed as Data Analyst",
+      content: "The placement team at GogalEdu Academy guided me at every step — from building my resume to preparing for technical rounds. The mock interviews boosted my confidence, and within weeks, I secured a Data Analyst job. Truly grateful!",
       rating: 5,
       avatar: "RS",
       gradient: "from-indigo-500 to-purple-500",
-      achievement: "4 Job Offers",
+      status: "Placed",
+      course: "Data Analyst Program",
     },
     {
       id: 6,
-      name: "Priya Singh",
-      role: "Business Analyst",
-      content:
-        "The placement support team at GogalEdu is exceptional. They helped me negotiate a 50% higher package than my initial expectation. Truly life-changing!",
+      name: "Deepak Kumar",
+      role: "Placed as MIS Executive",
+      content: "I never imagined I would switch my career so smoothly. The mentors taught exactly what companies look for, and the placement support team constantly shared openings. I cracked my interview in the very first attempt!",
       rating: 5,
-      avatar: "PS",
-      gradient: "from-yellow-500 to-amber-500",
-      achievement: "50% Higher Package",
+      avatar: "DK",
+      gradient: "from-teal-500 to-green-500",
+      status: "Placed",
+      course: "MIS Analyst Program",
+    },
+    {
+      id: 7,
+      name: "Anamika Verma",
+      role: "Placed as Business Analyst",
+      content: "The practice projects and interview preparation sessions were game-changers. My interviewer appreciated the BRDs and dashboards I built during the course. GogalEdu Academy didn't just train me, they prepared me for the real corporate world.",
+      rating: 5,
+      avatar: "AV",
+      gradient: "from-pink-500 to-rose-500",
+      status: "Placed",
+      course: "Business Analyst Program",
+    },
+    {
+      id: 8,
+      name: "Harshit Raj",
+      role: "Placed as AML Analyst (Banking Client)",
+      content: "The AML training was excellent, but the placement support was even better. They helped me understand real banking scenarios and prepared me for compliance interview questions. Today, I'm working with a reputed BFSI client thanks to GogalEdu.",
+      rating: 5,
+      avatar: "HR",
+      gradient: "from-amber-500 to-yellow-500",
+      status: "Placed",
+      course: "AML Program",
     },
   ];
 
   const stats = [
     { number: "4300+", label: "Happy Students", icon: Users },
-    { number: "93%", label: "Success Rate", icon: TrendingUp },
+    { number: "93%", label: "Placement Rate", icon: TrendingUp },
     { number: "4.8/5", label: "Average Rating", icon: Star },
     { number: "73+", label: "Hiring Partners", icon: Award },
   ];
@@ -140,24 +164,12 @@ const TestimonialSection = () => {
     },
   };
 
-  const hoverVariants = {
-    hover: {
-      y: -8,
-      scale: 1.02,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 25,
-      },
-    },
-  };
-
   return (
     <section className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-green-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-10 left-10 w-72 h-72 bg-purple-200 rounded-full blur-3xl opacity-20"
+          className="absolute top-10 left-10 w-72 h-72 bg-green-200 rounded-full blur-3xl opacity-20"
           animate={{
             scale: [1, 1.1, 1],
             opacity: [0.2, 0.3, 0.2],
@@ -211,7 +223,7 @@ const TestimonialSection = () => {
             viewport={{ once: true }}
           >
             Voices of{" "}
-            <span className="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-600 to-green-600 bg-clip-text text-transparent">
               Success
             </span>
           </motion.h2>
@@ -223,8 +235,7 @@ const TestimonialSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Discover how our Students Transformed their Careers and Achieved
-            their Dreams with GogalEdu's Comprehensive Learning Ecosystem{" "}
+            Discover how our Students Transformed their Careers and Achieved their Dreams with GogalEdu's Comprehensive Learning Ecosystem
           </motion.p>
         </motion.div>
 
@@ -243,9 +254,9 @@ const TestimonialSection = () => {
                 key={stat.label}
                 variants={cardVariants}
                 className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 text-center border border-gray-200/60 hover:border-green-300 shadow-lg hover:shadow-xl transition-all duration-300"
-                whileHover="hover"
+                whileHover={{ y: -5, scale: 1.02 }}
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center text-white shadow-lg mx-auto mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center text-white shadow-lg mx-auto mb-4">
                   <IconComponent className="w-6 h-6" />
                 </div>
                 <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
@@ -276,7 +287,7 @@ const TestimonialSection = () => {
               transition={{ duration: 0.6 }}
             >
               <h3 className="text-xl font-bold text-gray-900 hidden sm:block">
-                Student Testimonials
+                Student & Placement Stories
               </h3>
             </motion.div>
 
@@ -347,77 +358,83 @@ const TestimonialSection = () => {
             }}
             className="pb-12"
           >
-            {testimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.id}>
                 <motion.div
                   variants={cardVariants}
-                  className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-gray-200/60 shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group"
-                  whileHover="hover"
+                  className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group"
+                  whileHover={{ y: -5 }}
                 >
-                  {/* Gradient Background Effect */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-r ${testimonial.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`}
-                  />
-
-                  {/* Quote Icon */}
-                  <div className="mb-6 relative z-10">
-                    <Quote className="w-8 h-8 text-green-500 opacity-20" />
-                  </div>
-
-                  {/* Achievement Badge */}
-                  <div className="absolute top-6 right-6 z-10">
-                    <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                      {testimonial.achievement}
+                  {/* Top Section with Quote Icon and Status */}
+                  <div className="flex justify-between items-start mb-4">
+                    <Quote className="w-6 h-6 text-green-500 opacity-60" />
+                    <div className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                      testimonial.status === "Placed" 
+                        ? "bg-green-100 text-green-700 border border-green-200" 
+                        : "bg-green-100 text-green-700 border border-green-200"
+                    }`}>
+                      {testimonial.status === "Placed" ? (
+                        <span className="flex items-center gap-1">
+                          <Briefcase className="w-3 h-3" />
+                          {testimonial.status}
+                        </span>
+                      ) : (
+                        <span className="flex items-center gap-1">
+                          <GraduationCap className="w-3 h-3" />
+                          {testimonial.status}
+                        </span>
+                      )}
                     </div>
                   </div>
 
+                  {/* Course Tag */}
+                  <div className="mb-4">
+                    <span className="text-xs font-medium text-gray-600 bg-gray-100 px-3 py-1 rounded-full border">
+                      {testimonial.course}
+                    </span>
+                  </div>
+
                   {/* Stars */}
-                  <div className="flex items-center space-x-1 mb-6 relative z-10">
+                  <div className="flex items-center space-x-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        whileHover={{ scale: 1.2, rotate: 10 }}
-                        transition={{ type: "spring", stiffness: 400 }}
-                      >
-                        <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                      </motion.div>
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                     ))}
                   </div>
 
                   {/* Content */}
-                  <blockquote className="text-gray-700 text-base leading-relaxed mb-8 flex-1 relative z-10 font-medium">
+                  <blockquote className="text-gray-700 text-sm leading-relaxed mb-6 flex-1">
                     "{testimonial.content}"
                   </blockquote>
 
                   {/* Author */}
-                  <div className="flex items-center space-x-4 pt-6 border-t border-gray-200/60 relative z-10">
+                  <div className="flex items-center space-x-3 pt-4 border-t border-gray-100">
                     <div
-                      className={`w-12 h-12 bg-gradient-to-r ${testimonial.gradient} rounded-2xl flex items-center justify-center text-white font-bold text-sm shadow-lg`}
+                      className={`w-10 h-10 bg-gradient-to-r ${testimonial.gradient} rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-md`}
                     >
                       {testimonial.avatar}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="font-bold text-gray-900 text-lg">
+                      <div className="font-semibold text-gray-900 text-base">
                         {testimonial.name}
                       </div>
-                      <div className="text-gray-600 text-sm">
+                      <div className="text-gray-600 text-xs">
                         {testimonial.role}
                       </div>
                     </div>
                   </div>
 
-                  {/* Hover Shine Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                  {/* Hover Effect Border */}
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-green-200 rounded-2xl transition-all duration-300 pointer-events-none" />
                 </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
 
-          {/* Enhanced Progress Bar */}
+          {/* Progress Bar */}
           <div className="flex justify-center items-center space-x-4 mt-8">
-            <div className="w-32 h-2 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+            <div className="w-32 h-1 bg-gray-200 rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-gradient-to-r from-green-500 to-emerald-600 rounded-full"
+                className="h-full bg-gradient-to-r from-green-500 to-green-500 rounded-full"
                 animate={{
                   width: ["0%", "100%", "0%"],
                 }}
@@ -439,7 +456,7 @@ const TestimonialSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-50px" }}
         >
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 sm:p-12 border border-gray-200/60 shadow-lg">
+          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-gray-200 shadow-lg">
             <motion.h3
               className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
@@ -448,7 +465,7 @@ const TestimonialSection = () => {
               viewport={{ once: true }}
             >
               Ready to Write Your{" "}
-              <span className="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-green-600 to-green-600 bg-clip-text text-transparent">
                 Success Story?
               </span>
             </motion.h3>
@@ -459,8 +476,7 @@ const TestimonialSection = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              Join 4300+ Successful Students who have Transformed their
-              Careers and Achieved their Dreams with GogalEdu{" "}
+              join 4300+ Successful Students who have Transformed their Careers and Achieved their Dreams with GogalEdu
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
@@ -469,25 +485,22 @@ const TestimonialSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              {/* First Button - Goes to /courses */}
               <Link href="/courses" className="w-full sm:w-auto">
                 <motion.button
-                  className="bg-gradient-to-r from-green-600 to-emerald-700 text-white cursor-pointer px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 shadow-lg hover:scale-105 w-full"
+                  className="bg-gradient-to-r from-green-600 to-green-600 text-white cursor-pointer px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 shadow-lg hover:scale-105 w-full"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Start Your Journey Today
+                  Explore All Courses
                 </motion.button>
               </Link>
-
-              {/* Second Button - Also Goes to /courses */}
-              <Link href="/courses" className="w-full sm:w-auto">
+              <Link href="/placements" className="w-full sm:w-auto">
                 <motion.button
                   className="border border-gray-300 text-gray-700 px-8 cursor-pointer py-4 rounded-xl font-semibold text-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 hover:scale-105 w-full"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  View All Courses
+                  View Placement Details
                 </motion.button>
               </Link>
             </motion.div>

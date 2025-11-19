@@ -18,10 +18,13 @@ import {
   Building2,
   Briefcase,
   FileText,
-  Link2
+  Link2,
+  LinkedinIcon,
+  YoutubeIcon
 } from 'lucide-react';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsConditions from './TermsConditions';
+import { BsInstagram, BsThreads, BsTwitter } from 'react-icons/bs';
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -40,11 +43,11 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: '#', color: 'hover:text-blue-600' },
-    { icon: Twitter, href: '#', color: 'hover:text-blue-400' },
-    { icon: Instagram, href: '#', color: 'hover:text-pink-600' },
-    { icon: Linkedin, href: '#', color: 'hover:text-blue-700' },
-    { icon: Youtube, href: '#', color: 'hover:text-red-600' }
+    { icon: BsThreads, href: 'https://www.threads.com/@gogaledu_academy', color: 'hover:text-blue-600' },
+    { icon: BsTwitter, href: 'https://x.com/gogaledu57079', color: 'hover:text-blue-400' },
+    { icon: BsInstagram, href: 'https://www.instagram.com/gogaledu_academy', color: 'hover:text-pink-600' },
+    { icon: LinkedinIcon, href: 'https://www.linkedin.com/company/gogaledu-academy/', color: 'hover:text-blue-700' },
+    { icon: YoutubeIcon, href: 'https://youtube.com/@gogaleduacademy', color: 'hover:text-red-600' }
   ];
 
   const containerVariants = {
@@ -109,6 +112,7 @@ const Footer = () => {
                     <motion.a
                       key={index}
                       href={social.href}
+                      target='_blank'
                       className={`w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 transition-all duration-300 hover:bg-green-100 ${social.color} hover:scale-110`}
                       whileHover={{ y: -2 }}
                       whileTap={{ scale: 0.95 }}
@@ -137,6 +141,7 @@ const Footer = () => {
                     <motion.a
                       key={link.name}
                       href={link.href}
+                      target='_blank'
                       className="group flex items-center space-x-3 p-2 text-gray-600 hover:text-green-600 transition-colors duration-300"
                       variants={itemVariants}
                       whileHover={{ x: 5 }}

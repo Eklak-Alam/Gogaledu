@@ -9,6 +9,7 @@ export const CourseData = [
     rating: 4.9,
     reviews: "1.3k",
     students: "1.5k",
+    achievementGoal: "Master Data Cleaning, Analysis, Excel, SQL, and Dashboards to Turn Raw Data into Real Business Insights.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpQF1pXeXbGfNuutUQBNWFeigXGOTWhjOx5bfXCSBw6oYgSvML4l1EJlA-vJTGDYjkuf8&usqp=CAU",
     syllabus: [
@@ -159,7 +160,7 @@ export const CourseData = [
     students: "1.4k",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_bua--rBKpefmYBDsqMdie_D7lfA1C_nhOQ&s",
-    achievementGoal: "Complete 25 Projects Out of 30",
+    achievementGoal: "Learn Business Requirements, Documentation and Analytics to Bridge the gap between Data, Processes, and Decisions.",
     syllabus: [
       {
         month: "Month 1: Business Analysis Foundations & Excel",
@@ -284,7 +285,7 @@ export const CourseData = [
     students: "950+",
     image:
       "https://slaconsultantsgurgaon.in/wp_files/wp-content/uploads_gurgaon/2018/10/Advanced-Excel-MIS-Data-Analyst-Training-in-Gurgaon.png",
-    achievementGoal: "Complete 10 Reporting Projects + 5 Real-Time Dashboards",
+    achievementGoal: "Become an Expert in Reporting, Automation and Dashboards using Excel and Power BI for Daily Business Operations.",
     syllabus: [
       {
         month: "Month 1: Excel Mastery & Reporting",
@@ -413,7 +414,7 @@ export const CourseData = [
   reviews: "650+",
   students: "800+",
   image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkodQ5vfDEsPenU7zBfr2y0YoO79CZmihzyw&s", // You can add actual image URL
-  achievementGoal: "Complete 10+ Case Studies & 5 Live Compliance Projects",
+  achievementGoal: "Understand KYC, Compliance and Transaction Monitoring to build a Career in Banking and Financial Crime Prevention.",
   syllabus: [
     {
       month: "Month 1: AML Foundations & KYC",
