@@ -31,10 +31,10 @@ const FaqSection = () => {
       question: "Are the courses online or offline?",
       answer: "We offer flexible learning options to suit different needs:",
       points: [
-        "📚 Online Live Classes: Interactive virtual classrooms",
-        "🏫 Offline Classroom: Physical centers in multiple locations",
-        "💻 Hybrid Model: Combination of online and offline",
-        "🎥 Self-Paced: Recorded sessions with mentor support"
+        "Online Live Classes: Interactive virtual classrooms",
+        "Offline Classroom: Physical centers in multiple locations",
+        "Hybrid Model: Combination of online and offline",
+        "Self-Paced: Recorded sessions with mentor support"
       ],
       note: "Availability varies by course and location. Check specific course details for mode options."
     },
@@ -42,12 +42,12 @@ const FaqSection = () => {
       question: "Do you provide placement assistance?",
       answer: "Yes! Our comprehensive placement support includes:",
       points: [
-        "📄 Professional Resume Building",
-        "🎯 Interview Preparation & Mock Sessions",
-        "🤝 73+ Hiring Partner Connections",
-        "💼 Job Referrals & Placement Support",
-        "📊 Industry-specific Portfolio Building",
-        "🔗 LinkedIn Profile Optimization"
+        "Professional Resume Building",
+        "Interview Preparation & Mock Sessions",
+        "73+ Hiring Partner Connections",
+        "Job Referrals & Placement Support",
+        "Industry-specific Portfolio Building",
+        "LinkedIn Profile Optimization"
       ],
       note: "93% placement rate with 4300+ successful placements"
     },
@@ -55,10 +55,10 @@ const FaqSection = () => {
       question: "Do I need prior knowledge to join a course?",
       answer: "Course requirements vary:",
       points: [
-        "🟢 Beginner Courses: No prior experience needed",
-        "🟡 Intermediate Courses: Basic understanding recommended",
-        "🔴 Advanced Courses: Prerequisites specified",
-        "🎓 All Courses: Dedicated beginner batches available"
+        "Beginner Courses: No prior experience needed",
+        "Intermediate Courses: Basic understanding recommended",
+        "Advanced Courses: Prerequisites specified",
+        "All Courses: Dedicated beginner batches available"
       ],
       note: "Each course page includes detailed eligibility criteria and pre-requisites."
     },
@@ -77,11 +77,11 @@ const FaqSection = () => {
       question: "What is your refund policy?",
       answer: "Our refund policy is designed to be fair and transparent:",
       points: [
-        "✅ Refunds processed within 7-10 working days",
-        "✅ Valid for cancellation before course commencement",
-        "❌ No refund after accessing course materials",
-        "✅ Special cases reviewed individually",
-        "🔄 Course transfer options available"
+        "Refunds processed within 7-10 working days",
+        "Valid for cancellation before course commencement",
+        "No refund after accessing course materials",
+        "Special cases reviewed individually",
+        "Course transfer options available"
       ],
       note: "Refer to our detailed Refund & Cancellation Policy document for complete terms."
     },
@@ -89,11 +89,11 @@ const FaqSection = () => {
       question: "Will I receive a certificate?",
       answer: "Yes! Certification includes:",
       points: [
-        "🎓 Course Completion Certificate",
-        "📜 Industry-recognized credentials",
-        "🔗 Verifiable digital certificates",
-        "⭐ Performance-based grading",
-        "🏆 Merit certificates for top performers"
+        "Course Completion Certificate",
+        "Industry-recognized credentials",
+        "Verifiable digital certificates",
+        "Performance-based grading",
+        "Merit certificates for top performers"
       ],
       note: "Certificates awarded after successful completion of all assessments and projects."
     },
@@ -101,11 +101,11 @@ const FaqSection = () => {
       question: "How can I contact support?",
       answer: "Multiple support channels available:",
       points: [
-        "📧 Email: info@gogaledu.com",
-        "📞 Phone: +91 70114 18073",
-        "🌐 Website: Live chat & contact form",
-        "💬 WhatsApp: Direct messaging support",
-        "🏢 Office: Visit our centers"
+        "Email: info@gogaledu.com",
+        "Phone: +91 70114 18073",
+        "Website: Live chat & contact form",
+        "WhatsApp: Direct messaging support",
+        "Office: Visit our centers"
       ],
       note: "Average response time: Within 24 hours for emails, instant for calls/chat."
     },
@@ -113,11 +113,11 @@ const FaqSection = () => {
       question: "Do you provide internship opportunities?",
       answer: "Internship opportunities include:",
       points: [
-        "🔹 Live project internships",
-        "🔹 Industry partner collaborations",
-        "🔹 Certificate internship programs",
-        "🔹 Stipend-based opportunities",
-        "🔹 Remote internship options"
+        "Live project internships",
+        "Industry partner collaborations",
+        "Certificate internship programs",
+        "Stipend-based opportunities",
+        "Remote internship options"
       ],
       note: "Available for selected courses based on performance and project completion."
     },
@@ -125,11 +125,11 @@ const FaqSection = () => {
       question: "Can I attend a demo class before enrolling?",
       answer: "Absolutely! Demo class benefits:",
       points: [
-        "🎯 Experience teaching methodology",
-        "👨‍🏫 Interact with faculty members",
-        "📚 Understand course curriculum",
-        "💬 Clear all your doubts",
-        "🤝 No commitment required"
+        "Experience teaching methodology",
+        "Interact with faculty members",
+        "Understand course curriculum",
+        "Clear all your doubts",
+        "No commitment required"
       ],
       note: "Free demo classes available for all programs. Schedule through website or phone."
     }
@@ -219,9 +219,9 @@ const FaqSection = () => {
                 className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-gray-50/50 transition-colors duration-200 group"
               >
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-green-600 rounded-xl flex items-center justify-center text-white font-bold text-sm mt-1 flex-shrink-0">
+                  {/* <div className="w-8 h-8 bg-green-600 rounded-xl flex items-center justify-center text-white font-bold text-sm mt-1 flex-shrink-0">
                     {index + 1}
-                  </div>
+                  </div> */}
                   <h3 className="text-lg font-semibold text-gray-900 pr-4 text-left group-hover:text-green-600 transition-colors">
                     {faq.question}
                   </h3>

@@ -61,8 +61,8 @@ const ContactPage = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "admin@gogaledu.com",
-      link: "mailto:admin@gogaledu.com"
+      content: "info@gogaledu.com",
+      link: "mailto:info@gogaledu.com"
     },
     {
       icon: Phone,

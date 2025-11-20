@@ -189,12 +189,12 @@ const Footer = () => {
                 </motion.a>
 
                 <motion.a
-                  href="mailto:admin@gogaledu.com"
+                  href="mailto:info@gogaledu.com"
                   className="flex items-center space-x-3 text-gray-600 hover:text-green-600 transition-all duration-200 group"
                   whileHover={{ x: 5 }}
                 >
                   <Mail className="w-5 h-5 text-green-600 shrink-0 group-hover:scale-110 transition-transform" />
-                  <span className="text-sm">admin@gogaledu.com</span>
+                  <span className="text-sm">info@gogaledu.com</span>
                 </motion.a>
               </div>
 

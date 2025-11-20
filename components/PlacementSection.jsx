@@ -92,7 +92,7 @@ const PlacementSection = () => {
       title: "Exclusive Job Offers",
       description:
         "Access to premium job opportunities not available elsewhere with direct company referrals",
-      stat: "1000+ Companies",
+      stat: "73+ Companies",
       gradient: "from-orange-500 to-red-500",
       bgGradient: "from-orange-50 to-red-50",
       delay: 0.3,

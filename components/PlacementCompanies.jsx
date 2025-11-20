@@ -123,7 +123,7 @@ const PlacementCompanies = () => {
                     src={company.logo}
                     alt="Company Logo"
                     className="h-8 w-auto object-contain transition-all duration-500 group-hover:grayscale-0
-                      sm:h-8
+                      sm:h-8npm
                       lg:h-10 
                       xl:h-12"
                   />
