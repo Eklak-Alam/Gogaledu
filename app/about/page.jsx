@@ -12,15 +12,18 @@ import {
   Clock,
   Zap,
   Globe,
-  Heart
+  Heart,
+  Linkedin
 } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const AboutPage = () => {
   const features = [
     {
       icon: BookOpen,
       title: "Comprehensive Training",
-      description: "Specialised programmes in data analytics, business intelligence, machine learning, and cloud computing."
+      description: "Specialised Programmes in Data Analytics, Business Analytics, MIS, and AML and More Analytics Tools."
     },
     {
       icon: Users,
@@ -74,9 +77,9 @@ const AboutPage = () => {
 
   const stats = [
     { number: "2+", label: "Years of Excellence" },
-    { number: "100+", label: "Students Trained" },
-    { number: "50+", label: "Hiring Partners" },
-    { number: "98%", label: "Success Rate" }
+    { number: "4700+", label: "Students Trained" },
+    { number: "73+", label: "Hiring Partners" },
+    { number: "93%", label: "Success Rate" }
   ];
 
   const containerVariants = {
@@ -105,7 +108,7 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative pt-28 pb-10 lg:pb-16 lg:pt-36 bg-gradient-to-br from-green-50 to-white">
+      <section className="relative pt-28 lg:pt-36 bg-gradient-to-br from-green-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center"
@@ -127,8 +130,7 @@ const AboutPage = () => {
             </h1>
 
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl sm:max-w-4xl mx-auto leading-relaxed px-2">
-              Trusted by students and professionals across India for hands-on data learning 
-              and job-oriented courses that prepare you for success in the tech-driven future.
+              Trusted by Students and Professionals across India for Hands-On Data Learning and Job-Oriented Courses that Prepare You for Success in the Tech-Driven Future.
             </p>
           </motion.div>
 
@@ -160,7 +162,7 @@ const AboutPage = () => {
       </section>
 
       {/* About Content */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="pt-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div
@@ -174,38 +176,70 @@ const AboutPage = () => {
               </h2>
               <div className="space-y-3 sm:space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed">
                 <p>
-                  At GogalEdu Academy, we are committed to empowering individuals through data science 
-                  training and data analytics courses, equipping them with the essential skills and 
-                  knowledge to excel in the ever-evolving world of data and technology.
+                  At GogalEdu Academy, we are committed to empowering individuals through Data Science and AI Training, equipping them with the essential Skills and Knowledge to excel in the ever-evolving world of Data and Technology.
                 </p>
                 <p>
-                  Established two years ago, our academy has quickly emerged as a trusted name in data 
-                  education in India, celebrated for its hands-on data learning and job-oriented data 
-                  courses designed to prepare students for a successful career in data and technology.
+                  Established two years ago, our academy has quickly emerged as a trusted name in Data Education in India, celebrated for its Hands-On Data Learning and Job-Oriented Data Courses designed to prepare students for a Successful Career in Data and Technology.
                 </p>
                 <p>
-                  Our mission extends beyond teaching cutting-edge tools and techniques; we ensure our 
-                  students master industry-ready data curriculum that meets real-world demands.
+                  Our mission extends beyond Teaching Cutting-Edge Tools and Techniques, we ensure our Students Master Industry-Ready Data curriculum that meets real-world demands.
                 </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-            >
-              <div className="bg-gradient-to-br from-green-100 to-green-200 rounded-xl sm:rounded-2xl p-6 sm:p-8 h-48 sm:h-64 flex items-center justify-center">
-                <div className="text-center">
-                  <Target className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 text-green-600 mx-auto mb-2 sm:mb-4" />
-                  <p className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 px-2">
-                    Transforming Careers Through Quality Education
-                  </p>
+                
+                {/* Founder Section */}
+                <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gray-50 rounded-lg sm:rounded-xl border border-gray-200">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 rounded-full flex items-center justify-center">
+                        <Users className="w-8 h-8 sm:w-10 sm:h-10 text-green-600" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1">
+                        Deepak Gogal - Founder & CEO
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-2">
+                        (Ex – TCS, SONY)
+                      </p>
+                      <Link 
+                        href="https://www.linkedin.com/in/deepak-kumar-036b26b0/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-green-600 hover:text-green-700 font-medium text-sm"
+                      >
+                        <Linkedin className="w-4 h-4 mr-1" />
+                        LinkedIn Profile
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
+<motion.div
+  className="relative"
+  transition={{ duration: 0.7 }}
+  viewport={{ once: true }}
+>
+  <div className="rounded-xl sm:rounded-2xl overflow-hidden">
+    {/* IMAGE: BIGGER HEIGHT ON ALL DEVICES */}
+    <div className="relative w-full 
+      h-64         /* mobile: bigger */
+      sm:h-80      /* small screens */
+      md:h-[28rem] /* medium */
+      lg:h-[34rem] /* large */
+      xl:h-[40rem] /* extra large */
+    ">
+      <Image
+        src="/companycertificate.png"
+        alt="GogalEdu Certificate"
+        fill
+        className="object-contain"
+        sizes="100vw"
+      />
+    </div>
+  </div>
+</motion.div>
+
+
           </div>
         </div>
       </section>
@@ -224,7 +258,7 @@ const AboutPage = () => {
               Our Mission
             </h2>
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-xl sm:max-w-3xl mx-auto">
-              Bridging the gap between academic learning and industry expectations
+              Bridging the Gap between Academic Learning and Industry Expectations
             </p>
           </motion.div>
 
@@ -263,7 +297,7 @@ const AboutPage = () => {
               What We Offer
             </h2>
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-xl sm:max-w-2xl mx-auto">
-              Comprehensive education solutions designed for your success
+              Comprehensive Education Solutions, Designed for Your Success
             </p>
           </motion.div>
 
@@ -317,7 +351,7 @@ const AboutPage = () => {
               Why Choose GogalEdu Academy?
             </h2>
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-xl sm:max-w-2xl mx-auto">
-              Your success is our mission
+              Your Success is Our Mission
             </p>
           </motion.div>
 
@@ -370,15 +404,15 @@ const AboutPage = () => {
               Ready to Start Your Journey?
             </h2>
             <p className="text-green-100 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 max-w-xl sm:max-w-2xl mx-auto">
-              Join hundreds of successful students who have transformed their careers with GogalEdu Academy.
+              Join Hundreds of Successful Students who have Transformed their Careers with GogalEdu Academy.
             </p>
-            <motion.button
-              className="bg-white text-green-600 px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-base lg:text-lg hover:bg-gray-100 transition-colors duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get Started Today
-            </motion.button>
+            <Link href="/courses">
+              <motion.button
+                className="bg-white cursor-pointer text-green-600 px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-base lg:text-lg hover:bg-gray-100 transition-colors duration-300"
+              >
+                Get Started Today
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </section>

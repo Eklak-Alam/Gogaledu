@@ -10,12 +10,17 @@ import {
   Send,
   Clock,
   MessageCircle,
-  CheckCircle
+  CheckCircle,
+  Building,
+  Users,
+  Star
 } from 'lucide-react';
+import Link from 'next/link';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
+    contactNo: '',
     email: '',
     message: ''
   });
@@ -43,7 +48,7 @@ const ContactPage = () => {
     setIsSubmitting(false);
     
     // Reset form
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: '', contactNo: '', email: '', message: '' });
     
     // Hide success message after 5 seconds
     setTimeout(() => {
@@ -75,6 +80,36 @@ const ContactPage = () => {
       title: "Response Time",
       content: "Within 24 hours",
       link: null
+    }
+  ];
+
+  const offlineCenters = [
+    {
+      location: "Muzaffarnagar",
+      mapLink: "https://maps.app.goo.gl/wQJPf2o5j6M8pRju8"
+    }
+  ];
+
+  const upcomingCenters = [
+    "Meerut",
+    "Agra", 
+    "Lucknow"
+  ];
+
+  const opportunities = [
+    {
+      title: "Unlock a High-Value Franchise Opportunity",
+      description: "Join our network as a franchise partner",
+      buttonText: "Contact Our Expansion Team",
+      link: "/",
+      icon: Building
+    },
+    {
+      title: "Become an Official GogalEdu Admission Partner",
+      description: "Partner with us for student admissions",
+      buttonText: "Connect With Our Team", 
+      link: "/",
+      icon: Users
     }
   ];
 
@@ -217,7 +252,7 @@ const ContactPage = () => {
               })}
             </div>
 
-            {/* Map Placeholder */}
+            {/* Map Section */}
             <motion.div
               className="mt-8 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 border border-gray-200"
               variants={itemVariants}
@@ -225,123 +260,230 @@ const ContactPage = () => {
             >
               <div className="text-center">
                 <MapPin className="w-8 h-8 text-green-600 mx-auto mb-3" />
-                <h3 className="font-semibold text-gray-900 mb-2">Our Location</h3>
+                <h3 className="font-semibold text-gray-900 mb-2 text-lg">Our Location</h3>
                 <p className="text-sm text-gray-600 mb-4">
-                  Easily accessible location in Greater Noida
+                  Easily accessible location in Noida
                 </p>
                 <div className="bg-white rounded-lg p-4 border border-gray-200">
-                  <div className="h-32 bg-gray-200 rounded flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">Map View</span>
+                  <div className="h-48 bg-gray-100 rounded flex flex-col items-center justify-center">
+                    <span className="text-gray-500 text-sm mb-2">Map View</span>
+                    <a 
+                      href="https://maps.app.goo.gl/7RseTLigbDAwUuyo9"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-600 hover:text-green-700 font-medium text-sm"
+                    >
+                      View on Google Maps →
+                    </a>
                   </div>
                 </div>
               </div>
             </motion.div>
-          </motion.div>
 
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-          >
+            {/* Offline Centers */}
             <motion.div
-              className="bg-white rounded-xl p-6 sm:p-8 border border-gray-200 shadow-sm"
-              whileHover={{ shadow: "lg" }}
+              className="mt-8 bg-white rounded-xl p-6 border border-gray-200"
+              variants={itemVariants}
             >
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                Send us a Message
-              </h2>
-              <p className="text-gray-600 text-sm sm:text-base mb-6">
-                Fill out the form below and we'll get back to you soon.
-              </p>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name Field */}
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200"
-                    placeholder="Enter your full name"
-                  />
-                </div>
-
-                {/* Email Field */}
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200"
-                    placeholder="Enter your email address"
-                  />
-                </div>
-
-                {/* Message Field */}
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200 resize-none"
-                    placeholder="Tell us how we can help you..."
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold text-sm sm:text-base hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors duration-300 flex items-center justify-center space-x-2"
-                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      <span>Sending...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4" />
-                      <span>Send Message</span>
-                    </>
-                  )}
-                </motion.button>
-
-                {/* Privacy Note */}
-                <p className="text-xs text-gray-500 text-center">
-                  By submitting this form, you agree to our privacy policy and terms of service.
-                </p>
-              </form>
+              <h3 className="font-semibold text-gray-900 text-lg mb-4">Our Offline Center</h3>
+              <div className="space-y-3">
+                {offlineCenters.map((center, index) => (
+                  <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <span className="font-medium text-gray-900">{center.location}</span>
+                    <a 
+                      href={center.mapLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-600 hover:text-green-700 text-sm font-medium"
+                    >
+                      View Map →
+                    </a>
+                  </div>
+                ))}
+              </div>
             </motion.div>
 
-            {/* Additional Info */}
+            {/* Upcoming Centers */}
             <motion.div
-              className="mt-6 bg-blue-50 rounded-xl p-6 border border-blue-200"
+              className="mt-6 bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl p-6 border border-orange-200"
+              variants={itemVariants}
+            >
+              <h3 className="font-semibold text-gray-900 text-lg mb-4 flex items-center">
+                <Star className="w-5 h-5 text-orange-500 mr-2" />
+                Upcoming Offline Centers
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {upcomingCenters.map((city, index) => (
+                  <div key={index} className="text-center p-3 bg-white rounded-lg border border-orange-200">
+                    <span className="font-medium text-gray-900 text-sm">{city}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Contact Form & Opportunities */}
+          <div className="space-y-8">
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                className="bg-white rounded-xl p-6 sm:p-8 border border-gray-200 shadow-sm"
+                whileHover={{ shadow: "lg" }}
+              >
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                  Send us a Message
+                </h2>
+                <p className="text-gray-600 text-sm sm:text-base mb-6">
+                  Fill out the form below and we'll get back to you soon.
+                </p>
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Name Field */}
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      Your Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+
+                  {/* Contact No Field */}
+                  <div>
+                    <label htmlFor="contactNo" className="block text-sm font-medium text-gray-700 mb-2">
+                      Your Contact No *
+                    </label>
+                    <input
+                      type="tel"
+                      id="contactNo"
+                      name="contactNo"
+                      value={formData.contactNo}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200"
+                      placeholder="Enter your contact number"
+                    />
+                  </div>
+
+                  {/* Email Field */}
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      Your Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200"
+                      placeholder="Enter your email address"
+                    />
+                  </div>
+
+                  {/* Message Field */}
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                      Your Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={4}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200 resize-none"
+                      placeholder="Tell us how we can help you..."
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <motion.button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full cursor-pointer bg-green-600 text-white py-3 px-6 rounded-lg font-semibold text-sm sm:text-base hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors duration-300 flex items-center justify-center space-x-2"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>Send Message</span>
+                      </>
+                    )}
+                  </motion.button>
+
+                  {/* Privacy Note */}
+                  <p className="text-xs text-gray-500 text-center">
+                    By submitting this form, you agree to our privacy policy and terms of service.
+                  </p>
+                </form>
+              </motion.div>
+            </motion.div>
+
+            {/* Opportunities Section */}
+            <motion.div
+              className="space-y-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              {opportunities.map((opportunity, index) => {
+                const IconComponent = opportunity.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <div className="flex items-start space-x-4">
+                      <div className="p-3 bg-green-100 rounded-lg text-green-600 flex-shrink-0">
+                        <IconComponent className="w-6 h-6" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-gray-900 text-lg mb-2">
+                          {opportunity.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm mb-4">
+                          {opportunity.description}
+                        </p>
+                        <Link href={opportunity.link}>
+                          <motion.button
+                            className="bg-green-600 cursor-pointer text-white px-6 py-2 rounded-lg font-semibold text-sm hover:bg-green-700 transition-colors duration-300"                          >
+                            {opportunity.buttonText} →
+                          </motion.button>
+                        </Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+
+            {/* Quick Response Info */}
+            <motion.div
+              className="bg-blue-50 rounded-xl p-6 border border-blue-200"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
               <div className="flex items-start space-x-3">
@@ -356,7 +498,7 @@ const ContactPage = () => {
                 </div>
               </div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>
