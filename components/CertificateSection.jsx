@@ -166,13 +166,13 @@ const CertificateSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-50px" }}
         >
-          <Link href="/courses" className="block w-full">
+          <Link href="/verify" className="block w-full">
             <motion.div
               className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-4 px-6 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-3 group cursor-pointer border-2 border-transparent hover:border-green-300/30"
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="text-lg">Get Certified Today</span>
+              <span className="text-lg">Verify Today</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </motion.div>
           </Link>
