@@ -14,99 +14,115 @@ import {
   Users,
   Target,
   Zap,
-  CheckCircle
+  CheckCircle,
+  Clock1,
+  Calendar1,
+  Stars,
+  Users2
 } from 'lucide-react';
 import { CourseData } from '@/db/CourseData';
 
 const CourseCard = ({ course, index }) => {
   return (
     <motion.div
-      className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer flex flex-col h-full"
-      whileHover={{ y: -4 }}
+      className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+      whileHover={{ y: -2 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
     >
-      {/* Image Section */}
-      <div className="relative overflow-hidden h-48">
+      {/* Brand Badge - Smaller */}
+      <div className="absolute top-3 left-3 z-20">
+        <div className="flex items-center gap-1.5 bg-white/95 backdrop-blur-sm px-2 py-1.5 rounded-lg shadow-sm border border-gray-200">
+          <img 
+            src="/logo.jpg" 
+            alt="GogalEdu" 
+            className="w-4 h-4 object-contain"
+          />
+          <span className="text-xs font-semibold text-gray-900">GogalEdu</span>
+        </div>
+      </div>
+
+      {/* Image Section - Smaller */}
+      <div className="relative overflow-hidden h-40">
         <img
           src={course.image}
           alt={course.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-        <div className="absolute top-3 left-3">
-          <span className={`px-3 py-1 rounded-full text-xs font-medium text-white ${
-            course.level === 'Beginner' ? 'bg-green-500' :
-            course.level === 'Intermediate' ? 'bg-yellow-500' :
-            'bg-red-500'
-          }`}>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+        
+        {/* Course Level Badge */}
+        <div className="absolute bottom-3 left-3">
+          <span className={`px-2 py-1 rounded-lg text-xs font-medium text-white bg-gradient-to-r from-green-500 to-emerald-600 shadow-sm`}>
             {course.level}
           </span>
         </div>
-        <div className="absolute top-3 right-3">
-          <div className="flex items-center gap-1 bg-black/70 text-white px-2 py-1 rounded-full text-xs">
-            <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-            <span>4.8</span>
-          </div>
-        </div>
       </div>
 
-      {/* Content Section */}
-      <div className="p-6 flex flex-col flex-1">
+      {/* Content Section - Compact */}
+      <div className="p-4 flex flex-col flex-1">
         {/* Title */}
-        <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 min-h-[3.5rem] group-hover:text-green-600 transition-colors duration-300">
+        <h3 className="text-base font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-green-600 transition-colors duration-300 leading-tight">
           {course.title}
         </h3>
 
-        {/* Course Info */}
-        <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
-          <div className="flex items-center gap-1">
-            <Clock className="w-4 h-4 text-green-600" />
+        {/* Course Info Grid - Compact */}
+        <div className="grid grid-cols-2 gap-2 mb-3">
+          <div className="flex items-center gap-1.5 text-xs text-gray-600">
+            <Clock className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
             <span>{course.duration}</span>
           </div>
-          <div className="flex items-center gap-1">
-            <Calendar className="w-4 h-4 text-blue-600" />
+          <div className="flex items-center gap-1.5 text-xs text-gray-600">
+            <Calendar className="w-3.5 h-3.5 text-blue-500 flex-shrink-0" />
             <span>{course.mode}</span>
+          </div>
+          <div className="flex items-center gap-1.5 text-xs text-gray-600">
+            <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500 flex-shrink-0" />
+            <span>{course.rating}</span>
           </div>
         </div>
 
-        {/* Achievement Goal */}
+        {/* Achievement Goal - Compact */}
         {course.achievementGoal && (
-          <div className="mb-4 flex-1">
-            <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">
+          <div className="mb-3">
+            <p className="text-xs text-gray-600 truncate bg-green-50 rounded-md p-2">
+              <span className="font-semibold text-green-700">Goal: </span>
               {course.achievementGoal}
             </p>
           </div>
         )}
 
-        {/* Syllabus Preview */}
-        <div className="flex flex-wrap gap-1 mb-4">
-          {course.syllabus.slice(0, 3).map((month, index) => (
-            <span
-              key={index}
-              className="bg-gradient-to-r from-green-50 to-emerald-50 text-green-700 px-2 py-1 rounded-lg text-xs font-medium border border-green-200/50"
-            >
-              {month.month.split(':')[0].replace('Month', 'M')}
-            </span>
-          ))}
-          {course.syllabus.length > 3 && (
-            <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded-lg text-xs border border-gray-300">
-              +{course.syllabus.length - 3} more
-            </span>
-          )}
+        {/* Syllabus Preview - Compact */}
+        <div className="mb-3">
+          <div className="flex flex-wrap gap-1.5">
+            {course.syllabus.slice(0, 3).map((month, index) => (
+              <span
+                key={index}
+                className="bg-green-50 text-green-700 px-2 py-1 rounded-md text-xs font-medium border border-green-100"
+              >
+                {month.month.split(':')[0].replace('Month', 'M')}
+              </span>
+            ))}
+            {course.syllabus.length > 3 && (
+              <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded-md text-xs">
+                +{course.syllabus.length - 3}
+              </span>
+            )}
+          </div>
         </div>
 
-        {/* CTA Button */}
-        <div className="mt-auto pt-2">
+        {/* Price & CTA - Compact */}
+        <div className="mt-auto pt-3 border-t border-gray-100">
+          
           <Link href={`/courses/${course.slug}`}>
             <motion.button
-              className="w-full cursor-pointer bg-gradient-to-r from-green-600 to-emerald-700 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm border border-green-600 group/btn"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="w-full cursor-pointer bg-gradient-to-r from-green-500 to-emerald-600 text-white py-2 rounded-lg font-semibold hover:shadow-sm transition-all duration-300 flex items-center justify-center gap-1.5 text-xs group/btn"
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
             >
               <span>Explore Course</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
             </motion.button>
           </Link>
         </div>
@@ -124,9 +140,9 @@ const CoursesPage = () => {
 
   const stats = [
     { number: "5+", label: "Courses", icon: BookOpen },
-    { number: "10K+", label: "Students", icon: Users },
-    { number: "98%", label: "Success Rate", icon: CheckCircle },
-    { number: "4.9/5", label: "Rating", icon: Star }
+    { number: "4700+", label: "Students", icon: Users },
+    { number: "93%", label: "Success Rate", icon: CheckCircle },
+    { number: "4.8/5", label: "Rating", icon: Star }
   ];
 
   if (!mounted) {

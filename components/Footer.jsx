@@ -20,7 +20,8 @@ import {
   FileText,
   Link2,
   LinkedinIcon,
-  YoutubeIcon
+  YoutubeIcon,
+  Award
 } from 'lucide-react';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsConditions from './TermsConditions';
@@ -40,6 +41,7 @@ const Footer = () => {
     { name: 'Franchise Partner', href: '/franchise-partner', icon: Store },
     { name: 'New Center Application', href: '/new-center', icon: Building2 },
     { name: 'Career', href: '/career', icon: Briefcase },
+    { name: 'Certificate Verification', href: '/verify', icon: Award },
   ];
 
   const socialLinks = [
@@ -141,7 +143,6 @@ const Footer = () => {
                     <motion.a
                       key={link.name}
                       href={link.href}
-                      target='_blank'
                       className="group flex items-center space-x-3 p-2 text-gray-600 hover:text-green-600 transition-colors duration-300"
                       variants={itemVariants}
                       whileHover={{ x: 5 }}

@@ -13,10 +13,12 @@ import {
   Zap,
   Globe,
   Heart,
-  Linkedin
+  Linkedin,
+  Lightbulb
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { FaLinkedin } from 'react-icons/fa';
 
 const AboutPage = () => {
   const features = [
@@ -41,6 +43,17 @@ const AboutPage = () => {
       description: "Hundreds of students placed in top companies with strong job placement partnerships."
     }
   ];
+
+const teamMembers = [
+  {
+    name: "Deepak Gogal",
+    role: "Founder & CEO",
+    experience: "Ex – TCS, SONY",
+    specialization: "Data Science & AI",
+    image: "",
+    linkedin: "https://www.linkedin.com/in/deepak-kumar-036b26b0/"
+  }
+];
 
   const whyChooseUs = [
     {
@@ -120,7 +133,6 @@ const AboutPage = () => {
               className="inline-flex items-center bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6"
               whileHover={{ scale: 1.05 }}
             >
-              <Heart className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
               About GogalEdu
             </motion.div>
 
@@ -184,65 +196,132 @@ const AboutPage = () => {
                 <p>
                   Our mission extends beyond Teaching Cutting-Edge Tools and Techniques, we ensure our Students Master Industry-Ready Data curriculum that meets real-world demands.
                 </p>
-                
-                {/* Founder Section */}
-                <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gray-50 rounded-lg sm:rounded-xl border border-gray-200">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 rounded-full flex items-center justify-center">
-                        <Users className="w-8 h-8 sm:w-10 sm:h-10 text-green-600" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1">
-                        Deepak Gogal - Founder & CEO
-                      </h3>
-                      <p className="text-gray-600 text-sm mb-2">
-                        (Ex – TCS, SONY)
-                      </p>
-                      <Link 
-                        href="https://www.linkedin.com/in/deepak-kumar-036b26b0/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-green-600 hover:text-green-700 font-medium text-sm"
-                      >
-                        <Linkedin className="w-4 h-4 mr-1" />
-                        LinkedIn Profile
-                      </Link>
-                    </div>
-                  </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <div className="rounded-xl sm:rounded-2xl overflow-hidden">
+                <div className="relative w-full h-64 sm:h-80 md:h-[28rem] lg:h-[34rem] xl:h-[40rem]">
+                  <Image
+                    src="/companycertificate.png"
+                    alt="GogalEdu Certificate"
+                    fill
+                    className="object-contain"
+                    sizes="100vw"
+                  />
                 </div>
               </div>
             </motion.div>
-<motion.div
-  className="relative"
-  transition={{ duration: 0.7 }}
-  viewport={{ once: true }}
->
-  <div className="rounded-xl sm:rounded-2xl overflow-hidden">
-    {/* IMAGE: BIGGER HEIGHT ON ALL DEVICES */}
-    <div className="relative w-full 
-      h-64         /* mobile: bigger */
-      sm:h-80      /* small screens */
-      md:h-[28rem] /* medium */
-      lg:h-[34rem] /* large */
-      xl:h-[40rem] /* extra large */
-    ">
-      <Image
-        src="/companycertificate.png"
-        alt="GogalEdu Certificate"
-        fill
-        className="object-contain"
-        sizes="100vw"
-      />
-    </div>
-  </div>
-</motion.div>
-
-
           </div>
         </div>
       </section>
+
+     {/* Team Section - FIXED RESPONSIVE LAYOUT */}
+<section className="py-12 sm:py-16 bg-gradient-to-br from-green-50 to-emerald-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div
+      className="text-center mb-12 sm:mb-16"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <motion.div
+        className="inline-flex items-center bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6"
+        whileHover={{ scale: 1.05 }}
+      >
+        <Users className="w-4 h-4 mr-2" />
+        Our Expert Team
+      </motion.div>
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        Meet Our Team
+      </h2>
+      <p className="text-base sm:text-lg text-gray-600 max-w-xl mx-auto">
+        Industry Professionals Driving Your Success
+      </p>
+    </motion.div>
+
+    <motion.div
+  className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center"
+  variants={containerVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
+  {teamMembers.map((member, index) => (
+    <motion.div
+      key={member.name}
+      className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden group hover:shadow-md transition-all duration-300 w-full max-w-[280px]"
+      variants={itemVariants}
+      whileHover={{ y: -2 }}
+    >
+      {/* Team Member Image or Avatar Fallback */}
+      <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center">
+        {member.image ? (
+          <img
+            src={member.image}
+            alt={member.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          // Fallback Avatar with Initials
+          <div className="flex flex-col items-center justify-center">
+            <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mb-3 shadow-md">
+              <span className="text-white text-2xl font-bold">
+                {member.name.split(' ').map(n => n[0]).join('')}
+              </span>
+            </div>
+            <p className="text-green-600 text-sm font-medium">Profile Image</p>
+          </div>
+        )}
+        
+        {/* LinkedIn Icon */}
+        <div className="absolute top-3 right-3">
+          <Link 
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className=""
+          >
+            <FaLinkedin className="w-4 h-4 text-white" />
+          </Link>
+        </div>
+      </div>
+
+      {/* Team Member Details */}
+      <div className="p-4">
+        <div className="flex justify-between items-start mb-2">
+          <h3 className="text-sm font-bold text-gray-900 leading-tight">
+            {member.name}
+          </h3>
+          <span className="bg-green-500 text-white px-2 py-0.5 rounded-full text-xs font-medium ml-2 flex-shrink-0">
+            {member.role}
+          </span>
+        </div>
+
+        <div className="space-y-1">
+          <div className="flex items-start">
+            <span className="text-xs text-gray-500 font-medium min-w-14">Exp:</span>
+            <span className="text-xs text-gray-700 ml-1">{member.experience}</span>
+          </div>
+          
+          <div className="flex items-start">
+            <span className="text-xs text-gray-500 font-medium min-w-14">Expert:</span>
+            <span className="text-xs text-gray-700 ml-1">{member.specialization}</span>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
+  </div>
+</section>
 
       {/* Mission Section */}
       <section className="py-12 sm:py-16 bg-gray-50">
@@ -283,113 +362,123 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* What We Offer */}
-      <section className="py-12 sm:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-8 sm:mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
-              What We Offer
-            </h2>
-            <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-xl sm:max-w-2xl mx-auto">
-              Comprehensive Education Solutions, Designed for Your Success
-            </p>
-          </motion.div>
+{/* What We Offer */}
+<section className="py-12 sm:py-16 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div
+      className="text-center mb-8 sm:mb-12"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
+        What We Offer
+      </h2>
+      <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-xl sm:max-w-2xl mx-auto">
+        Comprehensive Education Solutions, Designed for Your Success
+      </p>
+    </motion.div>
 
+    <motion.div
+      className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      {features.map((feature, index) => {
+        const IconComponent = feature.icon;
+        return (
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            key={feature.title}
+            className="bg-white rounded-lg p-4 sm:p-6 border border-gray-200 hover:border-green-300 transition-all duration-300"
+            variants={itemVariants}
+            whileHover={{ y: -3 }}
           >
-            {features.map((feature, index) => {
-              const IconComponent = feature.icon;
-              return (
-                <motion.div
-                  key={feature.title}
-                  className="bg-white rounded-lg sm:rounded-xl p-4 sm:p-6 border border-gray-200 hover:border-green-300 transition-all duration-300"
-                  variants={itemVariants}
-                  whileHover={{ y: -3 }}
-                >
-                  <div className="flex items-start space-x-3 sm:space-x-4">
-                    <div className="p-2 sm:p-3 bg-green-100 rounded-lg text-green-600 flex-shrink-0">
-                      <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-2">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+            <div className="flex justify-between items-start gap-4">
+              {/* Text Content - Left Side */}
+              <div className="flex-1">
+                <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+              
+              {/* Icon - Right Side */}
+              <div className="flex-shrink-0">
+                <div className="p-2 sm:p-3 bg-green-100 rounded-lg text-green-600">
+                  <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
+              </div>
+            </div>
           </motion.div>
-        </div>
-      </section>
+        );
+      })}
+    </motion.div>
+  </div>
+</section>
 
-      {/* Why Choose Us */}
-      <section className="py-12 sm:py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-8 sm:mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
-              Why Choose GogalEdu Academy?
-            </h2>
-            <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-xl sm:max-w-2xl mx-auto">
-              Your Success is Our Mission
-            </p>
-          </motion.div>
+{/* Why Choose Us */}
+<section className="py-12 sm:py-16 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div
+      className="text-center mb-8 sm:mb-12"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
+        Why Choose GogalEdu Academy?
+      </h2>
+      <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-xl sm:max-w-2xl mx-auto">
+        Your Success is Our Mission
+      </p>
+    </motion.div>
 
+    <motion.div
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      {whyChooseUs.map((item, index) => {
+        const IconComponent = item.icon;
+        return (
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            key={item.title}
+            className="bg-white rounded-lg p-4 sm:p-6 border border-gray-200 hover:shadow-sm transition-all duration-300"
+            variants={itemVariants}
+            whileHover={{ y: -3 }}
           >
-            {whyChooseUs.map((item, index) => {
-              const IconComponent = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  className="bg-white rounded-lg sm:rounded-xl p-4 sm:p-6 border border-gray-200 hover:shadow-sm transition-all duration-300"
-                  variants={itemVariants}
-                  whileHover={{ y: -3 }}
-                >
-                  <div className="flex items-start space-x-3">
-                    <div className="p-2 bg-green-100 rounded text-green-600 flex-shrink-0">
-                      <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </div>
-                    <div>
-                      <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+            <div className="flex justify-between items-start gap-4">
+              {/* Text Content - Left Side */}
+              <div className="flex-1">
+                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+              
+              {/* Icon - Right Side */}
+              <div className="flex-shrink-0">
+                <div className="p-2 bg-green-100 rounded text-green-600">
+                  <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
+                </div>
+              </div>
+            </div>
           </motion.div>
-        </div>
-      </section>
+        );
+      })}
+    </motion.div>
+  </div>
+</section>
 
       {/* CTA Section */}
       <section className="py-12 sm:py-16 bg-green-600">
@@ -409,6 +498,8 @@ const AboutPage = () => {
             <Link href="/courses">
               <motion.button
                 className="bg-white cursor-pointer text-green-600 px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-base lg:text-lg hover:bg-gray-100 transition-colors duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Get Started Today
               </motion.button>

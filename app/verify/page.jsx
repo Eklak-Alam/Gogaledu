@@ -164,7 +164,7 @@ const CertificateVerificationPage = () => {
                   id="certificateId"
                   value={certificateId}
                   onChange={(e) => setCertificateId(e.target.value)}
-                  placeholder="Enter your Certificate ID (e.g., GOGAL2024001)"
+                  placeholder="Enter your Certificate ID (e.g., GA-XXX-XXX-XXX)"
                   className="w-full px-4 py-4 pl-12 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200 text-lg"
                   disabled={isVerifying}
                 />

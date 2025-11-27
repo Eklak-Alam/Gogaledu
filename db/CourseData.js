@@ -11,13 +11,13 @@ export const CourseData = [
     students: "1.5k",
     achievementGoal: "Master Data Cleaning, Analysis, Excel, SQL, and Dashboards to Turn Raw Data into Real Business Insights.",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpQF1pXeXbGfNuutUQBNWFeigXGOTWhjOx5bfXCSBw6oYgSvML4l1EJlA-vJTGDYjkuf8&usqp=CAU",
+      "/course/data-analyst.png",
     syllabus: [
       {
         month: "Month 1: Introduction to Data & Excel Mastery",
         weeks: [
           {
-            title: "Week 1: Introduction to Data Analysis",
+            title: "Introduction to Data Analysis",
             topics: [
               "What is Data Analysis?",
               "Types of Data",
@@ -26,7 +26,7 @@ export const CourseData = [
             ],
           },
           {
-            title: "Week 2 - 4: Advanced Excel",
+            title: "Advanced Excel",
             topics: [
               "Functions & Formulas (VLOOKUP, INDEX-MATCH, IF, SUMIFS etc.)",
               "Pivot Tables & Charts",
@@ -41,7 +41,7 @@ export const CourseData = [
         month: "Month 2: SQL for Data Analysts",
         weeks: [
           {
-            title: "Week 5 - 6: SQL Basics",
+            title: "SQL Basics",
             topics: [
               "DBMS & RDBMS",
               "SELECT, WHERE, ORDER BY, GROUP BY",
@@ -49,7 +49,7 @@ export const CourseData = [
             ],
           },
           {
-            title: "Week 7 - 8: Advanced SQL",
+            title: "Advanced SQL",
             topics: [
               "JOINS (INNER, OUTER, LEFT, RIGHT)",
               "Subqueries, Views, Stored Procedures",
@@ -63,7 +63,7 @@ export const CourseData = [
         month: "Month 3: Power BI (Business Intelligence)",
         weeks: [
           {
-            title: "Week 9 - 10: Power BI Basics",
+            title: "Power BI Basics",
             topics: [
               "Introduction to Power BI",
               "Power Query Editor",
@@ -71,7 +71,7 @@ export const CourseData = [
             ],
           },
           {
-            title: "Week 11 - 12: DAX & Visualization",
+            title: "DAX & Visualization",
             topics: [
               "DAX Measures & Calculated Columns",
               "Creating Interactive Dashboards",
@@ -85,7 +85,7 @@ export const CourseData = [
         month: "Month 4: Python for Data Analysis",
         weeks: [
           {
-            title: "Week 13 - 14: Python Basics",
+            title: "Python Basics",
             topics: [
               "Introduction to Python",
               "Variables, Data Types, Loops, Functions",
@@ -93,7 +93,7 @@ export const CourseData = [
             ],
           },
           {
-            title: "Week 15 - 16: Data Analysis with Python",
+            title: "Data Analysis with Python",
             topics: [
               "Data Cleaning in Pandas",
               "Exploratory Data Analysis (EDA)",
@@ -107,7 +107,7 @@ export const CourseData = [
         month: "Month 5: Data Visualization & Storytelling",
         weeks: [
           {
-            title: "Week 17 - 18: Tableau / Advanced Power BI",
+            title: "Tableau / Advanced Power BI",
             topics: [
               "Tableau Basics / Advanced BI techniques",
               "Storytelling with Data",
@@ -116,7 +116,7 @@ export const CourseData = [
             ],
           },
           {
-            title: "Week 19: Capstone Prep",
+            title: "Capstone Prep",
             topics: [
               "Choose a real dataset (Finance, Health, HR, E-commerce, etc.)",
               "Project Planning",
@@ -128,7 +128,7 @@ export const CourseData = [
         month: "Month 6: Capstone Project + Career Preparation",
         weeks: [
           {
-            title: "Week 20 - 22: Final Project",
+            title: "Final Project",
             topics: [
               "Apply all learned skills",
               "Create a dynamic dashboard or analysis report",
@@ -136,7 +136,7 @@ export const CourseData = [
             ],
           },
           {
-            title: "Week 23 - 24: Career Readiness",
+            title: "Career Readiness",
             topics: [
               "Resume Building for Data Analyst",
               "LinkedIn Profile & Portfolio Creation",
@@ -159,14 +159,14 @@ export const CourseData = [
     reviews: "1.1k",
     students: "1.4k",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_bua--rBKpefmYBDsqMdie_D7lfA1C_nhOQ&s",
+      "/course/business-analyst.png",
     achievementGoal: "Learn Business Requirements, Documentation and Analytics to Bridge the gap between Data, Processes, and Decisions.",
     syllabus: [
       {
         month: "Month 1: Business Analysis Foundations & Excel",
         weeks: [
           {
-            title: "Week 1: Introduction to Business Analysis",
+            title: "Introduction to Business Analysis",
             topics: [
               "What is Business Analysis?",
               "Key roles and responsibilities",
@@ -174,7 +174,7 @@ export const CourseData = [
             ],
           },
           {
-            title: "Week 2 - 4: Advanced Excel",
+            title: "Advanced Excel",
             topics: [
               "Functions (IF, VLOOKUP, INDEX-MATCH, etc.)",
               "Scenario analysis",
@@ -188,14 +188,14 @@ export const CourseData = [
         month: "Month 2: SQL for Business Analysts",
         weeks: [
           {
-            title: "Week 5 - 6: SQL Basics",
+            title: "SQL Basics",
             topics: [
               "Database concepts",
               "SELECT, WHERE, GROUP BY, ORDER BY queries",
             ],
           },
           {
-            title: "Week 7 - 8: Advanced SQL",
+            title: "Advanced SQL",
             topics: [
               "JOINS, Subqueries",
               "Real-world data extraction scenarios",
@@ -207,14 +207,14 @@ export const CourseData = [
         month: "Month 3: Power BI / Tableau",
         weeks: [
           {
-            title: "Week 9 - 10: BI Tool Introduction",
+            title: "BI Tool Introduction",
             topics: [
               "Connecting to data sources",
               "Cleaning and transforming data",
             ],
           },
           {
-            title: "Week 11 - 12: Dashboard Development",
+            title: "Dashboard Development",
             topics: [
               "DAX / Calculated Fields",
               "Publishing and sharing insights",
@@ -227,11 +227,11 @@ export const CourseData = [
         month: "Month 4: Business Processes & Documentation",
         weeks: [
           {
-            title: "Week 13 - 14: Understanding Business Processes",
+            title: "Understanding Business Processes",
             topics: ["BPMN", "Process Improvement Methodologies"],
           },
           {
-            title: "Week 15 - 16: Business Documentation",
+            title: "Business Documentation",
             topics: ["BRD, FRD, Use Cases, User Stories", "UML Diagrams"],
           },
         ],
@@ -240,14 +240,14 @@ export const CourseData = [
         month: "Month 5: Tools + Soft Skills for BAs",
         weeks: [
           {
-            title: "Week 17 - 18: Tools for Business Analysts",
+            title: "Tools for Business Analysts",
             topics: [
               "Jira / Trello for Agile",
               "Wireframing tools (Balsamiq, Figma)",
             ],
           },
           {
-            title: "Week 19: Communication & Soft Skills",
+            title: "Communication & Soft Skills",
             topics: ["Stakeholder management", "Presentation techniques"],
           },
         ],
@@ -256,14 +256,14 @@ export const CourseData = [
         month: "Month 6: Capstone + Career Preparation",
         weeks: [
           {
-            title: "Week 20 - 22: Capstone Project",
+            title: "Capstone Project",
             topics: [
               "End-to-end Business Analysis on a case scenario",
               "Requirement gathering, documentation, and presentation",
             ],
           },
           {
-            title: "Week 23 - 24: Interview Preparation",
+            title: "Interview Preparation",
             topics: [
               "BA Resume & LinkedIn Profile Optimization",
               "Case-based mock interviews + Agile/Scrum FAQ",
@@ -283,8 +283,7 @@ export const CourseData = [
     rating: 4.8,
     reviews: "820+",
     students: "950+",
-    image:
-      "https://slaconsultantsgurgaon.in/wp_files/wp-content/uploads_gurgaon/2018/10/Advanced-Excel-MIS-Data-Analyst-Training-in-Gurgaon.png",
+    image: "/course/mis-analyst.png",
     achievementGoal: "Become an Expert in Reporting, Automation and Dashboards using Excel and Power BI for Daily Business Operations.",
     syllabus: [
       {
@@ -413,14 +412,14 @@ export const CourseData = [
   rating: 4.9,
   reviews: "650+",
   students: "800+",
-  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkodQ5vfDEsPenU7zBfr2y0YoO79CZmihzyw&s", // You can add actual image URL
+  image: "/course/aml.png", // You can add actual image URL
   achievementGoal: "Understand KYC, Compliance and Transaction Monitoring to build a Career in Banking and Financial Crime Prevention.",
   syllabus: [
     {
       month: "Month 1: AML Foundations & KYC",
       weeks: [
         {
-          title: "Week 1: Introduction to AML",
+          title: "Introduction to AML",
           topics: [
             "What is Money Laundering & Why AML Matters",
             "3 Stages: Placement, Layering, Integration",
@@ -428,7 +427,7 @@ export const CourseData = [
           ]
         },
         {
-          title: "Week 2: Global AML Framework",
+          title: "Global AML Framework",
           topics: [
             "FATF 40 Recommendations",
             "USA PATRIOT Act, EU AML Directives",
@@ -436,7 +435,7 @@ export const CourseData = [
           ]
         },
         {
-          title: "Week 3: Know Your Customer (KYC)",
+          title: "Know Your Customer (KYC)",
           topics: [
             "CIP (Customer Identification Program)",
             "Beneficial Ownership & Risk Profiling",
@@ -444,7 +443,7 @@ export const CourseData = [
           ]
         },
         {
-          title: "Week 4: CDD & EDD",
+          title: "CDD & EDD",
           topics: [
             "Standard vs Enhanced Due Diligence",
             "High-Risk Customer Marking",
@@ -457,28 +456,28 @@ export const CourseData = [
       month: "Month 2: Risk, Transaction Monitoring & SAR",
       weeks: [
         {
-          title: "Week 5: Transaction Monitoring Systems",
+          title: "Transaction Monitoring Systems",
           topics: [
             "Red Flag Indicators",
             "Structuring, Smurfing, Shell Companies"
           ]
         },
         {
-          title: "Week 6: Account Activity Risk Scoring",
+          title: "Account Activity Risk Scoring",
           topics: [
             "Rule-based Monitoring",
             "Using Excel & SQL for Monitoring Reports"
           ]
         },
         {
-          title: "Week 7: Suspicious Activity Reports (SAR)",
+          title: "Suspicious Activity Reports (SAR)",
           topics: [
             "SAR Structure & Writing Guidelines",
             "Case Study: Writing a SAR for Wire Transfer Fraud"
           ]
         },
         {
-          title: "Week 8: Financial Crime Compliance Tools",
+          title: "Financial Crime Compliance Tools",
           topics: [
             "Introduction to Actimize, FICO, SAS AML",
             "Sanction Screening (OFAC, UN, EU Lists)"
@@ -490,28 +489,28 @@ export const CourseData = [
       month: "Month 3: AML Technology, Reporting & Career Prep",
       weeks: [
         {
-          title: "Week 9: AML + Technology",
+          title: "AML + Technology",
           topics: [
             "AI and Machine Learning for AML",
             "Blockchain & Crypto AML Basics"
           ]
         },
         {
-          title: "Week 10: Audit & Compliance Program",
+          title: "Audit & Compliance Program",
           topics: [
             "Designing AML Policy",
             "Testing and Internal Controls"
           ]
         },
         {
-          title: "Week 11: Capstone Assignment",
+          title: "Capstone Assignment",
           topics: [
             "End-to-End Monitoring Scenario",
             "Create SAR, KYC Checklist & Risk Report"
           ]
         },
         {
-          title: "Week 12: Certification + Interview Prep",
+          title: "Certification + Interview Prep",
           topics: [
             "CAMS Exam Structure (ACAMS)",
             "AML/KYC Analyst Interview Q&A",

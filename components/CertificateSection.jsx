@@ -172,7 +172,7 @@ const CertificateSection = () => {
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="text-lg">Verify Today</span>
+              <span className="text-lg">Verify Your Certificate</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </motion.div>
           </Link>
