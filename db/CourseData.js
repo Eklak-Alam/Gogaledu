@@ -9,6 +9,7 @@ export const CourseData = [
     rating: 4.9,
     reviews: "1.3k",
     students: "1.5k",
+    project: "25",
     achievementGoal: "Master Data Cleaning, Analysis, Excel, SQL, and Dashboards to Turn Raw Data into Real Business Insights.",
     image:
       "/course/data-analyst.png",
@@ -147,6 +148,12 @@ export const CourseData = [
         ],
       },
     ],
+    bonusAddOns: [
+      "Internship after completion",
+      "Alumni Network",
+      "Real world client projects for interested students",
+      "Multiple offer letter"
+    ],
   },
   {
     id: 2,
@@ -157,7 +164,8 @@ export const CourseData = [
     level: "Beginner to Advanced",
     rating: 4.9,
     reviews: "1.1k",
-    students: "1.4k",
+    students: "950",
+    project: "25",
     image:
       "/course/business-analyst.png",
     achievementGoal: "Learn Business Requirements, Documentation and Analytics to Bridge the gap between Data, Processes, and Decisions.",
@@ -272,6 +280,12 @@ export const CourseData = [
         ],
       },
     ],
+    bonusAddOns: [
+      "Internship after completion",
+      "Alumni Network",
+      "Real world client projects for interested students",
+      "Multiple offer letter"
+    ],
   },
   {
     id: 3,
@@ -283,6 +297,7 @@ export const CourseData = [
     rating: 4.8,
     reviews: "820+",
     students: "950+",
+    project: "15",
     image: "/course/mis-analyst.png",
     achievementGoal: "Become an Expert in Reporting, Automation and Dashboards using Excel and Power BI for Daily Business Operations.",
     syllabus: [
@@ -395,11 +410,10 @@ export const CourseData = [
       },
     ],
     bonusAddOns: [
-      "Templates: Daily Sales Report, Target vs Achievement Sheet, HR Dashboard",
-      "Access to datasets for practice",
-      "Email report writing formats",
-      "Excel Shortcuts Cheat Sheet",
-      "Time Management and Task Tracker Templates",
+      "Internship after completion",
+      "Alumni Network",
+      "Real world client projects for interested students",
+      "Multiple offer letter"
     ],
   },
   {
@@ -412,6 +426,7 @@ export const CourseData = [
   rating: 4.9,
   reviews: "650+",
   students: "800+",
+  project: "15",
   image: "/course/aml.png", // You can add actual image URL
   achievementGoal: "Understand KYC, Compliance and Transaction Monitoring to build a Career in Banking and Financial Crime Prevention.",
   syllabus: [
@@ -520,14 +535,11 @@ export const CourseData = [
       ]
     }
   ],
-  bonusAddOns: [
-    "FATCA & CRS Overview",
-    "List of AML/KYC Free Resources",
-    "AML Case Studies Toolkit (PDF + Excel)",
-    "SAR & KYC Templates (Free Download)",
-    "Global AML Regulations Handbook",
-    "Red Flag Indicators Checklist",
-    "Compliance Officer Career Guide"
-  ]
+    bonusAddOns: [
+      "Internship after completion",
+      "Alumni Network",
+      "Real world client projects for interested students",
+      "Multiple offer letter"
+    ],
 }
 ];

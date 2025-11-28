@@ -84,6 +84,21 @@ const ContactPage = () => {
     }
   ];
 
+  const upcomingCenters = [
+    {
+      name: "Meerut",
+      image: "/meerut.jpg" // Replace with your actual image path
+    },
+    {
+      name: "Agra",
+      image: "agra.jpg" // Replace with your actual image path
+    },
+    {
+      name: "Lucknow",
+      image: "lucknow.jpg" // Replace with your actual image path
+    }
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -170,17 +185,17 @@ const ContactPage = () => {
           )}
         </AnimatePresence>
 
-        {/* SECTION 1: Contact Information & Form */}
+        {/* SECTION 1: Contact Information & Form with Location Cards */}
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
         >
           
-          {/* Left Side - Contact Information */}
-          <div className="space-y-8">
+          {/* Left Side - Contact Information & Location Cards */}
+          <div className="lg:col-span-1 space-y-8">
             {/* Contact Information Cards */}
             <motion.div variants={itemVariants}>
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
@@ -224,9 +239,178 @@ const ContactPage = () => {
               </div>
             </motion.div>
 
-            {/* Quick Response Info */}
+            {/* Location Cards */}
             <motion.div
-              className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4"
+              variants={itemVariants}
+            >
+              {/* Our Location Card */}
+              <motion.div
+                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all duration-200"
+                whileHover={{ y: -5 }}
+              >
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <MapPin className="w-6 h-6 text-green-600" />
+                  </div>
+                  <h3 className="font-bold text-gray-900 text-lg mb-2">Our Location</h3>
+                  <p className="text-gray-600 text-sm mb-4">
+                    Easily accessible location in Noida
+                  </p>
+                  <a 
+                    href="https://maps.app.goo.gl/7RseTLigbDAwUuyo9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-full bg-green-600 text-white py-2 px-4 rounded-lg font-semibold text-sm hover:bg-green-700 transition-colors duration-300"
+                  >
+                    <Navigation className="w-4 h-4 mr-2" />
+                    View on Google Maps
+                  </a>
+                </div>
+              </motion.div>
+
+              {/* Offline Center Card */}
+              <motion.div
+                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all duration-200"
+                whileHover={{ y: -5 }}
+              >
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <Building className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h3 className="font-bold text-gray-900 text-lg mb-4">Our Offline Center</h3>
+                  <div className="space-y-3 mb-4">
+                    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <span className="font-medium text-gray-900 text-sm">Muzaffarnagar</span>
+                      <a 
+                        href="https://maps.app.goo.gl/wQJPf2o5j6M8pRju8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-green-600 hover:text-green-700 text-xs font-medium"
+                      >
+                        View Map →
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Right Side - Contact Form & Response Section */}
+          <div className="lg:col-span-2">
+            <motion.div variants={itemVariants}>
+              <div className="bg-white rounded-xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                  Send us a Message
+                </h2>
+                <p className="text-gray-600 text-sm sm:text-base mb-6">
+                  Fill out the form below and we'll get back to you soon.
+                </p>
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Name Field */}
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                        Your Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200"
+                        placeholder="Enter your full name"
+                      />
+                    </div>
+
+                    {/* Contact No Field */}
+                    <div>
+                      <label htmlFor="contactNo" className="block text-sm font-medium text-gray-700 mb-2">
+                        Your Contact No *
+                      </label>
+                      <input
+                        type="tel"
+                        id="contactNo"
+                        name="contactNo"
+                        value={formData.contactNo}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200"
+                        placeholder="Enter your contact number"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Email Field */}
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      Your Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200"
+                      placeholder="Enter your email address"
+                    />
+                  </div>
+
+                  {/* Message Field */}
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                      Your Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={4}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200 resize-none"
+                      placeholder="Tell us how we can help you..."
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <motion.button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full cursor-pointer bg-green-600 text-white py-3 px-6 rounded-lg font-semibold text-sm sm:text-base hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors duration-300 flex items-center justify-center space-x-2"
+                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>Send Message</span>
+                      </>
+                    )}
+                  </motion.button>
+
+                  {/* Privacy Note */}
+                  <p className="text-xs text-gray-500 text-center">
+                    By submitting this form, you agree to our privacy policy and terms of service.
+                  </p>
+                </form>
+              </div>
+            </motion.div>
+
+            {/* Quick Response Info - Below Form */}
+            <motion.div
+              className="mt-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200"
               variants={itemVariants}
             >
               <div className="flex items-start space-x-3">
@@ -242,205 +426,63 @@ const ContactPage = () => {
               </div>
             </motion.div>
           </div>
-
-          {/* Right Side - Contact Form */}
-          <motion.div variants={itemVariants}>
-            <div className="bg-white rounded-xl p-6 sm:p-8 border border-gray-200 shadow-sm">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                Send us a Message
-              </h2>
-              <p className="text-gray-600 text-sm sm:text-base mb-6">
-                Fill out the form below and we'll get back to you soon.
-              </p>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Name Field */}
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Your Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200"
-                      placeholder="Enter your full name"
-                    />
-                  </div>
-
-                  {/* Contact No Field */}
-                  <div>
-                    <label htmlFor="contactNo" className="block text-sm font-medium text-gray-700 mb-2">
-                      Your Contact No *
-                    </label>
-                    <input
-                      type="tel"
-                      id="contactNo"
-                      name="contactNo"
-                      value={formData.contactNo}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200"
-                      placeholder="Enter your contact number"
-                    />
-                  </div>
-                </div>
-
-                {/* Email Field */}
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200"
-                    placeholder="Enter your email address"
-                  />
-                </div>
-
-                {/* Message Field */}
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200 resize-none"
-                    placeholder="Tell us how we can help you..."
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full cursor-pointer bg-green-600 text-white py-3 px-6 rounded-lg font-semibold text-sm sm:text-base hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors duration-300 flex items-center justify-center space-x-2"
-                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      <span>Sending...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4" />
-                      <span>Send Message</span>
-                    </>
-                  )}
-                </motion.button>
-
-                {/* Privacy Note */}
-                <p className="text-xs text-gray-500 text-center">
-                  By submitting this form, you agree to our privacy policy and terms of service.
-                </p>
-              </form>
-            </div>
-          </motion.div>
         </motion.div>
 
-        {/* SECTION 2: Location & Centers */}
+        {/* SECTION 2: Upcoming Centers with Images */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+          className="mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
         >
-          
-          {/* Location Card */}
           <motion.div
-            className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all duration-200"
+            className="text-center mb-8"
             variants={itemVariants}
-            whileHover={{ y: -5 }}
           >
-            <div className="text-center">
-              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-6 h-6 text-green-600" />
-              </div>
-              <h3 className="font-bold text-gray-900 text-lg mb-2">Our Location</h3>
-              <p className="text-gray-600 text-sm mb-4">
-                Easily accessible location in Noida
-              </p>
-              <a 
-                href="https://maps.app.goo.gl/7RseTLigbDAwUuyo9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full bg-green-600 text-white py-2 px-4 rounded-lg font-semibold text-sm hover:bg-green-700 transition-colors duration-300"
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+              Upcoming <span className="text-green-600">Centers</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We're expanding! Check out our upcoming centers in these cities
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {upcomingCenters.map((center, index) => (
+              <motion.div
+                key={center.name}
+                className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-all duration-300 group"
+                variants={itemVariants}
+                whileHover={{ y: -5 }}
               >
-                <Navigation className="w-4 h-4 mr-2" />
-                View on Google Maps
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Offline Center Card */}
-          <motion.div
-            className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all duration-200"
-            variants={itemVariants}
-            whileHover={{ y: -5 }}
-          >
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Building className="w-6 h-6 text-blue-600" />
-              </div>
-              <h3 className="font-bold text-gray-900 text-lg mb-4">Our Offline Center</h3>
-              <div className="space-y-3 mb-4">
-                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                  <span className="font-medium text-gray-900 text-sm">Muzaffarnagar</span>
-                  <a 
-                    href="https://maps.app.goo.gl/wQJPf2o5j6M8pRju8"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green-600 hover:text-green-700 text-xs font-medium"
-                  >
-                    View Map →
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Upcoming Centers Card */}
-          <motion.div
-            className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl p-6 border border-orange-200 hover:shadow-md transition-all duration-200"
-            variants={itemVariants}
-            whileHover={{ y: -5 }}
-          >
-            <div className="text-center">
-              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Star className="w-6 h-6 text-orange-500" />
-              </div>
-              <h3 className="font-bold text-gray-900 text-lg mb-4">Upcoming Centers</h3>
-              <div className="grid grid-cols-1 gap-2">
-                {["Meerut", "Agra", "Lucknow"].map((city, index) => (
-                  <div key={index} className="text-center p-3 bg-white rounded-lg border border-orange-200">
-                    <span className="font-medium text-gray-900 text-sm">{city}</span>
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={center.image}
+                    alt={center.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute bottom-4 left-4">
+                    <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                      Coming Soon
+                    </span>
                   </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{center.name}</h3>
+                  <p className="text-gray-600 text-sm">
+                    Opening soon in {center.name}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
-        {/* SECTION 3: Opportunities */}
+        {/* SECTION 3: Opportunities - Stacked Layout */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="space-y-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -453,8 +495,8 @@ const ContactPage = () => {
             variants={itemVariants}
             whileHover={{ y: -5 }}
           >
-            <div className="flex flex-col h-full">
-              <div className="flex items-start space-x-4 mb-4">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div className="flex items-start space-x-4">
                 <div className="p-3 bg-green-100 rounded-lg text-green-600 flex-shrink-0">
                   <Building className="w-6 h-6" />
                 </div>
@@ -463,14 +505,14 @@ const ContactPage = () => {
                     Unlock a High-Value Franchise Opportunity
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    Join our network as a franchise partner
+                    Join our network as a franchise partner and be part of the education revolution
                   </p>
                 </div>
               </div>
-              <div className="mt-auto">
+              <div className="flex-shrink-0">
                 <Link href="/">
                   <motion.button
-                    className="w-full bg-green-600 cursor-pointer text-white py-3 px-6 rounded-lg font-semibold text-sm hover:bg-green-700 transition-colors duration-300 flex items-center justify-center"
+                    className="w-full md:w-auto bg-green-600 cursor-pointer text-white py-3 px-6 rounded-lg font-semibold text-sm hover:bg-green-700 transition-colors duration-300 flex items-center justify-center"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -487,8 +529,8 @@ const ContactPage = () => {
             variants={itemVariants}
             whileHover={{ y: -5 }}
           >
-            <div className="flex flex-col h-full">
-              <div className="flex items-start space-x-4 mb-4">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div className="flex items-start space-x-4">
                 <div className="p-3 bg-blue-100 rounded-lg text-blue-600 flex-shrink-0">
                   <Users className="w-6 h-6" />
                 </div>
@@ -497,14 +539,14 @@ const ContactPage = () => {
                     Become an Official GogalEdu Admission Partner
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    Partner with us for student admissions
+                    Partner with us for student admissions and grow with our educational ecosystem
                   </p>
                 </div>
               </div>
-              <div className="mt-auto">
+              <div className="flex-shrink-0">
                 <Link href="/">
                   <motion.button
-                    className="w-full bg-blue-600 cursor-pointer text-white py-3 px-6 rounded-lg font-semibold text-sm hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center"
+                    className="w-full md:w-auto bg-blue-600 cursor-pointer text-white py-3 px-6 rounded-lg font-semibold text-sm hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >

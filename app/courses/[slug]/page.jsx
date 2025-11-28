@@ -126,14 +126,14 @@ const CourseDetailPage = ({ params }) => {
                     <div className="text-xs text-gray-500">Student Rating</div>
                   </div>
                   <div className="text-center p-4 bg-white rounded-xl border border-gray-200 shadow-sm">
-                    <div className="text-2xl font-bold text-gray-900 mb-1">2.5K+</div>
+                    <div className="text-2xl font-bold text-gray-900 mb-1">{course.students}+</div>
                     <div className="text-green-600 mb-1">
                       <Users className="w-5 h-5 mx-auto" />
                     </div>
                     <div className="text-xs text-gray-500">Students Enrolled</div>
                   </div>
                   <div className="text-center p-4 bg-white rounded-xl border border-gray-200 shadow-sm">
-                    <div className="text-2xl font-bold text-gray-900 mb-1">12+</div>
+                    <div className="text-2xl font-bold text-gray-900 mb-1">{course.project}+</div>
                     <div className="text-green-600 mb-1">
                       <Briefcase className="w-5 h-5 mx-auto" />
                     </div>
@@ -169,7 +169,7 @@ const CourseDetailPage = ({ params }) => {
                   <div className="absolute bottom-4 left-4">
                     <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full">
                       <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                      <span className="text-white text-sm font-semibold">4.8 Rating</span>
+                      <span className="text-white text-sm font-semibold">{course.rating}</span>
                     </div>
                   </div>
                 </div>
@@ -195,7 +195,7 @@ const CourseDetailPage = ({ params }) => {
       </section>
 
       {/* Tabs Navigation */}
-      <section className="bg-white border-b border-gray-200 sticky top-16 z-40">
+      <section className="bg-white border-b border-gray-200 sticky top-[70px] z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex overflow-x-auto scrollbar-hide">
             {['overview', 'curriculum'].map((tab) => (

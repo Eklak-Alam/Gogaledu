@@ -289,7 +289,7 @@ const teamMembers = [
             rel="noopener noreferrer"
             className=""
           >
-            <FaLinkedin className="w-4 h-4 text-white" />
+            <FaLinkedin className="w-6 h-6 text-blue-600" />
           </Link>
         </div>
       </div>
