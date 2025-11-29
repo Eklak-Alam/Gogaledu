@@ -117,7 +117,7 @@ const CourseDetailPage = ({ params }) => {
                 {/* Stats */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                   <div className="text-center p-4 bg-white rounded-xl border border-gray-200 shadow-sm">
-                    <div className="text-2xl font-bold text-gray-900 mb-1">4.8</div>
+                    <div className="text-2xl font-bold text-gray-900 mb-1">{course.rating}</div>
                     <div className="flex justify-center mb-1">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
@@ -126,7 +126,7 @@ const CourseDetailPage = ({ params }) => {
                     <div className="text-xs text-gray-500">Student Rating</div>
                   </div>
                   <div className="text-center p-4 bg-white rounded-xl border border-gray-200 shadow-sm">
-                    <div className="text-2xl font-bold text-gray-900 mb-1">{course.students}+</div>
+                    <div className="text-2xl font-bold text-gray-900 mb-1">{course.students}</div>
                     <div className="text-green-600 mb-1">
                       <Users className="w-5 h-5 mx-auto" />
                     </div>

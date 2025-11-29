@@ -494,15 +494,6 @@ const TestimonialSection = () => {
                   Explore All Courses
                 </motion.button>
               </Link>
-              <Link href="/placements" className="w-full sm:w-auto">
-                <motion.button
-                  className="border border-gray-300 text-gray-700 px-8 cursor-pointer py-4 rounded-xl font-semibold text-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 hover:scale-105 w-full"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  View Placement Details
-                </motion.button>
-              </Link>
             </motion.div>
           </div>
         </motion.div>

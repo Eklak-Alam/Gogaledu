@@ -8,7 +8,7 @@ export const CourseData = [
     level: "Beginner to Advanced",
     rating: 4.9,
     reviews: "1.3k",
-    students: "1.5k",
+    students: "1.5k+",
     project: "25",
     achievementGoal: "Master Data Cleaning, Analysis, Excel, SQL, and Dashboards to Turn Raw Data into Real Business Insights.",
     image:
@@ -164,7 +164,7 @@ export const CourseData = [
     level: "Beginner to Advanced",
     rating: 4.9,
     reviews: "1.1k",
-    students: "950",
+    students: "1.3k+",
     project: "25",
     image:
       "/course/business-analyst.png",
