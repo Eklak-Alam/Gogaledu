@@ -50,7 +50,7 @@ const teamMembers = [
     role: "Founder & CEO",
     experience: "Ex – TCS, SONY",
     specialization: "Data Science & AI",
-    image: "",
+    image: "/team/founder.jpg",
     linkedin: "https://www.linkedin.com/in/deepak-kumar-036b26b0/"
   }
 ];
@@ -264,11 +264,14 @@ const teamMembers = [
       {/* Team Member Image or Avatar Fallback */}
       <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center">
         {member.image ? (
-          <img
-            src={member.image}
-            alt={member.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          />
+          <div className="w-full h-64 overflow-hidden">
+  <img
+    src={member.image}
+    alt={member.name}
+    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+  />
+</div>
+
         ) : (
           // Fallback Avatar with Initials
           <div className="flex flex-col items-center justify-center">
