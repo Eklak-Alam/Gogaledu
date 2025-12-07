@@ -232,7 +232,7 @@ export const blogData = [
     ],
     category: "Finance Careers",
     author: "GogalEdu Team",
-    date: "2025-00-28",
+    date: "2025-10-28",
     read_time: "4 min",
     image: "/images/blog/aml-analyst-story.jpg"
   }
