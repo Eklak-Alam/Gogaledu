@@ -40,7 +40,7 @@ const Footer = () => {
     { name: 'Admission Partner', href: '/admission-partner', icon: UserPlus },
     { name: 'Franchise Partner', href: '/franchise-partner', icon: Store },
     { name: 'New Center Application', href: '/new-center', icon: Building2 },
-    { name: 'Career', href: '/career', icon: Briefcase },
+    { name: 'Career', href: '/careers', icon: Briefcase },
     { name: 'Certificate Verification', href: '/verify', icon: Award },
   ];
 
