@@ -32,16 +32,17 @@ export const metadata = {
     description: "Industry-focused data science and analytics courses with job placement assistance",
     images: ["/logo.jpg"],
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
-  themeColor: "#059669",
   category: "education",
   verification: {
-    google: "your-google-verification-code", // Add when you have Google Search Console
+    google: "your-google-verification-code",
   },
+};
+
+export const viewport = {  // ← ADD THIS SEPARATE EXPORT
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: "#059669",
 };
 
 export default function RootLayout({ children }) {
