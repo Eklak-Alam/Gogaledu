@@ -54,7 +54,7 @@ export const blogData = [
     ],
     category: "Career Journey",
     author: "GogalEdu Team",
-    date: "2024-03-15",
+    date: "2025-09-15",
     read_time: "4 min",
     image: "/images/blog/data-analyst-story.jpg"
   },
@@ -114,7 +114,7 @@ export const blogData = [
     ],
     category: "Tech Careers",
     author: "GogalEdu Team",
-    date: "2024-03-20",
+    date: "2025-10-28",
     read_time: "5 min",
     image: "/images/blog/business-analyst-story.jpg"
   },
@@ -174,7 +174,7 @@ export const blogData = [
     ],
     category: "Career Transformation",
     author: "GogalEdu Team",
-    date: "2024-03-25",
+    date: "2025-10-15",
     read_time: "4 min",
     image: "/images/blog/mis-analyst-story.jpg"
   },
@@ -232,7 +232,7 @@ export const blogData = [
     ],
     category: "Finance Careers",
     author: "GogalEdu Team",
-    date: "2024-03-28",
+    date: "2025-00-28",
     read_time: "4 min",
     image: "/images/blog/aml-analyst-story.jpg"
   }

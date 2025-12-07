@@ -62,7 +62,7 @@ export default function CareersPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={() => document.getElementById('positions').scrollIntoView({ behavior: 'smooth' })}
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 transition-all duration-300 hover:scale-105"
+                className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 transition-all duration-300 cursor-pointer"
               >
                 <Briefcase className="w-5 h-5" />
                 Explore Open Positions
@@ -71,7 +71,7 @@ export default function CareersPage() {
               
               <button
                 onClick={openWhatsApp}
-                className="bg-white hover:bg-gray-50 text-green-600 border-2 border-green-600 px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 transition-all duration-300 hover:scale-105"
+                className="bg-white cursor-pointer hover:bg-gray-50 text-green-600 border-2 border-green-600 px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 transition-all duration-300"
               >
                 <MessageCircle className="w-5 h-5" />
                 Quick Chat
@@ -229,10 +229,6 @@ export default function CareersPage() {
                           Questions? Chat Now
                         </button>
                       </div>
-                      
-                      <p className="text-sm text-gray-500 mt-4 text-center">
-                        Application takes approximately 5-10 minutes to complete
-                      </p>
                     </div>
                   </div>
                 </div>

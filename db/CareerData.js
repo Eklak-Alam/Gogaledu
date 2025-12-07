@@ -3,79 +3,133 @@ export const CareerData = {
   tagline: "Shape the Future of Education with Us",
   description: "Join our mission to revolutionize education through technology and innovation. We're looking for passionate individuals who want to make a difference in learning.",
   openPositions: [
-    {
-      id: 1,
-      title: "Frontend Developer",
-      department: "Engineering",
-      type: "Full-time",
-      location: "Remote",
-      experience: "2-5 years",
-      description: "Build responsive, user-friendly interfaces for our educational platform using Next.js and React.",
-      requirements: [
-        "Experience with Next.js, React, and Tailwind CSS",
-        "Strong understanding of responsive design",
-        "Knowledge of modern JavaScript (ES6+)",
-        "Familiarity with Git and agile methodologies"
-      ],
-      applyLink: "#apply-form"
-    },
-    {
-      id: 2,
-      title: "UX/UI Designer",
-      department: "Design",
-      type: "Full-time",
-      location: "Hybrid",
-      experience: "3-6 years",
-      description: "Create intuitive and engaging user experiences for our educational products.",
-      requirements: [
-        "Portfolio demonstrating UX/UI design skills",
-        "Experience with Figma or similar tools",
-        "Understanding of user-centered design principles",
-        "Knowledge of accessibility standards"
-      ],
-      applyLink: "#apply-form"
-    },
-    {
-      id: 3,
-      title: "Content Strategist",
-      department: "Content",
-      type: "Full-time",
-      location: "Remote",
-      experience: "2-4 years",
-      description: "Develop educational content strategies that engage and inspire learners.",
-      requirements: [
-        "Experience in educational content creation",
-        "Strong writing and editing skills",
-        "Understanding of SEO principles",
-        "Ability to analyze content performance"
-      ],
-      applyLink: "#apply-form"
-    },
-    {
-      id: 4,
-      title: "DevOps Engineer",
-      department: "Engineering",
-      type: "Full-time",
-      location: "Remote",
-      experience: "3-7 years",
-      description: "Build and maintain our cloud infrastructure and CI/CD pipelines.",
-      requirements: [
-        "Experience with AWS/Azure/GCP",
-        "Knowledge of Docker and Kubernetes",
-        "CI/CD pipeline development",
-        "Infrastructure as Code (Terraform)"
-      ],
-      applyLink: "#apply-form"
-    }
-  ],
-  
+  // {
+  //   id: 1,
+  //   title: "Telesales Executive",
+  //   department: "Sales & Admissions",
+  //   type: "Full-time",
+  //   location: "Office (Greater Noida)",
+  //   experience: "1-3 years",
+  //   interview: "Monday to Saturday, 1PM to 4PM",
+  //   description: "Drive student admissions through effective communication and relationship building. Make outbound calls to prospective students and convert leads into admissions.",
+  //   requirements: [
+  //     "Excellent communication and persuasion skills in Hindi & English",
+  //     "Experience in telesales, education sales, or B2C sales",
+  //     "Ability to handle objections and close admissions",
+  //     "Basic computer skills and CRM familiarity",
+  //     "Target-driven with strong follow-up discipline"
+  //   ],
+  //   responsibilities: [
+  //     "Make outbound calls to prospective students to explain courses and offerings",
+  //     "Convert leads into admissions through effective communication and follow-ups",
+  //     "Maintain student database and track daily/weekly call performance",
+  //     "Provide feedback to marketing team to improve lead quality and campaigns",
+  //     "Achieve monthly admission targets and key performance indicators"
+  //   ],
+  //   applyLink: "https://forms.gle/nfTPrh2j79wtRVxc6"
+  // },
+  {
+    id: 2,
+    title: "Business Development Associate",
+    department: "Sales & Operations",
+    type: "Full-time",
+    location: "Office (Greater Noida)",
+    experience: "0-2 years",
+    interview: "Monday to Saturday, 1PM to 4PM",
+    description: "Make outbound calls to prospective students and convert leads. Maintain records and provide feedback for business development process improvements.",
+    requirements: [
+      "Excellent communication skills",
+      "Comfortable making outbound calls",
+      "Strong follow-up and convincing ability",
+      "Basic computer knowledge",
+      "Ability to work from office"
+    ],
+    responsibilities: [
+      "Make outbound calls to prospective students to explain courses and offerings",
+      "Convert leads into admissions through effective communication and follow-ups",
+      "Maintain student database and track daily/weekly call performance",
+      "Provide feedback to the marketing team to improve lead quality and campaigns"
+    ],
+    applyLink: "https://forms.gle/nfTPrh2j79wtRVxc6"
+  },
+  {
+    id: 3,
+    title: "Campus Ambassador (North India)",
+    department: "Partnerships & Outreach",
+    type: "Internship",
+    location: "Remote",
+    experience: "College 3rd year / Final year",
+    description: "Promote GogalEdu Academy on campus, manage student communities, drive awareness and generate leads.",
+    requirements: [
+      "Must be a college student (3rd or final year)",
+      "Active networking and communication skills",
+      "Interest in events and campus-level marketing",
+      "Leadership and community-building mindset"
+    ],
+    responsibilities: [
+      "Promote GogalEdu Academy courses, workshops, and events within your campus",
+      "Build and manage student communities",
+      "Coordinate campus campaigns, seminars, and outreach",
+      "Generate leads and collect student feedback",
+      "Act as communication bridge between campus and GogalEdu Academy"
+    ],
+    applyLink: "https://forms.gle/nfTPrh2j79wtRVxc6"
+  },
+  {
+    id: 4,
+    title: "Growth Strategist",
+    department: "Marketing & Growth",
+    type: "Full-time",
+    location: "Remote",
+    experience: "2-5 years",
+    description: "Develop and execute strategies to expand reach, increase enrollment, and optimize marketing performance.",
+    requirements: [
+      "Experience in growth/digital/performance marketing",
+      "Strong analytical skills",
+      "SEO, SEM, social media, content marketing knowledge",
+      "Ability to design growth experiments"
+    ],
+    responsibilities: [
+      "Develop and execute strategies to increase brand visibility, user engagement, and conversions",
+      "Analyze performance data to identify growth opportunities",
+      "Collaborate with content, sales, and product teams",
+      "Recommend innovative ideas to scale operations"
+    ],
+    applyLink: "https://forms.gle/nfTPrh2j79wtRVxc6"
+  },
+  {
+    id: 5,
+    title: "Operations Intern",
+    department: "Operations",
+    type: "Internship",
+    location: "Remote",
+    experience: "0-1 years",
+    description: "Assist internal operations, documentation, reporting, and cross-team support activities.",
+    requirements: [
+      "Proficient with Excel and documentation",
+      "Good coordination and communication skills",
+      "Ability to multitask",
+      "Interest in operations and business execution"
+    ],
+    responsibilities: [
+      "Assist in daily operational tasks including scheduling and documentation",
+      "Maintain spreadsheets, reports, and tracking sheets",
+      "Support cross-functional teams for smooth workflow",
+      "Help execute new processes and improve efficiency",
+      "Manage internal communication processes"
+    ],
+    applyLink: "https://forms.gle/nfTPrh2j79wtRVxc6"
+  }
+],
   culture: [
     "Innovation-driven environment",
     "Collaborative team culture",
     "Work-life balance focus",
     "Continuous learning mindset",
     "Impactful work in education",
-    "Inclusive and diverse workplace"
+    "Inclusive and diverse workplace",
+    "Student-first approach",
+    "Data-informed decision making"
   ],
   
   hiringProcess: [
@@ -96,25 +150,33 @@ export const CareerData = {
     },
     {
       step: 4,
-      title: "Team Interview",
-      description: "Meet with potential team members"
-    },
-    {
-      step: 5,
       title: "Final Interview",
       description: "Discussion with leadership team"
     },
     {
-      step: 6,
+      step: 5,
       title: "Offer",
       description: "Welcome to the team!"
     }
   ],
   
   contactInfo: {
-    email: "careers@gogaledu.com",
+    email: "career@gogaledu.com",
     whatsapp: "+917011418073",
-    location: "Global Remote",
-    workingHours: "Flexible hours"
+    location: "Noida(Remote)",
+    workingHours: "Flexible hours (10 AM - 7 PM IST)",
+    address: "Greater Noida, Uttar Pradesh, India"
+  },
+  
+  applicationProcess: {
+    steps: [
+      "Submit your application through our portal",
+      "Complete any role-specific assessments if required",
+      "Participate in interview rounds",
+      "Receive offer letter",
+      "Complete onboarding and join the team"
+    ],
+    timeline: "2-3 weeks from application to offer",
+    documents: "Resume, portfolio (for design roles), relevant certifications"
   }
 };
