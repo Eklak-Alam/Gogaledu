@@ -33,8 +33,8 @@ export const CareerData = {
     title: "Business Development Associate",
     department: "Sales & Operations",
     type: "Full-time",
-    location: "Office (Greater Noida)",
-    experience: "0-2 years",
+    location: "Office (Noida)",
+    experience: "College 3rd year / Final year Students",
     interview: "Monday to Saturday, 1PM to 4PM",
     description: "Make outbound calls to prospective students and convert leads. Maintain records and provide feedback for business development process improvements.",
     requirements: [
@@ -54,11 +54,11 @@ export const CareerData = {
   },
   {
     id: 3,
-    title: "Campus Ambassador (North India)",
+    title: "Campus Ambassador",
     department: "Partnerships & Outreach",
     type: "Internship",
     location: "Remote",
-    experience: "College 3rd year / Final year",
+    experience: "College 3rd year / Final year Students",
     description: "Promote GogalEdu Academy on campus, manage student communities, drive awareness and generate leads.",
     requirements: [
       "Must be a college student (3rd or final year)",
@@ -81,7 +81,7 @@ export const CareerData = {
     department: "Marketing & Growth",
     type: "Full-time",
     location: "Remote",
-    experience: "2-5 years",
+    experience: "College 3rd year / Final year Students",
     description: "Develop and execute strategies to expand reach, increase enrollment, and optimize marketing performance.",
     requirements: [
       "Experience in growth/digital/performance marketing",
@@ -103,7 +103,7 @@ export const CareerData = {
     department: "Operations",
     type: "Internship",
     location: "Remote",
-    experience: "0-1 years",
+    experience: "College 3rd year / Final year Students",
     description: "Assist internal operations, documentation, reporting, and cross-team support activities.",
     requirements: [
       "Proficient with Excel and documentation",
@@ -164,7 +164,7 @@ export const CareerData = {
     email: "career@gogaledu.com",
     whatsapp: "+917011418073",
     location: "Noida(Remote)",
-    workingHours: "Flexible hours (10 AM - 7 PM IST)",
+    workingHours: "Flexible hours (10 AM - 6 PM IST)",
     address: "Greater Noida, Uttar Pradesh, India"
   },
   

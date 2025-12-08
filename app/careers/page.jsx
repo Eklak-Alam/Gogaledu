@@ -34,7 +34,7 @@ export default function CareersPage() {
 
   const applyWithGoogleSheet = () => {
     // Replace with your actual Google Sheets form link
-    const googleSheetsFormLink = "https://docs.google.com/forms/d/e/1FAIpQLSf..."; // Your Google Form link here
+    const googleSheetsFormLink = "https://forms.gle/nfTPrh2j79wtRVxc6"; // Your Google Form link here
     window.open(googleSheetsFormLink, '_blank');
   };
 
@@ -171,7 +171,7 @@ export default function CareersPage() {
                   <div className="flex items-center gap-4 text-gray-600">
                     <span className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
-                      {selectedJob.experience} experience
+                      {selectedJob.experience}
                     </span>
                   </div>
                 </div>
