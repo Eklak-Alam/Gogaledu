@@ -34,7 +34,7 @@ export const CareerData = {
     department: "Sales & Operations",
     type: "Full-time",
     location: "Office (Noida)",
-    experience: "College 3rd year / Final year Students",
+    experience: "0 - 2 Years of Exp",
     interview: "Monday to Saturday, 1PM to 4PM",
     description: "Make outbound calls to prospective students and convert leads. Maintain records and provide feedback for business development process improvements.",
     requirements: [
@@ -80,8 +80,8 @@ export const CareerData = {
     title: "Growth Strategist",
     department: "Marketing & Growth",
     type: "Full-time",
-    location: "Remote",
-    experience: "College 3rd year / Final year Students",
+    location: "Office(Noida)",
+    experience: "0 - 2 Years of Exp",
     description: "Develop and execute strategies to expand reach, increase enrollment, and optimize marketing performance.",
     requirements: [
       "Experience in growth/digital/performance marketing",
@@ -102,8 +102,8 @@ export const CareerData = {
     title: "Operations Intern",
     department: "Operations",
     type: "Internship",
-    location: "Remote",
-    experience: "College 3rd year / Final year Students",
+    location: "Office(Noida)",
+    experience: "College Going/Passout Students ",
     description: "Assist internal operations, documentation, reporting, and cross-team support activities.",
     requirements: [
       "Proficient with Excel and documentation",
