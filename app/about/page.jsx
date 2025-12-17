@@ -195,7 +195,7 @@ const teamMembers = [
         >
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-green-50 via-white to-green-50 backdrop-blur-sm px-5 py-3 rounded-xl border border-green-200 shadow-sm hover:shadow-md transition-all duration-300 cursor-default group hover:border-green-300 hover:bg-green-50/80">
             {/* Microsoft Logo Image - REPLACED THE "MS" BOX */}
-            <div className="relative w-8 h-8 flex-shrink-0">
+            {/* <div className="relative w-8 h-8 flex-shrink-0">
               <Image
                 src="/microsoft.png" // Path to your image in the public folder
                 alt="Microsoft Logo"
@@ -203,11 +203,10 @@ const teamMembers = [
                 className="object-contain"
                 sizes="32px"
               />
-              {/* Ping Animation (Optional - kept from previous design) */}
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white z-10">
                 <div className="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-70"></div>
               </div>
-            </div>
+            </div> */}
             
             {/* Text Content */}
             <div className="flex flex-col">
