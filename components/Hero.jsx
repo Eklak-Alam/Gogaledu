@@ -179,15 +179,76 @@ const HeroSection = () => {
             initial="hidden"
             animate="visible"
           >
-            {/* Badge */}
+            {/* Premium Animated Badge - SPACED CORRECTLY */}
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-emerald-200 shadow-sm"
+              className="relative inline-flex overflow-hidden rounded-full p-[1px]" 
+              whileHover={{ scale: 1.05 }}
             >
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-gray-700">
-                Most Trusted Tech Education Platform
-              </span>
+              {/* 1. The Animated Border (Spinning Gradient) */}
+              <motion.div 
+                className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#f1f5f9_0%,#34d399_50%,#f1f5f9_100%)]"
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+
+              {/* 2. Main Content Container */}
+              <div className="relative inline-flex items-center gap-2 bg-white/95 px-4 py-2 rounded-full backdrop-blur-3xl">
+                
+                {/* 3. The "Alive" Green Dot (Radar Ping) */}
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                </span>
+
+                {/* 4. Typewriter Text - WITH SPACING FIX */}
+                <span className="text-sm font-semibold text-gray-700 tracking-tight flex items-center">
+                  {"Microsoft Education Partner".split("").map((char, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{
+                        duration: 0.05,
+                        delay: 0.5 + (index * 0.035),
+                        ease: "easeOut",
+                      }}
+                    >
+                      {/* THIS IS THE FIX: If char is a space, use non-breaking space code */}
+                      {char === " " ? "\u00A0" : char}
+                    </motion.span>
+                  ))}
+                  
+                  {/* Cursor */}
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0, 1, 0] }}
+                    transition={{
+                      duration: 1,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="inline-block w-[2px] h-4 bg-green-500 ml-0.5 align-middle"
+                  />
+                </span>
+              </div>
+
+              {/* 5. The "Every 2 Seconds" Eye-Catcher (The Shine Sweep) */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent skew-x-12"
+                initial={{ x: "-100%" }}
+                animate={{ x: "200%" }}
+                transition={{
+                  repeat: Infinity,
+                  repeatDelay: 2, 
+                  duration: 1.5,
+                  ease: "easeInOut",
+                }}
+              />
             </motion.div>
 
             {/* Main Heading with Enhanced Typography */}

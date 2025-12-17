@@ -174,53 +174,92 @@ const teamMembers = [
       </section>
 
       {/* About Content */}
-      <section className="pt-8 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
-                About GogalEdu Academy
-              </h2>
-              <div className="space-y-3 sm:space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed">
-                <p>
-                  At GogalEdu Academy, we are committed to empowering individuals through Data Science and AI Training, equipping them with the essential Skills and Knowledge to excel in the ever-evolving world of Data and Technology.
-                </p>
-                <p>
-                  Established two years ago, our academy has quickly emerged as a trusted name in Data Education in India, celebrated for its Hands-On Data Learning and Job-Oriented Data Courses designed to prepare students for a Successful Career in Data and Technology.
-                </p>
-                <p>
-                  Our mission extends beyond Teaching Cutting-Edge Tools and Techniques, we ensure our Students Master Industry-Ready Data curriculum that meets real-world demands.
-                </p>
+<section className="pt-8 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="space-y-6"
+      >
+        {/* Microsoft Partner Badge */}
+        {/* Microsoft Partner Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="inline-block"
+        >
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-green-50 via-white to-green-50 backdrop-blur-sm px-5 py-3 rounded-xl border border-green-200 shadow-sm hover:shadow-md transition-all duration-300 cursor-default group hover:border-green-300 hover:bg-green-50/80">
+            {/* Microsoft Logo Image - REPLACED THE "MS" BOX */}
+            <div className="relative w-8 h-8 flex-shrink-0">
+              <Image
+                src="/microsoft.png" // Path to your image in the public folder
+                alt="Microsoft Logo"
+                fill
+                className="object-contain"
+                sizes="32px"
+              />
+              {/* Ping Animation (Optional - kept from previous design) */}
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white z-10">
+                <div className="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-70"></div>
               </div>
-            </motion.div>
+            </div>
+            
+            {/* Text Content */}
+            <div className="flex flex-col">
+              <span className="text-sm font-bold text-green-700 tracking-tight">
+                Microsoft Education Partner
+              </span>
+            </div>
+          </div>
+        </motion.div>
 
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-            >
-              <div className="rounded-xl sm:rounded-2xl overflow-hidden">
-                <div className="relative w-full h-64 sm:h-80 md:h-[28rem] lg:h-[34rem] xl:h-[40rem]">
-                  <Image
-                    src="/companycertificate.png"
-                    alt="GogalEdu Certificate"
-                    fill
-                    className="object-contain"
-                    sizes="100vw"
-                  />
-                </div>
-              </div>
-            </motion.div>
+        {/* Title */}
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
+          About GogalEdu Academy
+        </h2>
+        
+        {/* Content */}
+        <div className="space-y-3 sm:space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+          <p>
+            At GogalEdu Academy, we are committed to empowering individuals through Data Science and AI Training, equipping them with the essential Skills and Knowledge to excel in the ever-evolving world of Data and Technology.
+          </p>
+          <p>
+            Established two years ago, our academy has quickly emerged as a trusted name in Data Education in India, celebrated for its Hands-On Data Learning and Job-Oriented Data Courses designed to prepare students for a Successful Career in Data and Technology.
+          </p>
+          <p>
+            Our mission extends beyond Teaching Cutting-Edge Tools and Techniques, we ensure our Students Master Industry-Ready Data curriculum that meets real-world demands.
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Image Section - UNCHANGED */}
+      <motion.div
+        className="relative"
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+      >
+        <div className="rounded-xl sm:rounded-2xl overflow-hidden">
+          <div className="relative w-full h-64 sm:h-80 md:h-[28rem] lg:h-[34rem] xl:h-[40rem]">
+            <Image
+              src="/companycertificate.png"
+              alt="GogalEdu Certificate"
+              fill
+              className="object-contain"
+              sizes="100vw"
+            />
           </div>
         </div>
-      </section>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
      {/* Team Section - FIXED RESPONSIVE LAYOUT */}
 <section className="py-12 sm:py-16 bg-gradient-to-br from-green-50 to-emerald-50">
@@ -292,7 +331,7 @@ const teamMembers = [
             rel="noopener noreferrer"
             className=""
           >
-            <FaLinkedin className="w-6 h-6 text-blue-600" />
+            <FaLinkedin className="w-6 h-6 text-green-600" />
           </Link>
         </div>
       </div>
