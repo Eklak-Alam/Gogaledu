@@ -17,16 +17,44 @@ import {
   CheckCircle, 
   Award, 
   Video, 
-  Brain 
+  Brain, 
+  Sparkles
 } from 'lucide-react';
 
 export default function WorkshopPage() {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 3,
-    hours: 15,
-    minutes: 30,
-    seconds: 45
-  });
+    const [timeLeft, setTimeLeft] = useState(getTimeLeft());
+    
+
+  function getTimeLeft() {
+    const TARGET_DATE = new Date("2026-01-04T19:30:00+05:30");
+    const now = new Date();
+    const diff = TARGET_DATE - now;
+
+    if (diff <= 0) {
+      return {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+        expired: true
+      };
+    }
+
+    return {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((diff / (1000 * 60)) % 60),
+      seconds: Math.floor((diff / 1000) % 60),
+    };
+  }
+
+    useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(getTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   // Countdown timer to Dec 31
   useEffect(() => {
@@ -48,7 +76,7 @@ export default function WorkshopPage() {
       time: "10:00 AM",
       title: "The Data Analyst Landscape",
       description: "Role responsibilities, salary expectations (₹6-15 LPA), and growing market demand.",
-      duration: "90 min",
+      duration: "30 min",
       icon: BarChart,
       highlight: true
     },
@@ -56,14 +84,13 @@ export default function WorkshopPage() {
       time: "11:30 AM",
       title: "Business Analysis Fundamentals",
       description: "Bridging IT & Business gaps, requirements gathering, and stakeholder management.",
-      duration: "90 min",
+      duration: "30 min",
       icon: Briefcase
     },
     {
       time: "01:00 PM",
       title: "Networking Lunch",
       description: "Connect with fellow participants and industry experts.",
-      duration: "60 min",
       icon: Users,
       type: "break"
     },
@@ -71,7 +98,7 @@ export default function WorkshopPage() {
       time: "02:00 PM",
       title: "Tool Stack Mastery",
       description: "Live demo: Excel automation, SQL queries, PowerBI dashboards, and real-world workflows.",
-      duration: "90 min",
+      duration: "30 min",
       icon: Database,
       highlight: true
     },
@@ -79,17 +106,13 @@ export default function WorkshopPage() {
       time: "03:30 PM",
       title: "Career Roadmap & Q&A",
       description: "Resume building, interview prep, and personalized guidance from veterans.",
-      duration: "90 min",
+      duration: "30 min",
       icon: Trophy
     }
   ];
 
   const enrollNow = () => {
-    window.open('https://docs.google.com/forms/d/e/1FAIpQLSf...', '_blank');
-  };
-
-  const viewDocs = () => {
-    window.open('https://docs.google.com/document/d/...', '_blank');
+    window.open('https://forms.gle/xjuJiJ1wMwwuURzz7', '_blank');
   };
 
   return (
@@ -129,15 +152,15 @@ export default function WorkshopPage() {
               {/* Key Stats - Grid adjusts for mobile */}
               <div className="grid grid-cols-3 gap-2 md:gap-5 py-4 md:py-5 border-y border-green-100">
                 <div className="text-center">
-                  <div className="text-xl md:text-3xl font-bold text-green-600">2K+</div>
+                  <div className="text-xl md:text-3xl font-bold text-green-600">4,700+</div>
                   <div className="text-[10px] md:text-sm text-gray-500">Placements</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-3xl font-bold text-green-600">4.9/5</div>
+                  <div className="text-xl md:text-3xl font-bold text-green-600">4.8/5</div>
                   <div className="text-[10px] md:text-sm text-gray-500">Avg Rating</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-3xl font-bold text-green-600">300+</div>
+                  <div className="text-xl md:text-3xl font-bold text-green-600">73+</div>
                   <div className="text-[10px] md:text-sm text-gray-500">Hiring Partners</div>
                 </div>
               </div>
@@ -177,19 +200,33 @@ export default function WorkshopPage() {
                   {/* Pricing Highlight */}
                   <div className="mb-6 md:mb-8">
                     <div className="flex items-center justify-center gap-3 mb-4">
-                      <div className="text-gray-300 text-base md:text-lg line-through">₹199</div>
+                      <div className="text-gray-300 text-base md:text-lg line-through">₹499</div>
                       <div className="bg-yellow-500 text-green-900 px-2 py-0.5 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-bold">
                         100% OFF
                       </div>
                     </div>
                     
                     <div className="text-center mb-3 md:mb-4">
-                      <div className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-full text-lg md:text-xl font-bold mb-1 md:mb-2">
-                        <span className="text-2xl md:text-3xl">FREE</span>
-                        <span className="text-sm md:text-base">Workshop Access</span>
-                      </div>
-                      <div className="text-green-300 text-xs md:text-sm">Complete career guidance included</div>
-                    </div>
+  <div className="inline-flex flex-col items-center gap-1">
+    
+    <div className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-full text-lg md:text-xl font-bold">
+      <a href="https://forms.gle/xjuJiJ1wMwwuURzz7"
+        target="_blank"
+        rel="noopener noreferrer" className="text-xl md:text-2xl">FREE Workshop Access</a>
+    </div>
+
+    {/* NEW LINE */}
+    <span className="text-emerald-300 text-xs md:text-sm font-semibold">
+      Free for the first 100 participants
+    </span>
+
+  </div>
+
+  <div className="text-green-300 text-xs md:text-sm mt-1">
+    Complete career guidance included
+  </div>
+</div>
+
                   </div>
                   
                   {/* Countdown Timer */}
@@ -215,7 +252,7 @@ export default function WorkshopPage() {
                   <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
                     <button
                       onClick={enrollNow}
-                      className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold py-3 md:py-4 rounded-xl text-base md:text-lg hover:shadow-xl transition-all active:scale-95"
+                      className="w-full cursor-pointer bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold py-3 md:py-4 rounded-xl text-base md:text-lg hover:shadow-xl transition-all active:scale-95"
                     >
                       Register Now for FREE
                     </button>
@@ -276,14 +313,13 @@ export default function WorkshopPage() {
                 
                 <p className="text-sm md:text-base text-gray-600 mb-5 md:mb-6">
                   With over a decade of experience in Data Analytics and Business Intelligence, 
-                  I've trained 2,000+ professionals who now work at top companies like Google, 
-                  Amazon, and McKinsey.
+                  I've trained 4,700+ professionals who now work at top companies like Flipkart, Sony, Genpact.
                 </p>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-4">
                   <div className="flex items-center justify-center md:justify-start gap-2 bg-white/50 p-2 rounded-lg">
                     <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-700">2,000+ Trained</span>
+                    <span className="text-sm text-gray-700">4,700+ Trained</span>
                   </div>
                   <div className="flex items-center justify-center md:justify-start gap-2 bg-white/50 p-2 rounded-lg">
                     <Award className="w-4 h-4 text-green-600" />
@@ -291,7 +327,7 @@ export default function WorkshopPage() {
                   </div>
                   <div className="flex items-center justify-center md:justify-start gap-2 bg-white/50 p-2 rounded-lg">
                     <Briefcase className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-700">Ex-Fortune 500</span>
+                    <span className="text-sm text-gray-700">Ex-Flipkart</span>
                   </div>
                 </div>
               </motion.div>
@@ -308,7 +344,7 @@ export default function WorkshopPage() {
               Workshop Schedule
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-lg">
-              A packed day of learning and hands-on practice
+              A 2Hr Session of learning and hands-on practice
             </p>
           </div>
           
@@ -321,7 +357,7 @@ export default function WorkshopPage() {
                     <Clock className="w-4 h-4 md:w-5 md:h-5 text-green-600" />
                     <span className="font-semibold text-gray-700 text-sm md:text-base">Full Day Intensive</span>
                   </div>
-                  <div className="text-xs md:text-sm text-gray-500">Jan 1, 2026 • 10:00 AM - 5:00 PM</div>
+                  <div className="text-xs md:text-sm text-gray-500">Sunday, 4 Jan 2026 7:30 - 9:30 PM IST</div>
                 </div>
               </div>
             </div>
@@ -373,13 +409,19 @@ export default function WorkshopPage() {
                               <h3 className="hidden md:block text-xl font-bold text-gray-900 mb-2">{session.title}</h3>
                               <p className="text-sm text-gray-600">{session.description}</p>
                             </div>
-                            <div className={`
-                              px-3 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-2 self-start mt-2 md:mt-0
-                              ${session.type === 'break' ? 'bg-orange-100 text-orange-700' : 'bg-green-100 text-green-700'}
-                            `}>
+                            {session.duration && (
+                            <div
+                              className={`
+                                px-3 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-2 self-start mt-2 md:mt-0
+                                ${session.type === 'break'
+                                  ? 'bg-orange-100 text-orange-700'
+                                  : 'bg-green-100 text-green-700'}
+                              `}
+                            >
                               <Clock size={12} />
                               {session.duration}
                             </div>
+                          )}
                           </div>
                           
                           {/* Tags - Hidden on small mobile to save space, visible on slightly larger */}
@@ -408,7 +450,7 @@ export default function WorkshopPage() {
             <div className="mt-8 text-center">
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white px-4 py-2 rounded-full text-sm">
                 <Clock size={14} />
-                <span className="font-semibold">Total Duration: 7 Hours</span>
+                <span className="font-semibold">Total Duration: 2 Hours</span>
               </div>
             </div>
           </div>
@@ -440,15 +482,15 @@ export default function WorkshopPage() {
                   <div className="text-green-300 text-xs md:text-sm">Placement Rate</div>
                 </div>
                 <div className="text-center p-3 bg-white/5 rounded-lg">
-                  <div className="text-2xl md:text-4xl font-bold text-white mb-1">2K+</div>
-                  <div className="text-green-300 text-xs md:text-sm">Alumni</div>
+                  <div className="text-2xl md:text-4xl font-bold text-white mb-1">4,700+</div>
+                  <div className="text-green-300 text-xs md:text-sm">Placement</div>
                 </div>
                 <div className="text-center p-3 bg-white/5 rounded-lg">
                   <div className="text-2xl md:text-4xl font-bold text-white mb-1">₹5-20L</div>
                   <div className="text-green-300 text-xs md:text-sm">Salary Range</div>
                 </div>
                 <div className="text-center p-3 bg-white/5 rounded-lg">
-                  <div className="text-2xl md:text-4xl font-bold text-white mb-1">300+</div>
+                  <div className="text-2xl md:text-4xl font-bold text-white mb-1">73+</div>
                   <div className="text-green-300 text-xs md:text-sm">Partners</div>
                 </div>
               </div>
@@ -456,7 +498,7 @@ export default function WorkshopPage() {
               <div className="space-y-6">
                 <button
                   onClick={enrollNow}
-                  className="w-full md:w-auto bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white font-bold px-6 py-3 md:px-16 md:py-4 rounded-xl text-lg md:text-xl hover:shadow-2xl transition-all active:scale-95"
+                  className="w-full cursor-pointer md:w-auto bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white font-bold px-6 py-3 md:px-16 md:py-4 rounded-xl text-lg md:text-xl hover:shadow-2xl transition-all active:scale-95"
                 >
                   Enroll Now for FREE Workshop
                 </button>
@@ -483,32 +525,48 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      {/* Fixed Bottom Bar - Mobile Optimized */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-r from-green-900 to-emerald-900 shadow-[0_-5px_20px_rgba(0,0,0,0.2)] border-t border-green-700">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-3 md:py-4">
-            {/* Left: Offer Details */}
-            <div className="flex items-center gap-3">
-              <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1.5 md:px-4 md:py-2.5 rounded-lg font-bold text-sm md:text-lg">
-                FREE
-              </div>
-              <div className="flex flex-col md:flex-row md:items-center md:gap-3">
-                <div className="text-green-200 line-through text-xs md:text-base">₹199</div>
-                <div className="hidden md:block text-white text-sm font-semibold">Jan 1, 2026</div>
-              </div>
-            </div>
-            
-            {/* Right: Action Buttons */}
-            <button
-              onClick={enrollNow}
-              className="bg-white text-green-900 font-bold px-5 py-2 md:px-8 md:py-2.5 rounded-lg shadow-lg active:scale-95 flex items-center gap-2 text-sm md:text-base"
-            >
-              <Calendar size={16} className="text-green-700" />
-              <span>Register</span>
-            </button>
+      {/* Fixed Bottom Bar - Premium Mobile CTA */}
+<div className="fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-r from-green-900 via-emerald-900 to-green-900 border-t border-white/10 shadow-[0_-8px_30px_rgba(0,0,0,0.35)]">
+  <div className="container mx-auto px-4">
+    <div className="flex items-center justify-between gap-3 py-3 md:py-4">
+
+      {/* LEFT: Offer Info */}
+      <div className="flex items-center gap-3">
+        
+        {/* Price Badge */}
+        <div className="relative">
+          <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg font-extrabold text-sm md:text-lg shadow-md">
+            FREE
           </div>
+
+          {/* Sub Badge */}
+          <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-[9px] md:text-[10px] font-bold bg-black/70 text-yellow-300 px-2 py-0.5 rounded-full whitespace-nowrap">
+            First 100 only
+          </span>
+        </div>
+
+        {/* Date + Old Price */}
+        <div className="flex flex-col md:flex-row md:items-center md:gap-3">
+          <span className="text-green-300 line-through text-xs md:text-sm">₹499</span>
+          <span className="hidden md:block text-white text-sm font-semibold">
+            Sunday, 4 Jan 2026 • 7:30 PM IST
+          </span>
         </div>
       </div>
+
+      {/* RIGHT: CTA */}
+      <a
+        href="https://forms.gle/xjuJiJ1wMwwuURzz7"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group bg-white text-green-900 font-extrabold px-5 py-2.5 md:px-8 md:py-3 rounded-xl shadow-xl active:scale-95 transition-all flex items-center gap-2 text-sm md:text-base hover:bg-green-50"
+      >
+        <span>Register Now</span>
+      </a>
+
+    </div>
+  </div>
+</div>
     </div>
   );
 }
