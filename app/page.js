@@ -6,6 +6,7 @@ import PlacementCompanies from "@/components/PlacementCompanies";
 import PlacementSection from "@/components/PlacementSection";
 import ServiceSection from "@/components/ServiceSection";
 import TestimonialSection from "@/components/TestimonialSection";
+import WorkshopFloatingIcon from "@/components/WorkshopFloatingIcon";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <TestimonialSection />
       <CertificateSection />
       <FaqSection />
+      <WorkshopFloatingIcon />
     </>
   );
 }

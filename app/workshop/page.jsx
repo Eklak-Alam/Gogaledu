@@ -85,14 +85,8 @@ export default function WorkshopPage() {
       title: "Business Analysis Fundamentals",
       description: "Bridging IT & Business gaps, requirements gathering, and stakeholder management.",
       duration: "30 min",
+      highlight: true,
       icon: Briefcase
-    },
-    {
-      time: "01:00 PM",
-      title: "Networking Lunch",
-      description: "Connect with fellow participants and industry experts.",
-      icon: Users,
-      type: "break"
     },
     {
       time: "02:00 PM",
@@ -108,6 +102,13 @@ export default function WorkshopPage() {
       description: "Resume building, interview prep, and personalized guidance from veterans.",
       duration: "30 min",
       icon: Trophy
+    },
+    {
+      time: "01:00 PM",
+      title: "Networking Lunch",
+      description: "Connect with fellow participants and industry experts.",
+      icon: Users,
+      type: "break"
     }
   ];
 
@@ -129,11 +130,56 @@ export default function WorkshopPage() {
               transition={{ duration: 0.6 }}
               className="space-y-5 md:space-y-7 text-center lg:text-left"
             >
-              {/* Workshop Tag - Smaller on Mobile */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white text-xs md:text-sm font-semibold">
-                <Zap size={12} className="md:w-3.5 md:h-3.5" />
-                <span>ONE-DAY CAREER ACCELERATOR</span>
-              </div>
+              {/* Premium Microsoft Education Partner Badge */}
+<div className="group relative inline-flex items-center">
+  {/* Outer glow effect */}
+  <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-emerald-400 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-500" />
+  
+  {/* Main badge */}
+  <div className="relative flex items-center gap-2 px-3.5 py-2 md:px-4 md:py-2.5 rounded-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border border-slate-700/50 backdrop-blur-sm">
+    
+    {/* Microsoft logo with premium styling */}
+    <div className="relative">
+      <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-400 rounded-md blur-sm opacity-40" />
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="relative text-white"
+      >
+        <path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z" />
+      </svg>
+    </div>
+    
+    {/* Badge text with premium typography */}
+    <span className="
+      bg-gradient-to-r from-green-300 via-green-300 to-emerald-300 
+      bg-clip-text text-transparent
+      text-xs md:text-sm
+      font-bold tracking-wider
+      whitespace-nowrap
+    ">
+      MICROSOFT EDUCATION PARTNER
+    </span>
+    
+    {/* Elite indicator */}
+    <div className="ml-1 hidden md:block">
+      <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-900/50 to-amber-700/30 border border-amber-600/30">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" className="text-amber-400">
+          <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5z" />
+        </svg>
+        <span className="text-[8px] font-black text-amber-300 tracking-wider">ELITE</span>
+      </div>
+    </div>
+  </div>
+  
+  {/* Tooltip on hover */}
+  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50">
+    <span className="text-xs text-slate-300">Official Certified Partner</span>
+    <div className="absolute top-full left-1/2 -translate-x-1/2 w-2 h-2 bg-slate-900 border-r border-b border-slate-700 rotate-45" />
+  </div>
+</div>
               
               {/* Main Heading - Responsive Text Size */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
@@ -146,7 +192,7 @@ export default function WorkshopPage() {
               {/* Subtitle - Readable on mobile */}
               <p className="text-base md:text-lg text-gray-600">
                 Master in-demand skills, connect with industry experts, and discover high-growth career paths 
-                with salaries ranging from ₹5-20 LPA.
+                with salaries ranging from ₹5-15 LPA.
               </p>
               
               {/* Key Stats - Grid adjusts for mobile */}
@@ -173,9 +219,9 @@ export default function WorkshopPage() {
                     <div className="space-y-1.5 text-sm md:text-base text-gray-700">
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-green-600" />
-                        <span><strong>Date:</strong> January 1, 2026</span>
+                        <span><strong>Date:</strong> Sunday, 4 Jan 2026</span>
                       </div>
-                      <div><strong>Time:</strong> 10:00 AM - 5:00 PM IST</div>
+                      <div><strong>Time:</strong> 7:30 - 9:30 PM IST</div>
                       <div><strong>Format:</strong> Live Interactive Session</div>
                     </div>
                   </div>
@@ -323,11 +369,11 @@ export default function WorkshopPage() {
                   </div>
                   <div className="flex items-center justify-center md:justify-start gap-2 bg-white/50 p-2 rounded-lg">
                     <Award className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-700">95% Placement</span>
+                    <span className="text-sm text-gray-700">93% Placement</span>
                   </div>
                   <div className="flex items-center justify-center md:justify-start gap-2 bg-white/50 p-2 rounded-lg">
                     <Briefcase className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-700">Ex-Flipkart</span>
+                    <span className="text-sm text-gray-700">Ex-TCS</span>
                   </div>
                 </div>
               </motion.div>
@@ -457,73 +503,135 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-12 md:py-16 bg-gradient-to-r from-green-900 via-green-800 to-emerald-900">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
-            >
-              <div className="mb-8 md:mb-10">
-                <h2 className="text-2xl md:text-4xl font-bold text-white mb-3">
-                  Ready to Transform Your Career?
-                </h2>
-                <p className="text-green-200 text-base md:text-xl max-w-2xl mx-auto">
-                  Join hundreds of professionals who've successfully transitioned into high-growth tech roles
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12">
-                <div className="text-center p-3 bg-white/5 rounded-lg">
-                  <div className="text-2xl md:text-4xl font-bold text-white mb-1">95%</div>
-                  <div className="text-green-300 text-xs md:text-sm">Placement Rate</div>
-                </div>
-                <div className="text-center p-3 bg-white/5 rounded-lg">
-                  <div className="text-2xl md:text-4xl font-bold text-white mb-1">4,700+</div>
-                  <div className="text-green-300 text-xs md:text-sm">Placement</div>
-                </div>
-                <div className="text-center p-3 bg-white/5 rounded-lg">
-                  <div className="text-2xl md:text-4xl font-bold text-white mb-1">₹5-20L</div>
-                  <div className="text-green-300 text-xs md:text-sm">Salary Range</div>
-                </div>
-                <div className="text-center p-3 bg-white/5 rounded-lg">
-                  <div className="text-2xl md:text-4xl font-bold text-white mb-1">73+</div>
-                  <div className="text-green-300 text-xs md:text-sm">Partners</div>
-                </div>
-              </div>
-              
-              <div className="space-y-6">
-                <button
-                  onClick={enrollNow}
-                  className="w-full cursor-pointer md:w-auto bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white font-bold px-6 py-3 md:px-16 md:py-4 rounded-xl text-lg md:text-xl hover:shadow-2xl transition-all active:scale-95"
-                >
-                  Enroll Now for FREE Workshop
-                </button>
-                
-                <div className="bg-green-800/50 backdrop-blur-sm rounded-xl p-4 md:p-6 max-w-md mx-auto">
-                  <div className="text-green-200 mb-3 font-medium text-sm">Registration closes in:</div>
-                  <div className="flex justify-center gap-2 md:gap-3 mb-3">
-                    {Object.entries(timeLeft).map(([unit, value]) => (
-                      <div key={unit} className="text-center">
-                        <div className="bg-green-900 py-2 px-3 rounded-lg min-w-[60px]">
-                          <div className="text-xl md:text-3xl font-bold text-white">{value.toString().padStart(2, '0')}</div>
-                          <div className="text-[10px] md:text-xs text-green-300 uppercase">{unit}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="text-green-300 text-xs md:text-sm">
-                    Last date: Dec 31, 2024 • Workshop: Jan 1, 2026
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+  <div className="container mx-auto px-4">
+    <div className="max-w-4xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center"
+      >
+        <div className="mb-8 md:mb-10">
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-3">
+            Ready to Transform Your Career?
+          </h2>
+          <p className="text-green-200 text-base md:text-xl max-w-2xl mx-auto">
+            Join hundreds of professionals who've successfully transitioned into
+            high-growth tech roles
+          </p>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12">
+          <div className="text-center p-3 bg-white/5 rounded-lg">
+            <div className="text-2xl md:text-4xl font-bold text-white mb-1">
+              93%
+            </div>
+            <div className="text-green-300 text-xs md:text-sm">
+              Placement Rate
+            </div>
+          </div>
+          <div className="text-center p-3 bg-white/5 rounded-lg">
+            <div className="text-2xl md:text-4xl font-bold text-white mb-1">
+              4,700+
+            </div>
+            <div className="text-green-300 text-xs md:text-sm">Placement</div>
+          </div>
+          <div className="text-center p-3 bg-white/5 rounded-lg">
+            <div className="text-2xl md:text-4xl font-bold text-white mb-1">
+              ₹5-15 LPA
+            </div>
+            <div className="text-green-300 text-xs md:text-sm">
+              Salary Range
+            </div>
+          </div>
+          <div className="text-center p-3 bg-white/5 rounded-lg">
+            <div className="text-2xl md:text-4xl font-bold text-white mb-1">
+              73+
+            </div>
+            <div className="text-green-300 text-xs md:text-sm">Partners</div>
           </div>
         </div>
-      </section>
+
+        <div className="space-y-6">
+          <button
+            onClick={enrollNow}
+            className="w-full cursor-pointer md:w-auto bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white font-bold px-6 py-3 md:px-16 md:py-4 rounded-xl text-lg md:text-xl hover:shadow-2xl transition-all active:scale-95"
+          >
+            Enroll Now for FREE Workshop
+          </button>
+
+          {/* Timer Section */}
+          <div className="bg-green-800/50 backdrop-blur-sm rounded-xl p-4 md:p-6 max-w-md mx-auto">
+            <div className="text-green-200 mb-3 font-medium text-sm">
+              Registration closes in:
+            </div>
+            <div className="flex justify-center gap-2 md:gap-3 mb-3">
+              {Object.entries(timeLeft).map(([unit, value]) => (
+                <div key={unit} className="text-center">
+                  <div className="bg-green-900 py-2 px-3 rounded-lg min-w-[60px]">
+                    <div className="text-xl md:text-3xl font-bold text-white">
+                      {value.toString().padStart(2, "0")}
+                    </div>
+                    <div className="text-[10px] md:text-xs text-green-300 uppercase">
+                      {unit}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="text-green-300 text-xs md:text-sm">
+              Workshop: Jan 4, 2026 • 7:30 - 9:30 PM IST
+            </div>
+          </div>
+
+          {/* --- NEW ADDITION: Contact Section --- */}
+          <div className="mt-8 pt-6 border-t border-green-700/30">
+            <p className="text-green-200 text-sm mb-4">
+              Have queries? Reach out to our support team directly:
+            </p>
+            
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              
+              {/* WhatsApp Button */}
+              <a
+                href="https://wa.me/+917042478224" 
+                target="_blank" 
+                rel="noreferrer"
+                className="flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-2 rounded-full transition-colors text-sm font-semibold"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-8.68-2.031-.967-.272-.099-.47-.149-.669.198-.199.347-.768.967-.94 1.165-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                WhatsApp
+              </a>
+
+              {/* Call Button */}
+              <a
+                href="tel:+917042478224"
+                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-4 py-2 rounded-full transition-colors text-sm"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                +91 98765-43210
+              </a>
+
+               {/* Email Button */}
+               <a
+                href="mailto:workshop@gogaledu.com"
+                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-4 py-2 rounded-full transition-colors text-sm"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                Email Us
+              </a>
+
+            </div>
+          </div>
+          {/* End Contact Section */}
+
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* Fixed Bottom Bar - Premium Mobile CTA */}
 <div className="fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-r from-green-900 via-emerald-900 to-green-900 border-t border-white/10 shadow-[0_-8px_30px_rgba(0,0,0,0.35)]">
